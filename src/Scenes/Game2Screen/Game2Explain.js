@@ -86,7 +86,7 @@ export default function Game2Explain({
     if (Assets?.[sceneName] && !Loading) {
       Assets?.[sceneName]?.sounds[0]?.play();
       Assets?.[sceneName]?.sounds[0].on("end", () => {
-        setSceneId(NextSceneId);
+        // setSceneId(NextSceneId);
         console.log(NextSceneId);
         console.log(count);
       });

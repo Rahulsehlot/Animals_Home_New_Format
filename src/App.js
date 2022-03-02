@@ -60,7 +60,7 @@ function App() {
 
   return (
     <GameContainer>
-      {/* <Star num={count} /> */}
+      <Star num={count} />
       {!mute && (
         <img
           src={`data:image/svg+xml;utf8,${encodeURIComponent(icon1)}`}

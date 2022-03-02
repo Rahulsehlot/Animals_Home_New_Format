@@ -5,7 +5,7 @@ import { LoadStars } from "./Helper_function";
 export default function Star({ num }) {
   const [isLoading, setisLoading] = useState(true);
   const { SceneId } = useContext(SceneContext);
-  // const [hide, setHide] = useState(0);
+  const [hide, setHide] = useState(0);
 
   const [Grey, setGrey] = useState("");
   const [Gold, setGold] = useState("");
@@ -26,20 +26,21 @@ export default function Star({ num }) {
     if (
       SceneId === "/" ||
       SceneId === "/Scene2" ||
-      SceneId === "/Scene2" ||
       SceneId === "/WellDone1" ||
-      SceneId === "/WellDone"
+      SceneId === "/WellDone" ||
+      SceneId === ""
     ) {
-      // setHide(1);
+      setHide(1);
     }
-  }, []);
+  }, [hide]);
 
   return (
     <>
       {!isLoading && (
         <div
-          className="fadeup"
-          // style={{ display: hide === 1 ? "none" : "block" }}
+          // className="fadeup"
+          // id="fade"
+          style={{ display: hide === 1 ? "none" : "block" }}
         >
           <img
             alt=""
