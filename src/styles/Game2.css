@@ -1,60 +1,32 @@
 .Game2_question_img {
   position: fixed;
-  left: 40%;
-  top: 5%;
+  left: 0%;
+  top: 0%;
   transform: translate(-50% -50%);
-  width: 20%;
-  z-index: 2;
+  width: 100%;
+  /* z-index: 1; */
 }
 
 .Option1 {
   position: fixed;
-  top: 21%;
-  transform: translate(-50% -50%);
-  width: 40%;
-  height: 58.5%;
-  z-index: 1;
+  top: 0%;
+  width: 49%;
+  height: 100%;
   display: flex;
-  /* align-items: center; */
   justify-content: center;
-}
-
-.Option1_Img {
-  width: 100%;
-  height: 100%;
-}
-
-.Option2_Img {
-  width: 100%;
-  height: 100%;
+  cursor: pointer;
+  z-index: 1;
 }
 
 .Option2 {
   position: fixed;
-  top: 21%;
-  transform: translate(-50% -50%);
-  width: 40%;
-  height: 58.5%;
-  z-index: 1;
+  top: 0%;
+  right: 0%;
+  width: 49%;
+  height: 100%;
   display: flex;
-  /* align-items: center; */
   justify-content: center;
-}
-
-.Option2BG {
-  position: fixed;
-  right: 8%;
-  top: 20%;
-  transform: translate(-50% -50%);
-  width: 41%;
-  z-index: 1;
-}
-.Option1BG {
-  position: fixed;
-  left: 8%;
-  top: 20%;
-  transform: translate(-50% -50%);
-  width: 41%;
+  cursor: pointer;
   z-index: 1;
 }
 
@@ -72,20 +44,636 @@
   transform: scale(0.98);
 }
 
-.Option1_Button {
+.Game2_Character_Container {
   position: fixed;
-  left: 7.3%;
-  top: 20%;
-  transform: translate(-50% -50%);
-  width: 42.5%;
-  z-index: 1;
+  top: 0%;
+  left: 37.4%;
+  width: 25%;
+  z-index: 8;
 }
 
-.Option2_Button {
+.Character {
   position: fixed;
-  left: 50.3%;
+  top: 4%;
+  left: 37.4%;
+  width: 25%;
+  height: 30%;
+  z-index: 8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Character_img {
+  width: 80%;
+  height: 80%;
+}
+
+.Character_Name {
+  position: fixed;
+  top: 38.5%;
+  left: 41%;
+  width: 18%;
+  height: 10.5%;
+  z-index: 8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.CharacterName_img {
+  width: 80%;
+  height: 80%;
+}
+
+.Option1NameContainer {
+  position: fixed;
+  bottom: 10%;
+  left: 5%;
+  width: 18%;
+  height: 10.5%;
+  z-index: 3;
+}
+
+.Option2NameContainer {
+  position: fixed;
+  bottom: 10%;
+  right: 5%;
+  width: 18%;
+  height: 10.5%;
+  z-index: 3;
+}
+
+.Option1_Name {
+  position: fixed;
+  bottom: 10%;
+  left: 6.2%;
+  width: 15.5%;
+  height: 10.5%;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Option2_Name {
+  position: fixed;
+  bottom: 10%;
+  left: 78.2%;
+  width: 15.5%;
+  height: 10.5%;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Option1Name_img,
+.Option2Name_img {
+  width: 80%;
+  height: 80%;
+}
+
+.text {
+  width: 100%;
+  height: 100%;
+}
+
+.Game2_lion {
+  position: fixed;
+  bottom: 5%;
+  left: 10%;
+  z-index: 10;
+  width: 40%;
+}
+
+.Game2_animal_food_lion {
+  position: fixed;
+  bottom: 10%;
+  left: 45%;
+  z-index: 10;
+  width: 30%;
+}
+
+.animal_text_lion {
+  position: fixed;
+  left: 75%;
+  bottom: 10%;
+  width: 20%;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Game2_dog {
+  position: fixed;
+  right: 5%;
+  bottom: 0%;
+  height: 60%;
+  width: 40%;
+  z-index: 10;
+}
+.Game2_animal_food_dog {
+  position: fixed;
+  bottom: 5%;
+  left: 50%;
+  z-index: 10;
+  width: 10%;
+}
+
+.animal_text_dog {
+  position: fixed;
+  right: 75%;
+  bottom: 10%;
+  width: 20%;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Game2_horse {
+  position: fixed;
+  right: 15%;
+  bottom: 11%;
+  height: 60%;
+  width: 25%;
+  z-index: 8;
+}
+.Game2_animal_food_horse {
+  position: fixed;
+  bottom: 13%;
+  left: 55%;
+  z-index: 15;
+  width: 20%;
+}
+
+.horse_Foreground-div {
+  position: fixed;
+  top: 21%;
+  left: 61%;
+  z-index: 10;
+  width: 39%;
+  overflow: hidden;
+}
+
+.animal_text_horse {
+  position: fixed;
+  right: 55%;
+  bottom: 10%;
+  width: 20%;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Game2_rabbit {
+  position: fixed;
+  right: 25%;
+  bottom: 40%;
+  height: 60%;
+  width: 40%;
+  z-index: 10;
+}
+
+.Game2_animal_food_rabbit {
+  position: fixed;
+  left: 45.5%;
+  bottom: 35%;
+  width: 25%;
+  z-index: 155;
+}
+
+.rabbit_Foreground-div {
+  position: fixed;
+  right: 15%;
+  top: 50%;
+  width: 60%;
+  z-index: 13;
+}
+
+.animal_text_frog,
+.animal_text_rabbit {
+  position: fixed;
+  left: 75%;
+  bottom: 10%;
+  width: 20%;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Game2_frog {
+  position: fixed;
+  right: 45%;
+  bottom: 30%;
+  height: 60%;
+  width: 25%;
+  z-index: 10;
+}
+
+.Game2_animal_food_frog {
+  position: fixed;
+  left: 15.5%;
+  bottom: 25%;
+  width: 5%;
+  z-index: 155;
+}
+
+.Game2_animal1_food_frog {
+  position: fixed;
+  left: 40.5%;
+  bottom: 25%;
+  width: 5%;
+  z-index: 155;
+}
+
+.Game2_animal2_food_frog {
+  position: fixed;
+  left: 65.5%;
+  bottom: 35%;
+  width: 5%;
+  z-index: 155;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+.animal_text_frog {
+  position: fixed;
+  left: 55%;
+  bottom: 10%;
+  width: 20%;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Game2_sparrow {
+  position: fixed;
+  right: 50%;
+  bottom: 28%;
+  height: 60%;
+  width: 40%;
+  z-index: 10;
+}
+
+.Game2_animal_food_sparrow {
+  position: fixed;
+  left: 45.5%;
+  bottom: 32%;
+  width: 15%;
+  z-index: 155;
+}
+
+.animal_text_sparrow {
+  position: fixed;
+  left: 75%;
+  bottom: 10%;
+  width: 20%;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Game2_bear {
+  position: fixed;
+  right: 45%;
+  top: 14%;
+  width: 50%;
+  z-index: 10;
+}
+
+.Game2_animal_food_bear {
+  position: fixed;
+  left: 40.5%;
+  bottom: 10%;
+  width: 10%;
+  z-index: 155;
+}
+
+.animal_text_bear {
+  position: fixed;
+  left: 75%;
+  bottom: 10%;
+  width: 20%;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Game2_pig {
+  position: fixed;
+  right: 15%;
+  bottom: 5%;
+  width: 50%;
+  z-index: 10;
+}
+
+.Game2_animal_food_pig {
+  position: fixed;
+  left: 63.5%;
+  bottom: 10%;
+  width: 35%;
+  z-index: 155;
+}
+
+.animal_text_pig {
+  position: fixed;
+  left: 15%;
+  bottom: 10%;
+  width: 30%;
+  height: 15%;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Game2_hen {
+  position: fixed;
+  left: 5%;
+  bottom: 0%;
+  width: 50%;
+  z-index: 10;
+}
+
+.Game2_animal_food_hen {
+  position: fixed;
+  left: 20%;
+  bottom: 10%;
+  width: 20%;
+  z-index: 5;
+}
+
+.animal_text_hen {
+  position: fixed;
+  right: 15%;
+  bottom: 10%;
+  width: 20%;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Game2_sheep {
+  position: fixed;
+  left: 30%;
+  bottom: 35%;
+  width: 40%;
+  z-index: 10;
+}
+
+.Game2_animal_food_sheep {
+  position: fixed;
+  left: 31%;
+  bottom: 32%;
+  width: 37%;
+  z-index: 5;
+}
+
+.animal_text_sheep {
+  position: fixed;
+  right: 40%;
+  bottom: 10%;
+  width: 20%;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Game2_cow {
+  position: fixed;
+  left: 0%;
+  bottom: 10%;
+  width: 50%;
+  z-index: 10;
+}
+
+.Game2_animal_food_cow {
+  position: fixed;
+  left: 31%;
+  bottom: 10%;
+  width: 47%;
+  z-index: 524;
+}
+
+.animal_text_cow {
+  position: fixed;
+  right: 10%;
+  bottom: 10%;
+  width: 20%;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Game2_monkey {
+  position: fixed;
+  left: 12%;
+  bottom: 18%;
+  width: 40%;
+  z-index: 10;
+}
+
+.animal_text_monkey {
+  position: fixed;
+  right: 10%;
+  bottom: 10%;
+  width: 20%;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Game2_camel {
+  position: fixed;
+  right: 30%;
+  bottom: 10%;
+  width: 50%;
+  z-index: 10;
+}
+
+.Game2_animal_food_camel {
+  position: fixed;
+  left: 15%;
+  bottom: 15%;
+  width: 17%;
+  z-index: 524;
+}
+
+.animal_text_camel {
+  position: fixed;
+  right: 40%;
+  bottom: 10%;
+  width: 20%;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Game2_bat {
+  position: fixed;
+  right: 45%;
+  top: 5%;
+  width: 45%;
+  z-index: 10;
+}
+
+.Game2_animal_food_bat {
+  position: fixed;
+  left: 18.5%;
+  bottom: 20%;
+  width: 5%;
+  z-index: 155;
+}
+
+.Game2_animal1_food_bat {
+  position: fixed;
+  left: 30.5%;
+  bottom: 25%;
+  width: 5%;
+  z-index: 155;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+.Game2_animal2_food_bat {
+  position: fixed;
+  left: 45.5%;
+  bottom: 35%;
+  width: 5%;
+  z-index: 155;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+.Game2_animal3_food_bat {
+  position: fixed;
+  right: 22.5%;
+  bottom: 17%;
+  width: 5%;
+  z-index: 155;
+}
+
+.animal_text_bat {
+  position: fixed;
+  left: 35%;
+  bottom: 10%;
+  width: 20%;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Game2_owl {
+  position: fixed;
+  right: 18%;
+  bottom: 0%;
+  width: 25%;
+  z-index: 10;
+}
+
+.Game2_animal_food_owl {
+  position: fixed;
+  left: 62.5%;
+  bottom: 2%;
+  width: 2%;
+  z-index: 155;
+}
+
+.Game2_animal1_food_owl {
+  position: fixed;
+  left: 78.5%;
+  bottom: 5%;
+  width: 3%;
+  z-index: 155;
+}
+
+.Game2_animal2_food_owl {
+  position: fixed;
+  left: 61.5%;
+  bottom: 37%;
+  width: 3%;
+  z-index: 155;
+}
+
+.animal_text_owl {
+  position: fixed;
+  left: 35%;
+  bottom: 10%;
+  width: 20%;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#stars {
+  width: 20%;
+  height: 80%;
+  animation: Starfade 1s forwards 1;
+}
+
+#star_wrap1 {
+  display: flex;
+  width: 22%;
+  height: 8.5%;
+  position: fixed;
+  top: 5.5%;
+  left: 75%;
+  display: flex;
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  animation: Starfade 1s forwards 1;
+}
+
+@keyframes Starfade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.current_star {
+  animation-iteration-count: 10;
+  animation: Starfade 1s forwards 1;
+}
+
+.Progress_Bar {
+  position: fixed;
+  z-index: 999;
+  right: 2%;
+  top: 5%;
+  width: 24%;
+  height: 10%;
+}
+
+.owl_Foreground-div {
+  display: none;
+}
+
+.Option1Red,
+.Option1Green {
+  position: fixed;
   top: 20%;
-  transform: translate(-50% -50%);
-  width: 42.5%;
-  z-index: 1;
+  width: 49%;
+}
+
+.frog_Foreground-div {
+  display: none;
 }

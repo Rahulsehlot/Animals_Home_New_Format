@@ -4,6 +4,8 @@ import Scenes from "../../utils/Scenes";
 import useLoadAsset from "../../utils/useLoadAsset";
 import PlayAudio from "../../utils/playAudio";
 import IntroMap from "./AssetMap";
+import lottie from "lottie-web";
+
 import "../../styles/intro.css";
 import Image from "../../utils/elements/Image";
 
@@ -16,6 +18,24 @@ export default function Intro() {
 
   const Ref = useRef(null);
 
+  useEffect(() => {
+    if (Assets && Ref.current && !Loading) {
+      try {
+        lottie.loadAnimation({
+          name: "placeholder",
+          container: Ref.current,
+          renderer: "svg",
+          loop: true,
+          autoplay: true,
+          animationData: Assets?.intro?.lottie[0],
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  }, [Assets, Loading]);
+
+  console.log(Assets?.Intro?.lottie[0]);
   return (
     <Scenes
       Bg={Bg}
@@ -29,85 +49,16 @@ export default function Intro() {
             id="fadeup"
             className="senses_txt_img"
           />
-          <Image
-            src={intro?.sprites[1]}
-            alt="txt"
-            id="fadeup"
-            className="senses_smell_img"
-          />
-
-          <Image
-            src={intro?.sprites[7]}
-            alt="txt"
-            id="fadeup"
-            className="senses_smell"
-          />
-          <Image
-            src={intro?.sprites[2]}
-            alt="txt"
-            id="fadeup"
-            className="senses_taste_img"
-          />
-
-          <Image
-            src={intro?.sprites[8]}
-            alt="txt"
-            id="fadeup"
-            className="senses_taste"
-          />
-
-          <Image
-            src={intro?.sprites[3]}
-            alt="txt"
-            id="fadeup"
-            className="senses_hearing_img"
-          />
-
-          <Image
-            src={intro?.sprites[9]}
-            alt="txt"
-            id="fadeup"
-            className="senses_hearing"
-          />
-
-          <Image
-            src={intro?.sprites[4]}
-            alt="txt"
-            id="fadeup"
-            className="senses_touch_img"
-          />
-
-          <Image
-            src={intro?.sprites[10]}
-            alt="txt"
-            id="fadeup"
-            className="senses_touch"
-          />
-
-          <Image
-            src={intro?.sprites[5]}
-            alt="txt"
-            id="fadeup"
-            className="senses_vision_img"
-          />
-
-          <Image
-            src={intro?.sprites[11]}
-            alt="txt"
-            id="fadeup"
-            className="senses_vision"
-          />
 
           <Image
             className="play_btn"
-            src={intro?.sprites[6]}
+            src={intro?.sprites[1]}
             alt="txt"
             id="fadeup"
             onClick={() => {
               if (playing === false) {
                 setplaying(true);
                 Assets?.intro?.sounds[0]?.play();
-
                 Assets?.intro?.sounds[0].on("end", () => {
                   const timeout = setTimeout(() => {
                     setplaying(false);
@@ -117,7 +68,7 @@ export default function Intro() {
               }
             }}
             style={{
-              // backgroundColor: 'Red',
+              backgroundColor: "Red",
               borderRadius: "100%",
               alignItems: "center",
               justifyContent: "center",
@@ -125,6 +76,7 @@ export default function Intro() {
               cursor: playing === false ? "pointer" : "",
             }}
           />
+          <div ref={Ref} className="intro_lottie_container"></div>
         </>
       }
     />

@@ -4,30 +4,24 @@ import GameContainer from "./utils/GameContainer";
 import Router from "./utils/Router";
 import "./styles/app.css";
 import Scene2 from "./Scenes/Scene2-Body/Scene2";
-import Game1 from "./Scenes/Game1Screen/Game1";
-import Scene3Organs from "./Scenes/Scene3Organs/Scene3Organs";
-import Scene4 from "./Scenes/Scene4-Body/Scene4";
-import Game1_Helper from "./Scenes/Game1Screen/Game1_helperScreen";
-import Scene5 from "./Scenes/Scene5-Body/Scene5";
 import Game2 from "./Scenes/Game2Screen/Game2";
-import Scene6 from "./Scenes/Scene6-Body/Scene6";
 import { AudioPlayer2 } from "./utils/loadAudio";
 import { LoadImage } from "./utils/loadImage";
 import useLoadAsset from "./utils/useLoadAsset";
 import IntroMap from "./Scenes/Game2Screen/Game2AssetMap";
+import Game2Explain from "./Scenes/Game2Screen/Game2Explain";
+import WellDone from "./Scenes/WellDone/WellDone";
+import WellDone1 from "./Scenes/WellDone/WellDone1";
 
 function App() {
   const { Loading } = useLoadAsset(IntroMap);
   const [Load, setLoad] = useState(true);
-  const [next, setNext] = useState(0);
-  const [counter, setCounter] = useState(6);
-  const [G2Ans, setG2Ans] = useState(5);
-  const [G2Wrng, setG2Wrng] = useState(30);
   const [mute, setmute] = useState(false);
   const [BG_sound, setBG_sound] = useState(null);
   const [icon1, seticon1] = useState(null);
   const [icon2, seticon2] = useState(null);
-  const [hintPlacement, sethintPlacement] = useState(0);
+  const [count, setCount] = useState(0);
+
   useEffect(() => {
     setTimeout(() => {
       setLoad(false);
@@ -36,9 +30,9 @@ function App() {
   }, []);
 
   const loadAudio = async () => {
-    setBG_sound(await AudioPlayer2("internal/sounds/bg_sound.mp3"));
-    seticon1(await LoadImage("internal/images/sound.svg"));
-    seticon2(await LoadImage("internal/images/nosound.svg"));
+    setBG_sound(await AudioPlayer2("internal/sounds/game-music.mp3"));
+    seticon1(await LoadImage("internal/images/SoundOn.svg"));
+    seticon2(await LoadImage("internal/images/SoundOff.svg"));
   };
 
   useEffect(() => {
@@ -85,154 +79,271 @@ function App() {
         <Intro />
       </Router>
       <Router sceneId="/Scene2">
-        <Scene2 scenename={"Scene2"} />
+        <Scene2 sceneName={"Scene2"} />
       </Router>
-      <Router sceneId="/Eyes_Scene3">
-        <Scene3Organs
-          next={next}
-          setNext={setNext}
-          imageId={4}
-          soundId={4}
-          position={"Eyes_position"}
-          PropId={["6"]}
-          text_Id={19}
-          scenename={"Scene3"}
-          sceneid={"/Eyes_Scene3"}
-        />
-      </Router>
-      <Router sceneId="/Nose_Scene3">
-        <Scene3Organs
-          next={next}
-          setNext={setNext}
-          imageId={0}
-          soundId={0}
-          PropId={["7", "8"]}
-          text_Id={20}
-          position={"Nose_position"}
-          scenename={"Scene3"}
-          sceneid={"/Nose_Scene3"}
-        />
-      </Router>
-      <Router sceneId="/Tongue_Scene3">
-        <Scene3Organs
-          next={next}
-          setNext={setNext}
-          imageId={1}
-          soundId={1}
-          text_Id={22}
-          PropId={["9", "10", "11"]}
-          position={"Tongue_position"}
-          scenename={"Scene3"}
-          sceneid={"/Tongue_Scene3"}
-        />
-      </Router>
-      <Router sceneId="/Ears_Scene3">
-        <Scene3Organs
-          next={next}
-          setNext={setNext}
-          imageId={2}
-          soundId={2}
-          text_Id={21}
-          PropId={["12", "13", "14"]}
-          position={"Ears_position"}
-          scenename={"Scene3"}
-          sceneid={"/Ears_Scene3"}
-        />
-      </Router>
-      <Router sceneId="/Skin_Scene3">
-        <Scene3Organs
-          next={next}
-          setNext={setNext}
-          imageId={3}
-          text_Id={23}
-          soundId={3}
-          PropId={["15", "16"]}
-          position={"Skin_position"}
-          scenename={"Scene3"}
-          sceneid={"/Skin_Scene3"}
-        />
-      </Router>
-      <Router sceneId="/Scene4">
-        <Scene4 scenename={"Scene2"} />
-      </Router>
-      <Router sceneId="/Scene5">
-        <Scene5 scenename={"Scene2"} />
-      </Router>
-      <Router sceneId="/Scene6">
-        <Scene6
-          setCounter={setCounter}
-          setG2Ans={setG2Ans}
-          setNext={setNext}
-          setG2Wrng={setG2Wrng}
-        />
-      </Router>
-      <Router sceneId="/Eye_Game2">
+      <Router sceneId="/Lion_Game2">
         <Game2
-          G2Ans={G2Ans}
-          setG2Ans={setG2Ans}
-          G2Wrng={G2Wrng}
-          setG2Wrng={setG2Wrng}
-          G2answer={"Eye"}
-          flowCount={0}
+          sceneName={"lion"}
+          position={1}
+          NextSceneId={"/Lion_Game2_Explain"}
+          count={count}
+          setCount={setCount}
         />
       </Router>
-      <Router sceneId="/Nose_Game2">
+      <Router sceneId="/Lion_Game2_Explain">
+        <Game2Explain
+          sceneName={"lion"}
+          NextSceneId={"/Dog_Game2"}
+          count={count}
+          setCount={setCount}
+        />
+      </Router>
+      <Router sceneId="/Dog_Game2">
         <Game2
-          G2Ans={G2Ans}
-          setG2Ans={setG2Ans}
-          G2Wrng={G2Wrng}
-          setG2Wrng={setG2Wrng}
-          G2answer={"Nose"}
-          flowCount={1}
+          sceneName={"dog"}
+          position={1}
+          NextSceneId={"/Dog_Game2_Explain"}
+          count={count}
+          setCount={setCount}
         />
       </Router>
-      <Router sceneId="/Ear_Game2">
+      <Router sceneId="/Dog_Game2_Explain">
+        <Game2Explain
+          sceneName={"dog"}
+          NextSceneId={"/Horse_Game2"}
+          count={count}
+          setCount={setCount}
+        />
+      </Router>
+      <Router sceneId="/Horse_Game2">
         <Game2
-          G2Ans={G2Ans}
-          setG2Ans={setG2Ans}
-          G2Wrng={G2Wrng}
-          setG2Wrng={setG2Wrng}
-          G2answer={"Ear"}
-          flowCount={2}
+          sceneName={"horse"}
+          position={2}
+          NextSceneId={"/Horse_Game2_Explain"}
+          count={count}
+          setCount={setCount}
         />
       </Router>
-      <Router sceneId="/Tongue_Game2">
+      <Router sceneId="/Horse_Game2_Explain">
+        <Game2Explain
+          sceneName={"horse"}
+          NextSceneId={"/Rabbit_Game2"}
+          count={count}
+          setCount={setCount}
+        />
+      </Router>
+      <Router sceneId="/Rabbit_Game2">
         <Game2
-          G2Ans={G2Ans}
-          setG2Ans={setG2Ans}
-          G2Wrng={G2Wrng}
-          setG2Wrng={setG2Wrng}
-          G2answer={"Tongue"}
-          flowCount={3}
+          sceneName={"rabbit"}
+          position={2}
+          NextSceneId={"/Rabbit_Game2_Explain"}
+          count={count}
+          setCount={setCount}
         />
       </Router>
-      <Router sceneId="/Skin_Game2">
+      <Router sceneId="/Rabbit_Game2_Explain">
+        <Game2Explain
+          sceneName={"rabbit"}
+          NextSceneId={"/Frog_Game2"}
+          count={count}
+          setCount={setCount}
+        />
+      </Router>
+      <Router sceneId="/Frog_Game2">
         <Game2
-          G2Ans={G2Ans}
-          setG2Ans={setG2Ans}
-          G2Wrng={G2Wrng}
-          setG2Wrng={setG2Wrng}
-          G2answer={"Skin"}
-          flowCount={4}
+          sceneName={"frog"}
+          position={1}
+          NextSceneId={"/Frog_Game2_Explain"}
+          count={count}
+          setCount={setCount}
         />
       </Router>
-      <Router sceneId="/Game1">
-        <Game1
-          counter={counter}
-          setCounter={setCounter}
-          scenename={"Scene2"}
-          hintPlacement={hintPlacement}
-          sethintPlacement={sethintPlacement}
+      <Router sceneId="/Frog_Game2_Explain">
+        <Game2Explain
+          sceneName={"frog"}
+          NextSceneId={"/WellDone1"}
+          count={count}
+          setCount={setCount}
         />
       </Router>
-      <Router sceneId="/Game1_Helper">
-        <Game1_Helper
-          counter={counter}
-          setCounter={setCounter}
-          scenename={"Scene2"}
-          hintPlacement={hintPlacement}
-          sethintPlacement={sethintPlacement}
+      <Router sceneId="/Sparrow_Game2">
+        <Game2
+          sceneName={"sparrow"}
+          position={1}
+          NextSceneId={"/Sparrow_Game2_Explain"}
+          count={count}
+          setCount={setCount}
         />
+      </Router>
+      <Router sceneId="/Sparrow_Game2_Explain">
+        <Game2Explain
+          sceneName={"sparrow"}
+          NextSceneId={"/Bear_Game2"}
+          count={count}
+          setCount={setCount}
+        />
+      </Router>
+      <Router sceneId="/Bear_Game2">
+        <Game2
+          sceneName={"bear"}
+          position={1}
+          NextSceneId={"/Bear_Game2_Explain"}
+          count={count}
+          setCount={setCount}
+        />
+      </Router>
+      <Router sceneId="/Bear_Game2_Explain">
+        <Game2Explain
+          sceneName={"bear"}
+          NextSceneId={"/Pig_Game2"}
+          count={count}
+          setCount={setCount}
+        />
+      </Router>
+      <Router sceneId="/Pig_Game2">
+        <Game2
+          sceneName={"pig"}
+          position={2}
+          NextSceneId={"/Pig_Game2_Explain"}
+          count={count}
+          setCount={setCount}
+        />
+      </Router>
+      <Router sceneId="/Pig_Game2_Explain">
+        <Game2Explain
+          sceneName={"pig"}
+          NextSceneId={"/Hen_Game2"}
+          count={count}
+          setCount={setCount}
+        />
+      </Router>
+      <Router sceneId="/Hen_Game2">
+        <Game2
+          sceneName={"hen"}
+          position={2}
+          NextSceneId={"/Hen_Game2_Explain"}
+          count={count}
+          setCount={setCount}
+        />
+      </Router>
+      <Router sceneId="/Hen_Game2_Explain">
+        <Game2Explain
+          sceneName={"hen"}
+          NextSceneId={"/Sheep_Game2"}
+          count={count}
+          setCount={setCount}
+        />
+      </Router>
+      <Router sceneId="/Sheep_Game2">
+        <Game2
+          sceneName={"sheep"}
+          position={1}
+          NextSceneId={"/Sheep_Game2_Explain"}
+          count={count}
+          setCount={setCount}
+        />
+      </Router>
+      <Router sceneId="/Sheep_Game2_Explain">
+        <Game2Explain
+          sceneName={"sheep"}
+          NextSceneId={"/WellDone2"}
+          count={count}
+          setCount={setCount}
+        />
+      </Router>
+      <Router sceneId="/Cow_Game2">
+        <Game2
+          sceneName={"cow"}
+          position={2}
+          NextSceneId={"/Cow_Game2_Explain"}
+          count={count}
+          setCount={setCount}
+        />
+      </Router>
+      <Router sceneId="/Cow_Game2_Explain">
+        <Game2Explain
+          sceneName={"cow"}
+          NextSceneId={"/Monkey_Game2"}
+          count={count}
+          setCount={setCount}
+        />
+      </Router>
+      <Router sceneId="/Monkey_Game2">
+        <Game2
+          sceneName={"monkey"}
+          position={1}
+          NextSceneId={"/Monkey_Game2_Explain"}
+          count={count}
+          setCount={setCount}
+        />
+      </Router>
+      <Router sceneId="/Monkey_Game2_Explain">
+        <Game2Explain
+          sceneName={"monkey"}
+          NextSceneId={"/Camel_Game2"}
+          count={count}
+          setCount={setCount}
+        />
+      </Router>
+      <Router sceneId="/Camel_Game2">
+        <Game2
+          sceneName={"camel"}
+          position={2}
+          NextSceneId={"/Camel_Game2_Explain"}
+          count={count}
+          setCount={setCount}
+        />
+      </Router>
+      <Router sceneId="/Camel_Game2_Explain">
+        <Game2Explain
+          sceneName={"camel"}
+          NextSceneId={"/Bat_Game2"}
+          count={count}
+          setCount={setCount}
+        />
+      </Router>
+      <Router sceneId="/Bat_Game2">
+        <Game2
+          sceneName={"bat"}
+          position={1}
+          NextSceneId={"/Bat_Game2_Explain"}
+          count={count}
+          setCount={setCount}
+        />
+      </Router>
+      <Router sceneId="/Bat_Game2_Explain">
+        <Game2Explain
+          sceneName={"bat"}
+          NextSceneId={"/Owl_Game2"}
+          count={count}
+          setCount={setCount}
+        />
+      </Router>
+      <Router sceneId="/Owl_Game2">
+        <Game2
+          sceneName={"owl"}
+          position={2}
+          NextSceneId={"/Owl_Game2_Explain"}
+          count={count}
+          setCount={setCount}
+        />
+      </Router>
+      <Router sceneId="/Owl_Game2_Explain">
+        <Game2Explain
+          sceneName={"owl"}
+          NextSceneId={"/WellDone"}
+          count={count}
+          setCount={setCount}
+        />
+      </Router>
+      <Router sceneId="/WellDone">
+        <WellDone />
+      </Router>
+      <Router sceneId="/WellDone1">
+        <WellDone1 NextSceneId={"/Sparrow_Game2"} />
+      </Router>
+      <Router sceneId="/WellDone2">
+        <WellDone1 NextSceneId={"/Cow_Game2"} />
       </Router>
     </GameContainer>
   );

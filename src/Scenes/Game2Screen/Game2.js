@@ -7,268 +7,249 @@ import IntroMap from "./Game2AssetMap";
 import lottie from "lottie-web";
 import "../../styles/Game2.css";
 import Image from "../../utils/elements/Image";
-import { BGContext } from "../../contexts/Background";
+import LionMap from "./LionMap";
+import DogMap from "./DogMap";
+import HorseMap from "./HorseMap";
+import RabbitMap from "./RabbitMap";
+import FrogMap from "./FrogMap";
+import SparrowMap from "./SparrowMap";
+import BearMap from "./BearMap";
+import PigMap from "./PigMap";
+import HenMap from "./HenMap";
+import SheepMap from "./SheepMap";
+import CowMap from "./CowMap";
+import MonkeyMap from "./MonkeyMap";
+import CamelMap from "./CamelMap";
+import BatMap from "./BatMap";
+import OwlMap from "./OwlMap";
+import Star from "./progressBar";
+import { counter } from "./Helper_function";
+
+function get_tracer_obj(type) {
+  switch (type) {
+    case "lion":
+      return LionMap;
+      break;
+    case "dog":
+      return DogMap;
+      break;
+    case "horse":
+      return HorseMap;
+      break;
+    case "rabbit":
+      return RabbitMap;
+      break;
+    case "frog":
+      return FrogMap;
+      break;
+    case "sparrow":
+      return SparrowMap;
+    case "bear":
+      return BearMap;
+    case "pig":
+      return PigMap;
+    case "hen":
+      return HenMap;
+    case "sheep":
+      return SheepMap;
+    case "cow":
+      return CowMap;
+    case "monkey":
+      return MonkeyMap;
+    case "camel":
+      return CamelMap;
+    case "bat":
+      return BatMap;
+    case "owl":
+      return OwlMap;
+
+    default:
+      return "";
+  }
+}
 
 export default function Game2({
-  flowCount,
-  G2Ans,
-  setG2Ans,
-  G2Wrng,
-  setG2Wrng,
-  G2answer,
+  position,
+  sceneName,
+  NextSceneId,
+  count,
+  setCount,
 }) {
-  // const { Bg, Loading } = useLoadAsset(IntroMap);
-  const { Bg } = useContext(BGContext);
-  const [Loading, setLoading] = useState(true);
+  const { Bg, Loading } = useLoadAsset(get_tracer_obj(sceneName));
+  // const [Loading, setLoading] = useState(true);
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
     useContext(SceneContext);
-  const [G2QiD, setG2QiD] = useState();
-  const [answer, setAnswer] = useState(0);
-  const [wrong, setWrong] = useState(0);
-  const [number, setNumber] = useState(null);
   const [playing, setplaying] = useState(false);
-  const [option1Verify, setoption1Verify] = useState(0);
-  const [option2Wrng, setoption2Wrng] = useState(0);
-  const [grey, setGrey] = useState(false);
+  const [correct, setCorrect] = useState(0);
+  const [wrong, setWrong] = useState(0);
   const { intro } = Assets;
 
   const Ref = useRef(null);
 
-  useEffect(() => {}, []);
-
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-  }, []);
-
-  //Placing on either screens
-  useEffect(() => {
-    const element = Math.floor(Math.random() * (2 - 1 + 1)) + 1;
-    setNumber(element);
-  }, []);
-
-  //Setting Answer and random wrong answer
-  useEffect(() => {
-    const G2A1 = G2Ans;
-    const G2W1 = G2Wrng;
-    const G2Q1 = flowCount;
-    setG2QiD(G2Q1);
-    setAnswer(G2A1);
-    setWrong(G2W1);
-  }, []);
-
-  const playCorrectSound = () => {
     if (Assets?.Scene22 && !Loading) {
-      setplaying(true);
-      Assets?.Scene22?.sounds[5]?.play();
-      Assets?.Scene22?.sounds[5]?.on("end", () => {
-        setplaying(false);
-      });
-    }
-  };
-
-  const playWrongSound = () => {
-    if (Assets?.Scene22 && !Loading) {
-      setplaying(true);
-      Assets?.Scene22?.sounds[6]?.play();
-      Assets?.Scene22?.sounds[6]?.on("end", () => {
-        setplaying(false);
-      });
-    }
-  };
-
-  console.log(flowCount);
-  const Option1 = () => {
-    if (answer < 29) {
-      if (playing === false) {
-        playCorrectSound();
-        if (playing === false) {
-          setoption1Verify(1);
-          // const soundEnd = () => {
-          const item = IntroMap.sprites[answer + 1].split("_");
-          const item1 = item[2].replace(".svg", "");
-          const timeout = setTimeout(() => {
-            setSceneId("/" + item1 + "_Game2");
-          }, 1000);
-
-          // };
-          playCorrectSound();
-
-          setG2Ans(answer + 1);
-          setG2Wrng(wrong + 1);
-        }
-      }
-    } else {
-      playCorrectSound();
-      setoption1Verify(1);
-
-      const timeout = setTimeout(() => {
-        setSceneId("/Scene6");
-      }, 1000);
-    }
-  };
-
-  const Option2 = () => {
-    if (playing === false) {
-      playWrongSound();
-      setoption2Wrng(1);
-    }
-  };
-
-  useEffect(() => {
-    console.log(Loading);
-    if (Assets?.Scene22 && !Loading) {
-      setplaying(true);
-      setGrey(true);
-
-      Assets?.Scene22?.sounds[flowCount]?.play();
-      Assets?.Scene22?.sounds[flowCount]?.on("end", () => {
-        setplaying(false);
-        setGrey(false);
-      });
+      Assets?.Scene22?.sounds[2]?.play();
+      Assets?.Scene22?.sounds[2].on("end", () => {});
     }
   }, [Assets, Loading, isLoading]);
 
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setoption2Wrng(0);
-    }, 1000);
-  }, [option2Wrng]);
-
-  const replayBtn = () => {
-    if (playing === false) {
-      if (Assets?.Scene22 && !Loading) {
-        setplaying(true);
-        setGrey(true);
-
-        Assets?.Scene22?.sounds[7]?.play();
-        Assets?.Scene22?.sounds[7]?.on("end", () => {
-          if (playing === false) {
-            if (Assets?.Scene22 && !Loading) {
-              Assets?.Scene22?.sounds[flowCount]?.play();
-              Assets?.Scene22?.sounds[flowCount]?.on("end", () => {
-                setplaying(false);
-                setGrey(false);
-              });
-            }
-          }
-        });
-      }
+  console.log(Assets?.Scene22?.sounds[2]);
+  const playCorrectSound = () => {
+    Assets?.Scene22?.sounds[2]?.stop();
+    counter(count, setCount);
+    if (Assets?.Scene22 && !Loading) {
+      setplaying(true);
+      Assets?.Scene22?.sounds[0]?.play();
+      Assets?.Scene22?.sounds[0]?.on("end", () => {
+        setplaying(false);
+      });
+    }
+  };
+  const playWrongSound = () => {
+    if (Assets?.Scene22 && !Loading) {
+      setplaying(true);
+      Assets?.Scene22?.sounds[1]?.play();
+      Assets?.Scene22?.sounds[1]?.on("end", () => {
+        setplaying(false);
+      });
     }
   };
 
+  const Option1 = () => {
+    console.log("Correct");
+    playCorrectSound();
+    setCorrect(1);
+    const timeout = setTimeout(() => {
+      setSceneId(NextSceneId);
+    }, 1500);
+  };
+
+  const Option2 = () => {
+    console.log("Wrong");
+    playWrongSound();
+    setWrong(1);
+  };
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setWrong(0);
+    }, 3000);
+  }, [wrong]);
+
   return (
     <Scenes
-      Bg={Bg}
       sprites={
         <>
           {/* Title */}
           <Image
-            src={Assets?.Scene22?.sprites[G2QiD]}
+            src={Assets?.[sceneName]?.sprites[2]}
             alt="txt"
             id="fadeup"
             className="Game2_question_img"
           />
 
           <Image
-            src={Assets?.Scene22?.sprites[56]}
+            src={Assets?.[sceneName]?.sprites[0]}
             alt="txt"
             id="fadeup"
-            className="Option1BG"
-            style={{
-              cursor: playing === false ? "pointer" : "",
-            }}
+            className="Game2_Character_Container"
           />
 
-          <Image
-            src={Assets?.Scene22?.sprites[56]}
-            alt="txt"
-            id="fadeup"
-            className="Option2BG"
-            style={{
-              borderColor: option1Verify === 1 ? "Green" : "#25256d",
-              cursor: playing === false ? "pointer" : "",
-            }}
-          />
+          <div className="Character">
+            <Image
+              src={Assets?.[sceneName]?.sprites[4]}
+              alt="txt"
+              id="fadeup"
+              className="Character_img"
+            />
+          </div>
+
+          <div className="Character_Name">
+            <Image
+              src={Assets?.[sceneName]?.sprites[5]}
+              alt="txt"
+              id="fadeup"
+              className="CharacterName_img"
+            />
+          </div>
 
           <div
-            alt="txt"
-            id="fadeup"
-            onClick={Option1}
             className="Option1"
+            onClick={Option1}
             style={{
-              left: number === 1 ? "8.5%" : "51.5%",
-              cursor: playing === false ? "pointer" : "",
+              left: position === 1 ? "0%" : "51%",
             }}
-          >
-            <Image
-              src={Assets?.Scene22?.sprites[answer]}
-              alt="txt"
-              id="fadeup"
-              className="Option1_Img"
-            />
-          </div>
-
+          ></div>
           <Image
-            src={Assets?.Scene22?.sprites[57]}
+            src={Assets?.Scene22?.sprites[0]}
             alt="txt"
             id="fadeup"
-            className="Option1_Button"
+            className="Option1Green"
             style={{
-              display: option1Verify === 1 ? "block" : "none",
-              left: number === 1 ? "7.4%" : "50.3%",
+              left: position === 1 ? "0%" : "51%",
+              display: correct === 1 ? "block" : "none",
             }}
           />
 
           <div
-            id="fadeup"
-            onClick={Option2}
             className="Option2"
-            style={{
-              left: number === 1 ? "51.5%" : "8.5%",
-              cursor: playing === false ? "pointer" : "",
-            }}
-          >
-            <Image
-              src={Assets?.Scene22?.sprites[wrong]}
-              alt="txt"
-              id="fadeup"
-              onClick={Option2}
-              className="Option2_Img"
-            />
-          </div>
+            onClick={Option2}
+            style={{ left: position === 1 ? "51%" : "0%" }}
+          ></div>
           <Image
-            src={Assets?.Scene22?.sprites[58]}
+            src={Assets?.Scene22?.sprites[1]}
             alt="txt"
             id="fadeup"
-            className="Option2_Button"
+            className="Option1Red"
             style={{
-              display: option2Wrng === 1 ? "block" : "none",
-              left: number === 1 ? "50.5%" : "7.4%",
+              left: position === 1 ? "51%" : "0%",
+              display: wrong === 1 ? "block" : "none",
             }}
           />
 
+          <Image
+            src={Assets?.[sceneName]?.sprites[1]}
+            alt="txt"
+            id="fadeup"
+            className="Option1NameContainer"
+          />
+
           <div
-            className={
-              playing === true
-                ? "audio_replay_iconDisabled"
-                : "audio_replay_icon"
-            }
+            className="Option1_Name"
             style={{
-              opacity: grey === false ? "1" : "0.65",
+              left: position === 1 ? "6.2%" : "78.2%",
             }}
           >
             <Image
-              src={Assets?.Scene22?.sprites[55]}
+              src={Assets?.[sceneName]?.sprites[6]}
               alt="txt"
               id="fadeup"
-              onClick={replayBtn}
-              style={{
-                cursor: grey === false ? "pointer" : "",
-              }}
+              className="Option1Name_img"
             />
           </div>
+
+          <Image
+            src={Assets?.[sceneName]?.sprites[1]}
+            alt="txt"
+            id="fadeup"
+            className="Option2NameContainer"
+          />
+
+          <div
+            className="Option2_Name"
+            style={{
+              left: position === 1 ? "78.2%" : "6.2%",
+            }}
+          >
+            <Image
+              src={Assets?.[sceneName]?.sprites[7]}
+              alt="txt"
+              id="fadeup"
+              className="Option2Name_img"
+            />
+          </div>
+
+          <Star num={count} />
         </>
       }
     />
