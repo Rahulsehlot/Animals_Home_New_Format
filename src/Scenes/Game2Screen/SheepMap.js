@@ -21,7 +21,7 @@ const SheepMap = {
 
   sounds: [`${soundUrl}Eats/sheep_eats.mp3`],
 
-  lottie: [`${lottieUrl}Sheep_eats.json`],
+  lottie: [],
 };
 
 export default SheepMap;

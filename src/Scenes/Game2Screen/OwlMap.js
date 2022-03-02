@@ -23,7 +23,7 @@ const OwlMap = {
 
   sounds: [`${soundUrl}Eats/owl_eats.mp3`],
 
-  lottie: [`${lottieUrl}Owl_eats.json`],
+  lottie: [],
 };
 
 export default OwlMap;

@@ -21,7 +21,7 @@ const SparrowMap = {
 
   sounds: [`${soundUrl}Eats/birds_eats.mp3`],
 
-  lottie: [`${lottieUrl}Spparow_eats.json`],
+  lottie: [],
 };
 
 export default SparrowMap;

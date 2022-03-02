@@ -35,6 +35,7 @@
   z-index: 101010;
   bottom: 50%;
   left: 1%;
+  cursor: pointer;
 }
 
 .mute_btn:active {

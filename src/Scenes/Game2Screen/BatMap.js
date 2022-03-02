@@ -24,7 +24,7 @@ const BatMap = {
 
   sounds: [`${soundUrl}Eats/bat_eats_insects.mp3`],
 
-  lottie: [`${lottieUrl}Bat_eats.json`],
+  lottie: [],
 };
 
 export default BatMap;

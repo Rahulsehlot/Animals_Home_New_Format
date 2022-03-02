@@ -592,6 +592,10 @@
   width: 2%;
   z-index: 155;
 }
+.Game2_animal_food_monkey,
+.Game2_animal_food_owl {
+  display: none;
+}
 
 .Game2_animal1_food_owl {
   position: fixed;

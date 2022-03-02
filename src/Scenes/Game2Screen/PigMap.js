@@ -21,7 +21,7 @@ const PigMap = {
 
   sounds: [`${soundUrl}Eats/pig_eats.mp3`],
 
-  lottie: [`${lottieUrl}Pig_eats.json`],
+  lottie: [],
 };
 
 export default PigMap;

@@ -22,7 +22,7 @@ const RabbitMap = {
 
   sounds: [`${soundUrl}Eats/rabbit_eats.mp3`],
 
-  lottie: [`${lottieUrl}Rabbit_eats.json`],
+  lottie: [],
 };
 
 export default RabbitMap;

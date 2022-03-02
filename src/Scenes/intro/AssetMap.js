@@ -11,7 +11,7 @@ const IntroMap = {
 
   sounds: [`${soundUrl}01.mp3`],
 
-  lottie: [`${lottieUrl}Scene_01.json`],
+  lottie: [],
 };
 
 export default IntroMap;

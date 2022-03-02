@@ -21,7 +21,7 @@ const DogMap = {
 
   sounds: [`${soundUrl}Eats/dog_eats.mp3`],
 
-  lottie: [`${lottieUrl}Dog_eats.json`],
+  lottie: [],
 };
 
 export default DogMap;

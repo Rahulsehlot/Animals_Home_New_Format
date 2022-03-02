@@ -27,7 +27,7 @@ export default function Intro() {
           renderer: "svg",
           loop: true,
           autoplay: true,
-          animationData: Assets?.intro?.lottie[0],
+          animationData: Assets?.Scene22?.lottie[15],
         });
       } catch (err) {
         console.log(err);

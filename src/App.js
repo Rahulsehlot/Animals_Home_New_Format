@@ -98,6 +98,7 @@ function App() {
           NextSceneId={"/Dog_Game2"}
           count={count}
           setCount={setCount}
+          lottieID={0}
         />
       </Router>
       <Router sceneId="/Dog_Game2">
@@ -115,6 +116,7 @@ function App() {
           NextSceneId={"/Horse_Game2"}
           count={count}
           setCount={setCount}
+          lottieID={1}
         />
       </Router>
       <Router sceneId="/Horse_Game2">
@@ -132,6 +134,7 @@ function App() {
           NextSceneId={"/Rabbit_Game2"}
           count={count}
           setCount={setCount}
+          lottieID={2}
         />
       </Router>
       <Router sceneId="/Rabbit_Game2">
@@ -149,6 +152,7 @@ function App() {
           NextSceneId={"/Frog_Game2"}
           count={count}
           setCount={setCount}
+          lottieID={3}
         />
       </Router>
       <Router sceneId="/Frog_Game2">
@@ -166,6 +170,7 @@ function App() {
           NextSceneId={"/WellDone1"}
           count={count}
           setCount={setCount}
+          lottieID={4}
         />
       </Router>
       <Router sceneId="/Sparrow_Game2">
@@ -183,6 +188,7 @@ function App() {
           NextSceneId={"/Bear_Game2"}
           count={count}
           setCount={setCount}
+          lottieID={5}
         />
       </Router>
       <Router sceneId="/Bear_Game2">
@@ -200,6 +206,7 @@ function App() {
           NextSceneId={"/Pig_Game2"}
           count={count}
           setCount={setCount}
+          lottieID={6}
         />
       </Router>
       <Router sceneId="/Pig_Game2">
@@ -217,6 +224,7 @@ function App() {
           NextSceneId={"/Hen_Game2"}
           count={count}
           setCount={setCount}
+          lottieID={7}
         />
       </Router>
       <Router sceneId="/Hen_Game2">
@@ -234,6 +242,7 @@ function App() {
           NextSceneId={"/Sheep_Game2"}
           count={count}
           setCount={setCount}
+          lottieID={8}
         />
       </Router>
       <Router sceneId="/Sheep_Game2">
@@ -251,6 +260,7 @@ function App() {
           NextSceneId={"/WellDone2"}
           count={count}
           setCount={setCount}
+          lottieID={9}
         />
       </Router>
       <Router sceneId="/Cow_Game2">
@@ -268,6 +278,7 @@ function App() {
           NextSceneId={"/Monkey_Game2"}
           count={count}
           setCount={setCount}
+          lottieID={10}
         />
       </Router>
       <Router sceneId="/Monkey_Game2">
@@ -285,6 +296,7 @@ function App() {
           NextSceneId={"/Camel_Game2"}
           count={count}
           setCount={setCount}
+          lottieID={11}
         />
       </Router>
       <Router sceneId="/Camel_Game2">
@@ -302,6 +314,7 @@ function App() {
           NextSceneId={"/Bat_Game2"}
           count={count}
           setCount={setCount}
+          lottieID={12}
         />
       </Router>
       <Router sceneId="/Bat_Game2">
@@ -319,6 +332,7 @@ function App() {
           NextSceneId={"/Owl_Game2"}
           count={count}
           setCount={setCount}
+          lottieID={13}
         />
       </Router>
       <Router sceneId="/Owl_Game2">
@@ -336,6 +350,7 @@ function App() {
           NextSceneId={"/WellDone"}
           count={count}
           setCount={setCount}
+          lottieID={14}
         />
       </Router>
       <Router sceneId="/WellDone">

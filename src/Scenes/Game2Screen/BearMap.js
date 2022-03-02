@@ -23,7 +23,7 @@ const BearMap = {
 
   sounds: [`${soundUrl}Eats/bear_eats.mp3`],
 
-  lottie: [`${lottieUrl}Bear_eats.json`],
+  lottie: [],
 };
 
 export default BearMap;

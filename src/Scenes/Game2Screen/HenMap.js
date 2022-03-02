@@ -21,7 +21,7 @@ const HenMap = {
 
   sounds: [`${soundUrl}Eats/hen_eats.mp3`],
 
-  lottie: [`${lottieUrl}Hen_eats.json`],
+  lottie: [],
 };
 
 export default HenMap;

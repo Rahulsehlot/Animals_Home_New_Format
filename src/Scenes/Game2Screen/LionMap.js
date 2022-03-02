@@ -21,7 +21,7 @@ const LionMap = {
 
   sounds: [`${soundUrl}Eats/lion_eats.mp3`],
 
-  lottie: [`${lottieUrl}Lion_eats.json`],
+  lottie: [],
 };
 
 export default LionMap;

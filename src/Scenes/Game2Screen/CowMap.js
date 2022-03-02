@@ -23,7 +23,7 @@ const CowMap = {
 
   sounds: [`${soundUrl}Eats/cow_eats.mp3`],
 
-  lottie: [`${lottieUrl}Cow_eats.json`],
+  lottie: [],
 };
 
 export default CowMap;

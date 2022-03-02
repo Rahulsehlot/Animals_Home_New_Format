@@ -23,7 +23,7 @@ const FrogMap = {
 
   sounds: [`${soundUrl}Eats/frog_eats.mp3`],
 
-  lottie: [`${lottieUrl}Frog_eats.json`],
+  lottie: [],
 };
 
 export default FrogMap;

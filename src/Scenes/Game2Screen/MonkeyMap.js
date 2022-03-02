@@ -21,7 +21,7 @@ const MonkeyMap = {
 
   sounds: [`${soundUrl}Eats/monkey_eats.mp3`],
 
-  lottie: [`${lottieUrl}Monkey_eats.json`],
+  lottie: [],
 };
 
 export default MonkeyMap;

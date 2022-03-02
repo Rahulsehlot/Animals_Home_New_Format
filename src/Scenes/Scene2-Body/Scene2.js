@@ -38,7 +38,7 @@ export default function Scene2({ scenename }) {
           renderer: "svg",
           loop: true,
           autoplay: true,
-          animationData: Assets?.Scene2?.lottie[0],
+          animationData: Assets?.Scene22?.lottie[16],
         });
       } catch (err) {
         console.log(err);

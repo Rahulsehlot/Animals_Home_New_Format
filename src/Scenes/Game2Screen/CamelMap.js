@@ -23,7 +23,7 @@ const CamelMap = {
 
   sounds: [`${soundUrl}Eats/camel_eats.mp3`],
 
-  lottie: [`${lottieUrl}Camel_eats.json`],
+  lottie: [],
 };
 
 export default CamelMap;

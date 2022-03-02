@@ -16,7 +16,25 @@ const IntroMap = {
     `${soundUrl}look_at_the_animal_and_tap_its_home.mp3`,
   ],
 
-  lottie: [],
+  lottie: [
+    `${lottieUrl}Lion_eats.json`,
+    `${lottieUrl}Dog_eats.json`,
+    `${lottieUrl}Horse_eats.json`,
+    `${lottieUrl}Rabbit_eats.json`,
+    `${lottieUrl}Frog_eats.json`,
+    `${lottieUrl}Spparow_eats.json`,
+    `${lottieUrl}Bear_eats.json`,
+    `${lottieUrl}Pig_eats.json`,
+    `${lottieUrl}Hen_eats.json`,
+    `${lottieUrl}Sheep_eats.json`,
+    `${lottieUrl}Cow_eats.json`,
+    `${lottieUrl}Monkey_eats.json`,
+    `${lottieUrl}Camel_eats.json`,
+    `${lottieUrl}Bat_eats.json`,
+    `${lottieUrl}Owl_eats.json`,
+    `${lottieUrl}Scene_01.json`,
+    `${lottieUrl}Scene_03.json`,
+  ],
 };
 
 export default IntroMap;

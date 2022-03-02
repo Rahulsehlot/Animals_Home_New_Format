@@ -22,7 +22,7 @@ const HorseMap = {
 
   sounds: [`${soundUrl}Eats/horse_eats.mp3`],
 
-  lottie: [`${lottieUrl}Horse_eats.json`],
+  lottie: [],
 };
 
 export default HorseMap;
