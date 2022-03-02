@@ -12,6 +12,7 @@ import IntroMap from "./Scenes/Game2Screen/Game2AssetMap";
 import Game2Explain from "./Scenes/Game2Screen/Game2Explain";
 import WellDone from "./Scenes/WellDone/WellDone";
 import WellDone1 from "./Scenes/WellDone/WellDone1";
+import Star from "./Scenes/Game2Screen/progressBar";
 
 function App() {
   const { Loading } = useLoadAsset(IntroMap);
@@ -59,6 +60,7 @@ function App() {
 
   return (
     <GameContainer>
+      {/* <Star num={count} /> */}
       {!mute && (
         <img
           src={`data:image/svg+xml;utf8,${encodeURIComponent(icon1)}`}

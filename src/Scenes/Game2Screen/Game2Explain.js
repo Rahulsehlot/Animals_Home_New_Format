@@ -124,6 +124,7 @@ export default function Game2Explain({
       sprites={
         <>
           {/* Title */}
+
           <Image
             src={Assets?.[sceneName]?.sprites[3]}
             alt="txt"

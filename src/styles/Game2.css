@@ -674,6 +674,7 @@
   width: 49%;
 }
 
+.monkey_Foreground-div,
 .bat_Foreground-div,
 .frog_Foreground-div {
   display: none;

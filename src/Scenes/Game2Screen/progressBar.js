@@ -1,8 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { SceneContext } from "../../contexts/SceneContext";
 import { LoadStars } from "./Helper_function";
 
 export default function Star({ num }) {
   const [isLoading, setisLoading] = useState(true);
+  const { SceneId } = useContext(SceneContext);
+  // const [hide, setHide] = useState(0);
 
   const [Grey, setGrey] = useState("");
   const [Gold, setGold] = useState("");
@@ -17,10 +20,27 @@ export default function Star({ num }) {
     }, 300);
   }, []);
 
+  console.log(SceneId);
+
+  useEffect(() => {
+    if (
+      SceneId === "/" ||
+      SceneId === "/Scene2" ||
+      SceneId === "/Scene2" ||
+      SceneId === "/WellDone1" ||
+      SceneId === "/WellDone"
+    ) {
+      // setHide(1);
+    }
+  }, []);
+
   return (
     <>
       {!isLoading && (
-        <div className="fadeup">
+        <div
+          className="fadeup"
+          // style={{ display: hide === 1 ? "none" : "block" }}
+        >
           <img
             alt=""
             src={`data:image/svg+xml;utf8,${encodeURIComponent(bar)}`}
