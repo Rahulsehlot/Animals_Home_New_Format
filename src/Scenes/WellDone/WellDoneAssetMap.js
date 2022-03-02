@@ -16,6 +16,7 @@ const IntroMap = {
   sounds: [
     `${soundUrl}great_thanks_for_taking_animals_to_thier_homes.mp3`,
     `${soundUrl}well_done.mp3`,
+    `${soundUrl}Replay_Common_in_English.mp3`,
   ],
 
   lottie: [`${lottieUrl}well_done.json`, `${lottieUrl}welldone_animation.json`],

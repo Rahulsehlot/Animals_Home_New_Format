@@ -117,17 +117,21 @@ export default function Game2({
 
   const Option1 = () => {
     console.log("Correct");
-    playCorrectSound();
-    setCorrect(1);
-    const timeout = setTimeout(() => {
-      setSceneId(NextSceneId);
-    }, 1500);
+    if (playing === false) {
+      playCorrectSound();
+      setCorrect(1);
+      const timeout = setTimeout(() => {
+        setSceneId(NextSceneId);
+      }, 1500);
+    }
   };
 
   const Option2 = () => {
     console.log("Wrong");
-    playWrongSound();
-    setWrong(1);
+    if (playing === false) {
+      playWrongSound();
+      setWrong(1);
+    }
   };
 
   useEffect(() => {

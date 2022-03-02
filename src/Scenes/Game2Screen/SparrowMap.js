@@ -16,7 +16,7 @@ const SparrowMap = {
     `${imgUrl}animalHouse_Name/kennel.svg`,
     `${imgUrl}animal-food/Grain.svg`,
     `${imgUrl}Artboard.svg`,
-    `${imgUrl}animalFood_Name/meat.svg`,
+    `${imgUrl}animalFood_Name/Grain.svg`,
   ],
 
   sounds: [`${soundUrl}Eats/birds_eats.mp3`],

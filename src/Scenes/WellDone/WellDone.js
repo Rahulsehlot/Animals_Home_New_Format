@@ -24,7 +24,10 @@ export default function WellDone({ scenename }) {
       setplaying(true);
       Assets?.wellDone?.sounds[0].on("end", () => {
         // setSceneId("/Lion_Game2");
-        setplaying(false);
+        Assets?.wellDone?.sounds[2]?.play();
+        Assets?.wellDone?.sounds[2].on("end", () => {
+          setplaying(false);
+        });
       });
     }
   }, [Assets, Loading, isLoading]);
@@ -91,7 +94,7 @@ export default function WellDone({ scenename }) {
             src={Assets?.wellDone?.sprites[2]}
             alt="txt"
             id="fadeup"
-            className="next"
+            className="next_wellDone"
             onClick={forward}
             style={{ cursor: "pointer" }}
           />
