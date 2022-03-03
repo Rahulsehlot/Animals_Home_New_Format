@@ -93,7 +93,8 @@ export default function Game2({
     }
   }, [Assets, Loading, isLoading]);
 
-  console.log(Assets?.Scene22?.sounds[2]);
+  console.log(Loading);
+
   const playCorrectSound = () => {
     Assets?.Scene22?.sounds[2]?.stop();
     counter(count, setCount);

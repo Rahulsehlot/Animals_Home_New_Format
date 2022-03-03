@@ -9,7 +9,7 @@ import "../../styles/Scene2.css";
 import Image from "../../utils/elements/Image";
 
 export default function Scene2({ scenename }) {
-  const { Bg, Loading } = useLoadAsset(IntroMap);
+  const { Loading } = useLoadAsset(IntroMap);
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
     useContext(SceneContext);
   const { intro } = Assets;
@@ -53,12 +53,17 @@ export default function Scene2({ scenename }) {
 
   return (
     <Scenes
-      Bg={Bg}
       sprites={
         <>
           {/* Title */}
+          <Image
+            src={Assets?.Scene2?.sprites[1]}
+            alt="txt"
+            id="fadeup"
+            className="intro_BG"
+          />
 
-          <div ref={Ref} className="Scene2_lottie_container"></div>
+          <div ref={Ref} id="fadeup" className="Scene2_lottie_container"></div>
           <Image
             src={Assets?.Scene2?.sprites[0]}
             alt="txt"

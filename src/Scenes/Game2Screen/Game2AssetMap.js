@@ -8,6 +8,9 @@ const IntroMap = {
   sprites: [
     `${imgUrl}SB_30_highlight _green.svg`,
     `${imgUrl}SB_30_highlight_red.svg`,
+    `${imgUrl}progress_bar.svg`,
+    `${imgUrl}progress_bar_02.svg`,
+    `${imgUrl}progress_on.svg`,
   ],
 
   sounds: [
@@ -34,6 +37,8 @@ const IntroMap = {
     `${lottieUrl}Owl_eats.json`,
     `${lottieUrl}Scene_01.json`,
     `${lottieUrl}Scene_03.json`,
+    `${lottieUrl}well_done.json`,
+    `${lottieUrl}welldone_animation.json`,
   ],
 };
 

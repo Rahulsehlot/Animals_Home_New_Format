@@ -9,7 +9,7 @@ import Image from "../../utils/elements/Image";
 import IntroMap from "./WellDoneAssetMap";
 
 export default function WellDone1({ scenename, NextSceneId }) {
-  const { Bg, Loading } = useLoadAsset(IntroMap);
+  const { Loading } = useLoadAsset(IntroMap);
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
     useContext(SceneContext);
   const { intro } = Assets;
@@ -43,7 +43,7 @@ export default function WellDone1({ scenename, NextSceneId }) {
           renderer: "svg",
           loop: false,
           autoplay: true,
-          animationData: Assets?.wellDone?.lottie[0],
+          animationData: Assets?.Scene22?.lottie[17],
         });
       } catch (err) {
         console.log(err);
@@ -60,7 +60,7 @@ export default function WellDone1({ scenename, NextSceneId }) {
           renderer: "svg",
           loop: true,
           autoplay: true,
-          animationData: Assets?.wellDone?.lottie[1],
+          animationData: Assets?.Scene22?.lottie[18],
         });
       } catch (err) {
         console.log(err);
@@ -76,13 +76,23 @@ export default function WellDone1({ scenename, NextSceneId }) {
 
   return (
     <Scenes
-      Bg={Bg}
       sprites={
         <>
           {/* Title */}
 
-          <div ref={Ref} className="welldone_lottie_container"></div>
-          <div ref={Ref1} className="welldone_animation"></div>
+          <Image
+            src={Assets?.wellDone?.sprites[3]}
+            alt="txt"
+            id="fadeup"
+            className="intro_BG"
+          />
+
+          <div
+            ref={Ref}
+            id="fadeup"
+            className="welldone_lottie_container"
+          ></div>
+          <div ref={Ref1} id="fadeup" className="welldone_animation"></div>
 
           <Image
             src={Assets?.wellDone?.sprites[0]}

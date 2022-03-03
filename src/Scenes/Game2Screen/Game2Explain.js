@@ -22,6 +22,7 @@ import MonkeyMap from "./MonkeyMap";
 import CamelMap from "./CamelMap";
 import BatMap from "./BatMap";
 import OwlMap from "./OwlMap";
+import Star from "./progressBar";
 
 function get_tracer_obj(type) {
   switch (type) {
@@ -82,7 +83,7 @@ export default function Game2Explain({
   const { intro } = Assets;
 
   const Ref = useRef(null);
-
+  console.log(SceneId);
   useEffect(() => {
     if (Assets?.[sceneName] && !Loading) {
       Assets?.[sceneName]?.sounds[0]?.play();
@@ -93,14 +94,6 @@ export default function Game2Explain({
       });
     }
   }, [Assets, Loading, isLoading]);
-
-  useEffect(() => {
-    if (count === 5) {
-      setCount(0);
-    }
-
-    console.log(NextSceneId);
-  }, []);
 
   useEffect(() => {
     if (Assets && Ref.current && !Loading) {
@@ -125,6 +118,7 @@ export default function Game2Explain({
       sprites={
         <>
           {/* Title */}
+          <Star num={count} />
 
           <Image
             src={Assets?.[sceneName]?.sprites[3]}
@@ -161,12 +155,16 @@ export default function Game2Explain({
             className={"Game2_animal3_food_" + sceneName}
           />
 
-          <Image
-            src={Assets?.[sceneName]?.sprites[9]}
-            alt="txt"
-            id="fadeup"
-            className={"animal_text_" + sceneName}
-          />
+          {SceneId === "Pig_Game2_Explain" ? (
+            <div id="fadeup" className={"animal_text_" + sceneName}></div>
+          ) : (
+            <Image
+              src={Assets?.[sceneName]?.sprites[9]}
+              alt="txt"
+              id="fadeup"
+              className={"animal_text_" + sceneName}
+            />
+          )}
 
           <div className={"animal_text_" + sceneName}>
             <Image
@@ -186,7 +184,7 @@ export default function Game2Explain({
             />
           </div>
 
-          <div ref={Ref} className={"Game2_" + sceneName}></div>
+          <div ref={Ref} className={"Game2_" + sceneName} id="fadeup"></div>
         </>
       }
     />

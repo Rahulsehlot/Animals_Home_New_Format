@@ -9,12 +9,13 @@ import lottie from "lottie-web";
 import "../../styles/intro.css";
 import Image from "../../utils/elements/Image";
 
-export default function Intro() {
-  const { Bg, Loading } = useLoadAsset(IntroMap);
+export default function Intro({ setplayBtn, playBtn }) {
+  const { Loading } = useLoadAsset(IntroMap);
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
     useContext(SceneContext);
   const { intro } = Assets;
   const [playing, setplaying] = useState(false);
+  const [playBtnHide, SetplayBtnHide] = useState(0);
 
   const Ref = useRef(null);
 
@@ -35,13 +36,20 @@ export default function Intro() {
     }
   }, [Assets, Loading]);
 
+  console.log(playBtn);
   console.log(Assets?.Intro?.lottie[0]);
   return (
     <Scenes
-      Bg={Bg}
       sprites={
         <>
           {/* Title */}
+
+          <Image
+            src={intro?.sprites[2]}
+            alt="txt"
+            id="fadeup"
+            className="intro_BG"
+          />
 
           <Image
             src={intro?.sprites[0]}
@@ -56,6 +64,8 @@ export default function Intro() {
             alt="txt"
             id="fadeup"
             onClick={() => {
+              SetplayBtnHide(1);
+              // setplayBtn(1);
               if (playing === false) {
                 setplaying(true);
                 Assets?.intro?.sounds[0]?.play();
@@ -72,11 +82,11 @@ export default function Intro() {
               borderRadius: "100%",
               alignItems: "center",
               justifyContent: "center",
-              display: "flex",
               cursor: playing === false ? "pointer" : "",
+              display: playBtnHide === 0 ? "block" : "none",
             }}
           />
-          <div ref={Ref} className="intro_lottie_container"></div>
+          <div ref={Ref} id="fadeup" className="intro_lottie_container"></div>
         </>
       }
     />

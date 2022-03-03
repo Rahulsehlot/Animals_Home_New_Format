@@ -1,11 +1,12 @@
 import { useState, useEffect, useContext } from "react";
 import { SceneContext } from "../../contexts/SceneContext";
+import Image from "../../utils/elements/Image";
 import { LoadStars } from "./Helper_function";
+import IntroMap from "./Game2AssetMap";
 
 export default function Star({ num }) {
   const [isLoading, setisLoading] = useState(true);
-  const { SceneId } = useContext(SceneContext);
-  const [hide, setHide] = useState(0);
+  const { SceneId, Assets } = useContext(SceneContext);
 
   const [Grey, setGrey] = useState("");
   const [Gold, setGold] = useState("");
@@ -20,35 +21,26 @@ export default function Star({ num }) {
     }, 300);
   }, []);
 
-  console.log(SceneId);
-
-  useEffect(() => {
-    if (
-      SceneId === "/" ||
-      SceneId === "/Scene2" ||
-      SceneId === "/WellDone1" ||
-      SceneId === "/WellDone" ||
-      SceneId === ""
-    ) {
-      setHide(1);
-    }
-  }, [hide]);
+  console.log(num);
 
   return (
     <>
       {!isLoading && (
         <div
           // className="fadeup"
-          // id="fade"
-          style={{ display: hide === 1 ? "none" : "block" }}
+          id="fade"
         >
-          <img
+          {/* <img
             alt=""
             src={`data:image/svg+xml;utf8,${encodeURIComponent(bar)}`}
             className="Progress_Bar"
           />
 
-          <div id="star_wrap1" style={{ position: "fixed", right: "5%" }}>
+          <div
+            className="star_wrap1"
+            id="fade"
+            style={{ position: "fixed", right: "5%" }}
+          >
             <img
               id="stars"
               className={num === 1 ? "current_star" : ""}
@@ -99,6 +91,28 @@ export default function Star({ num }) {
                   : `data:image/svg+xml;utf8,${encodeURIComponent(Grey)}`
               }
             />
+          </div> */}
+          <Image
+            src={Assets?.Scene22?.sprites[2]}
+            alt="txt"
+            id="fadeup"
+            className="Progress_Bar"
+          />
+          <Image
+            src={Assets?.Scene22?.sprites[3]}
+            alt="txt"
+            id="fadeup"
+            className="Progress_Bar"
+          />
+
+          <div className="starspos">
+            {[...Array(num)].map((elementInArray, index) => (
+              <Image
+                src={Assets?.Scene22?.sprites[4]}
+                alt=""
+                className="progressBarStars"
+              />
+            ))}
           </div>
         </div>
       )}

@@ -387,12 +387,15 @@
   position: fixed;
   left: 15%;
   bottom: 10%;
-  width: 30%;
-  height: 15%;
+  width: 33%;
+  height: 8%;
+  border-radius: 30pt;
   z-index: 999;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #f1eac3;
+  border: 8px solid #efe8e1;
 }
 
 .Game2_hen {
@@ -629,7 +632,7 @@
   height: 80%;
 }
 
-#star_wrap1 {
+.star_wrap1 {
   display: flex;
   width: 22%;
   height: 8.5%;
@@ -671,7 +674,7 @@
 }
 .Progress_Bar {
   position: fixed;
-  z-index: 999;
+  z-index: 5;
   right: 2%;
   top: 5%;
   width: 24%;
@@ -693,4 +696,35 @@
 .bat_Foreground-div,
 .frog_Foreground-div {
   display: none;
+}
+
+.progressBarStars {
+  position: relative;
+  z-index: 20;
+  margin-left: 0.8%;
+  height: 102%;
+  animation-duration: 0.5s;
+  animation-name: animate-pop;
+  animation-timing-function: cubic-bezier(0.26, 0.53, 0.74, 1.48);
+}
+
+.starspos {
+  top: 6.5%;
+  left: 75.4%;
+  height: 7%;
+  position: fixed;
+  z-index: 15;
+  width: 23%;
+}
+
+@keyframes animate-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.5, 0.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
 }

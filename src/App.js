@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Intro from "./Scenes/intro/Intro";
 import GameContainer from "./utils/GameContainer";
 import Router from "./utils/Router";
@@ -13,16 +13,20 @@ import Game2Explain from "./Scenes/Game2Screen/Game2Explain";
 import WellDone from "./Scenes/WellDone/WellDone";
 import WellDone1 from "./Scenes/WellDone/WellDone1";
 import Star from "./Scenes/Game2Screen/progressBar";
+import { SceneContext } from "./contexts/SceneContext";
 
 function App() {
   const { Loading } = useLoadAsset(IntroMap);
+  const { SceneId, Assets } = useContext(SceneContext);
+
   const [Load, setLoad] = useState(true);
   const [mute, setmute] = useState(false);
   const [BG_sound, setBG_sound] = useState(null);
   const [icon1, seticon1] = useState(null);
   const [icon2, seticon2] = useState(null);
   const [count, setCount] = useState(0);
-
+  // const [playBtn, setplayBtn] = useState(0);
+  const [playing, setplaying] = useState(false);
   useEffect(() => {
     setTimeout(() => {
       setLoad(false);
@@ -37,10 +41,11 @@ function App() {
   };
 
   useEffect(() => {
-    if (BG_sound !== null) {
+    if (BG_sound !== null && SceneId !== "/" && playing === false) {
+      setplaying(true);
       BG_sound?.play();
     }
-  }, [BG_sound]);
+  }, [BG_sound, SceneId]);
 
   useEffect(() => {
     if (BG_sound) {
@@ -60,23 +65,27 @@ function App() {
 
   return (
     <GameContainer>
-      <Star num={count} />
-      {!mute && (
+      {!mute && SceneId !== "/" && (
         <img
           src={`data:image/svg+xml;utf8,${encodeURIComponent(icon1)}`}
           alt=""
           className="mute_btn"
           onClick={toggleMute}
+          // style={{ display: playBtn === 1 ? "block" : "none" }}
         />
       )}
-      {mute && (
+      {mute && SceneId !== "/" && (
         <img
           src={`data:image/svg+xml;utf8,${encodeURIComponent(icon2)}`}
           alt=""
           className="mute_btn"
           onClick={toggleMute}
+          // style={{ display: playBtn === 1 ? "block" : "none" }}
         />
       )}{" "}
+      <Router sceneId="/Star">
+        <Intro count={count} />
+      </Router>
       <Router sceneId="/">
         <Intro />
       </Router>

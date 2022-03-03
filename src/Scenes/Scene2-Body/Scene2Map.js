@@ -5,9 +5,7 @@ const lottieUrl = "internal/lottie/";
 const IntroMap = {
   id: "Scene2",
 
-  Bg: `${imgUrl}Scene2.svg`,
-
-  sprites: [`${imgUrl}Skip_Button.svg`],
+  sprites: [`${imgUrl}Skip_Button.svg`, `${imgUrl}Scene2.svg`],
 
   sounds: [`${soundUrl}02.mp3`],
 

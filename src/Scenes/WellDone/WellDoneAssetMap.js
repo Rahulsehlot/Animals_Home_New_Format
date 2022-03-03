@@ -5,12 +5,11 @@ const lottieUrl = "internal/lottie/";
 const IntroMap = {
   id: "wellDone",
 
-  Bg: `${imgUrl}SB_30_Well_done_BG.svg`,
-
   sprites: [
     `${imgUrl}Well_done_Elephant_baby.svg`,
     `${imgUrl}Next_Button.svg`,
     `${imgUrl}replay_Button.svg`,
+    `${imgUrl}SB_30_Well_done_BG.svg`,
   ],
 
   sounds: [
@@ -19,7 +18,7 @@ const IntroMap = {
     `${soundUrl}Replay_Common_in_English.mp3`,
   ],
 
-  lottie: [`${lottieUrl}well_done.json`, `${lottieUrl}welldone_animation.json`],
+  lottie: [],
 };
 
 export default IntroMap;
