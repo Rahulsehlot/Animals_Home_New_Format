@@ -11,6 +11,9 @@ const IntroMap = {
     `${imgUrl}progress_bar.svg`,
     `${imgUrl}progress_bar_02.svg`,
     `${imgUrl}progress_on.svg`,
+    `${imgUrl}character_container.svg`,
+    `${imgUrl}icon.svg`,
+    `${imgUrl}Artboard.svg`,
   ],
 
   sounds: [
@@ -35,10 +38,6 @@ const IntroMap = {
     `${lottieUrl}Camel_eats.json`,
     `${lottieUrl}Bat_eats.json`,
     `${lottieUrl}Owl_eats.json`,
-    `${lottieUrl}Scene_01.json`,
-    `${lottieUrl}Scene_03.json`,
-    `${lottieUrl}well_done.json`,
-    `${lottieUrl}welldone_animation.json`,
   ],
 };
 

@@ -8,15 +8,46 @@ import Game2 from "./Scenes/Game2Screen/Game2";
 import { AudioPlayer2 } from "./utils/loadAudio";
 import { LoadImage } from "./utils/loadImage";
 import useLoadAsset from "./utils/useLoadAsset";
-import IntroMap from "./Scenes/Game2Screen/Game2AssetMap";
 import Game2Explain from "./Scenes/Game2Screen/Game2Explain";
 import WellDone from "./Scenes/WellDone/WellDone";
 import WellDone1 from "./Scenes/WellDone/WellDone1";
 import Star from "./Scenes/Game2Screen/progressBar";
 import { SceneContext } from "./contexts/SceneContext";
+import IntroMap from "./Scenes/intro/AssetMap";
+import WellDoneMap from "./Scenes/WellDone/WellDoneAssetMap";
+import LionLottieMap from "./Scenes/Game2Screen/LionLottieMap";
+import DogMap from "./Scenes/Game2Screen/DogMap";
+import RabbitMap from "./Scenes/Game2Screen/RabbitMap";
+import FrogMap from "./Scenes/Game2Screen/FrogMap";
+import SparrowMap from "./Scenes/Game2Screen/SparrowMap";
+import BearMap from "./Scenes/Game2Screen/BearMap";
+import PigMap from "./Scenes/Game2Screen/PigMap";
+import HenMap from "./Scenes/Game2Screen/HenMap";
+import SheepMap from "./Scenes/Game2Screen/SheepMap";
+import CowMap from "./Scenes/Game2Screen/CowMap";
+import MonkeyMap from "./Scenes/Game2Screen/MonkeyMap";
+import HorseLottieMap from "./Scenes/Game2Screen/HorseLottieMap";
+import DogLottieMap from "./Scenes/Game2Screen/DogLottieMap";
+import RabbitLottieMap from "./Scenes/Game2Screen/RabbitLottieMap";
+import FrogLottieMap from "./Scenes/Game2Screen/FrogLottieMap";
+import SparrowLottieMap from "./Scenes/Game2Screen/SparrowLottieMap";
+import BearLottieMap from "./Scenes/Game2Screen/BearLottieMap";
+import PigLottieMap from "./Scenes/Game2Screen/PigLottieMap";
+import HenLottieMap from "./Scenes/Game2Screen/HenLottieMap";
+import SheepLottieMap from "./Scenes/Game2Screen/SheepLottieMap";
+import CowLottieMap from "./Scenes/Game2Screen/CowLottieMap";
+import MonkeyLottieMap from "./Scenes/Game2Screen/MonkeyLottieMap";
+import CamelMap from "./Scenes/Game2Screen/CamelMap";
+import CamelLottieMap from "./Scenes/Game2Screen/CamelLottieMap";
+import BatMap from "./Scenes/Game2Screen/BatMap";
+import BatLottieMap from "./Scenes/Game2Screen/BatLottieMap";
+import OwlMap from "./Scenes/Game2Screen/OwlMap";
+import OwlLottieMap from "./Scenes/Game2Screen/OwlLottieMap";
+import HorseMap from "./Scenes/Game2Screen/HorseMap";
 
 function App() {
   const { Loading } = useLoadAsset(IntroMap);
+
   const { SceneId, Assets } = useContext(SceneContext);
 
   const [Load, setLoad] = useState(true);
@@ -99,15 +130,17 @@ function App() {
           NextSceneId={"/Lion_Game2_Explain"}
           count={count}
           setCount={setCount}
+          preLoad={LionLottieMap}
         />
       </Router>
       <Router sceneId="/Lion_Game2_Explain">
         <Game2Explain
-          sceneName={"lion"}
+          sceneName={"lionLottie"}
           NextSceneId={"/Dog_Game2"}
           count={count}
           setCount={setCount}
           lottieID={0}
+          preLoad={DogMap}
         />
       </Router>
       <Router sceneId="/Dog_Game2">
@@ -117,15 +150,17 @@ function App() {
           NextSceneId={"/Dog_Game2_Explain"}
           count={count}
           setCount={setCount}
+          preLoad={DogLottieMap}
         />
       </Router>
       <Router sceneId="/Dog_Game2_Explain">
         <Game2Explain
-          sceneName={"dog"}
+          sceneName={"dogLottie"}
           NextSceneId={"/Horse_Game2"}
           count={count}
           setCount={setCount}
           lottieID={1}
+          preLoad={HorseMap}
         />
       </Router>
       <Router sceneId="/Horse_Game2">
@@ -135,15 +170,17 @@ function App() {
           NextSceneId={"/Horse_Game2_Explain"}
           count={count}
           setCount={setCount}
+          preLoad={HorseLottieMap}
         />
       </Router>
       <Router sceneId="/Horse_Game2_Explain">
         <Game2Explain
-          sceneName={"horse"}
+          sceneName={"horseLottie"}
           NextSceneId={"/Rabbit_Game2"}
           count={count}
           setCount={setCount}
           lottieID={2}
+          preLoad={RabbitMap}
         />
       </Router>
       <Router sceneId="/Rabbit_Game2">
@@ -153,15 +190,17 @@ function App() {
           NextSceneId={"/Rabbit_Game2_Explain"}
           count={count}
           setCount={setCount}
+          preLoad={RabbitLottieMap}
         />
       </Router>
       <Router sceneId="/Rabbit_Game2_Explain">
         <Game2Explain
-          sceneName={"rabbit"}
+          sceneName={"rabbitLottie"}
           NextSceneId={"/Frog_Game2"}
           count={count}
           setCount={setCount}
           lottieID={3}
+          preLoad={FrogMap}
         />
       </Router>
       <Router sceneId="/Frog_Game2">
@@ -171,15 +210,17 @@ function App() {
           NextSceneId={"/Frog_Game2_Explain"}
           count={count}
           setCount={setCount}
+          preLoad={FrogLottieMap}
         />
       </Router>
       <Router sceneId="/Frog_Game2_Explain">
         <Game2Explain
-          sceneName={"frog"}
+          sceneName={"frogLottie"}
           NextSceneId={"/WellDone1"}
           count={count}
           setCount={setCount}
           lottieID={4}
+          preLoad={WellDoneMap}
         />
       </Router>
       <Router sceneId="/Sparrow_Game2">
@@ -189,15 +230,17 @@ function App() {
           NextSceneId={"/Sparrow_Game2_Explain"}
           count={count}
           setCount={setCount}
+          preLoad={SparrowLottieMap}
         />
       </Router>
       <Router sceneId="/Sparrow_Game2_Explain">
         <Game2Explain
-          sceneName={"sparrow"}
+          sceneName={"sparrowLottie"}
           NextSceneId={"/Bear_Game2"}
           count={count}
           setCount={setCount}
           lottieID={5}
+          preLoad={BearMap}
         />
       </Router>
       <Router sceneId="/Bear_Game2">
@@ -207,15 +250,17 @@ function App() {
           NextSceneId={"/Bear_Game2_Explain"}
           count={count}
           setCount={setCount}
+          preLoad={BearLottieMap}
         />
       </Router>
       <Router sceneId="/Bear_Game2_Explain">
         <Game2Explain
-          sceneName={"bear"}
+          sceneName={"bearLottie"}
           NextSceneId={"/Pig_Game2"}
           count={count}
           setCount={setCount}
           lottieID={6}
+          preLoad={PigMap}
         />
       </Router>
       <Router sceneId="/Pig_Game2">
@@ -225,15 +270,17 @@ function App() {
           NextSceneId={"/Pig_Game2_Explain"}
           count={count}
           setCount={setCount}
+          preLoad={PigLottieMap}
         />
       </Router>
       <Router sceneId="/Pig_Game2_Explain">
         <Game2Explain
-          sceneName={"pig"}
+          sceneName={"pigLottie"}
           NextSceneId={"/Hen_Game2"}
           count={count}
           setCount={setCount}
           lottieID={7}
+          preLoad={HenMap}
         />
       </Router>
       <Router sceneId="/Hen_Game2">
@@ -243,15 +290,17 @@ function App() {
           NextSceneId={"/Hen_Game2_Explain"}
           count={count}
           setCount={setCount}
+          preLoad={HenLottieMap}
         />
       </Router>
       <Router sceneId="/Hen_Game2_Explain">
         <Game2Explain
-          sceneName={"hen"}
+          sceneName={"henLottie"}
           NextSceneId={"/Sheep_Game2"}
           count={count}
           setCount={setCount}
           lottieID={8}
+          preLoad={SheepMap}
         />
       </Router>
       <Router sceneId="/Sheep_Game2">
@@ -261,15 +310,17 @@ function App() {
           NextSceneId={"/Sheep_Game2_Explain"}
           count={count}
           setCount={setCount}
+          preLoad={SheepLottieMap}
         />
       </Router>
       <Router sceneId="/Sheep_Game2_Explain">
         <Game2Explain
-          sceneName={"sheep"}
-          NextSceneId={"/WellDone2"}
+          sceneName={"sheepLottie"}
+          NextSceneId={"/WellDone3"}
           count={count}
           setCount={setCount}
           lottieID={9}
+          preLoad={CowMap}
         />
       </Router>
       <Router sceneId="/Cow_Game2">
@@ -279,15 +330,17 @@ function App() {
           NextSceneId={"/Cow_Game2_Explain"}
           count={count}
           setCount={setCount}
+          preLoad={CowLottieMap}
         />
       </Router>
       <Router sceneId="/Cow_Game2_Explain">
         <Game2Explain
-          sceneName={"cow"}
+          sceneName={"cowLottie"}
           NextSceneId={"/Monkey_Game2"}
           count={count}
           setCount={setCount}
           lottieID={10}
+          preLoad={MonkeyMap}
         />
       </Router>
       <Router sceneId="/Monkey_Game2">
@@ -297,15 +350,17 @@ function App() {
           NextSceneId={"/Monkey_Game2_Explain"}
           count={count}
           setCount={setCount}
+          preLoad={MonkeyLottieMap}
         />
       </Router>
       <Router sceneId="/Monkey_Game2_Explain">
         <Game2Explain
-          sceneName={"monkey"}
+          sceneName={"monkeyLottie"}
           NextSceneId={"/Camel_Game2"}
           count={count}
           setCount={setCount}
           lottieID={11}
+          preLoad={CamelMap}
         />
       </Router>
       <Router sceneId="/Camel_Game2">
@@ -315,15 +370,17 @@ function App() {
           NextSceneId={"/Camel_Game2_Explain"}
           count={count}
           setCount={setCount}
+          preLoad={CamelLottieMap}
         />
       </Router>
       <Router sceneId="/Camel_Game2_Explain">
         <Game2Explain
-          sceneName={"camel"}
+          sceneName={"camelLottie"}
           NextSceneId={"/Bat_Game2"}
           count={count}
           setCount={setCount}
           lottieID={12}
+          preLoad={BatMap}
         />
       </Router>
       <Router sceneId="/Bat_Game2">
@@ -333,15 +390,17 @@ function App() {
           NextSceneId={"/Bat_Game2_Explain"}
           count={count}
           setCount={setCount}
+          preLoad={BatLottieMap}
         />
       </Router>
       <Router sceneId="/Bat_Game2_Explain">
         <Game2Explain
-          sceneName={"bat"}
+          sceneName={"batLottie"}
           NextSceneId={"/Owl_Game2"}
           count={count}
           setCount={setCount}
           lottieID={13}
+          preLoad={OwlMap}
         />
       </Router>
       <Router sceneId="/Owl_Game2">
@@ -351,25 +410,35 @@ function App() {
           NextSceneId={"/Owl_Game2_Explain"}
           count={count}
           setCount={setCount}
+          preLoad={OwlLottieMap}
         />
       </Router>
       <Router sceneId="/Owl_Game2_Explain">
         <Game2Explain
-          sceneName={"owl"}
+          sceneName={"owlLottie"}
           NextSceneId={"/WellDone"}
           count={count}
           setCount={setCount}
           lottieID={14}
+          preLoad={WellDoneMap}
         />
       </Router>
       <Router sceneId="/WellDone">
         <WellDone />
       </Router>
       <Router sceneId="/WellDone1">
-        <WellDone1 NextSceneId={"/Sparrow_Game2"} />
+        <WellDone1
+          NextSceneId={"/Sparrow_Game2"}
+          scenename={"wellDone"}
+          preLoad={SparrowMap}
+        />
       </Router>
-      <Router sceneId="/WellDone2">
-        <WellDone1 NextSceneId={"/Cow_Game2"} />
+      <Router sceneId="/WellDone3">
+        <WellDone1
+          NextSceneId={"/Cow_Game2"}
+          scenename={"wellDone"}
+          preLoad={CowMap}
+        />
       </Router>
     </GameContainer>
   );

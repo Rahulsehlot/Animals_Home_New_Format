@@ -2,7 +2,7 @@ const imgUrl = "internal/images/";
 const soundUrl = "internal/sounds/";
 const lottieUrl = "internal/lottie/";
 
-const IntroMap = {
+const WellDoneMap = {
   id: "wellDone",
 
   sprites: [
@@ -18,7 +18,7 @@ const IntroMap = {
     `${soundUrl}Replay_Common_in_English.mp3`,
   ],
 
-  lottie: [],
+  lottie: [`${lottieUrl}well_done.json`, `${lottieUrl}welldone_animation.json`],
 };
 
-export default IntroMap;
+export default WellDoneMap;

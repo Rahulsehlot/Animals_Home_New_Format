@@ -2,7 +2,9 @@
   position: fixed;
   bottom: 0;
   left: 5%;
+  height: 70%;
   width: 40%;
+  overflow: hidden;
 }
 
 .welldone_lottie_container {

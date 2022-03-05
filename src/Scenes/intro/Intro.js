@@ -3,14 +3,17 @@ import { SceneContext } from "../../contexts/SceneContext";
 import Scenes from "../../utils/Scenes";
 import useLoadAsset from "../../utils/useLoadAsset";
 import PlayAudio from "../../utils/playAudio";
-import IntroMap from "./AssetMap";
 import lottie from "lottie-web";
-
 import "../../styles/intro.css";
 import Image from "../../utils/elements/Image";
+import IntroMap from "../Scene2-Body/Scene2Map";
+import { BGContext } from "../../contexts/Background";
 
 export default function Intro({ setplayBtn, playBtn }) {
-  const { Loading } = useLoadAsset(IntroMap);
+  const Next = useLoadAsset(IntroMap);
+  const { Bg, setBg } = useContext(BGContext);
+  const [Switch, setSwitch] = useState(false);
+
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
     useContext(SceneContext);
   const { intro } = Assets;
@@ -20,7 +23,9 @@ export default function Intro({ setplayBtn, playBtn }) {
   const Ref = useRef(null);
 
   useEffect(() => {
-    if (Assets && Ref.current && !Loading) {
+    setBg(intro?.Bg);
+
+    if (Assets && Ref.current) {
       try {
         lottie.loadAnimation({
           name: "placeholder",
@@ -28,28 +33,26 @@ export default function Intro({ setplayBtn, playBtn }) {
           renderer: "svg",
           loop: true,
           autoplay: true,
-          animationData: Assets?.Scene22?.lottie[15],
+          animationData: Assets?.intro?.lottie[0],
         });
       } catch (err) {
         console.log(err);
       }
     }
-  }, [Assets, Loading]);
+  }, [Assets]);
 
-  console.log(playBtn);
-  console.log(Assets?.Intro?.lottie[0]);
+  useEffect(() => {
+    if (Switch && !Next.Loading) {
+      setSceneId("/Scene2");
+    }
+  }, [Next.Loading, Switch]);
+
   return (
     <Scenes
+      Bg={Bg}
       sprites={
         <>
           {/* Title */}
-
-          <Image
-            src={intro?.sprites[2]}
-            alt="txt"
-            id="fadeup"
-            className="intro_BG"
-          />
 
           <Image
             src={intro?.sprites[0]}
@@ -65,15 +68,13 @@ export default function Intro({ setplayBtn, playBtn }) {
             id="fadeup"
             onClick={() => {
               SetplayBtnHide(1);
+
               // setplayBtn(1);
               if (playing === false) {
                 setplaying(true);
                 Assets?.intro?.sounds[0]?.play();
                 Assets?.intro?.sounds[0].on("end", () => {
-                  const timeout = setTimeout(() => {
-                    setplaying(false);
-                    setSceneId("/Scene2");
-                  }, 1500);
+                  setSwitch(true);
                 });
               }
             }}

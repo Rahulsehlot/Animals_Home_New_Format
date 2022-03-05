@@ -1,4 +1,4 @@
-import { useContext, useRef, useEffect } from "react";
+import { useContext, useRef, useEffect, useState } from "react";
 import { SceneContext } from "../../contexts/SceneContext";
 import Scenes from "../../utils/Scenes";
 import useLoadAsset from "../../utils/useLoadAsset";
@@ -7,9 +7,15 @@ import IntroMap from "./Scene2Map";
 import lottie from "lottie-web";
 import "../../styles/Scene2.css";
 import Image from "../../utils/elements/Image";
+import LionMap from "../Game2Screen/LionMap";
+import { BGContext } from "../../contexts/Background";
 
 export default function Scene2({ scenename }) {
-  const { Loading } = useLoadAsset(IntroMap);
+  const Next = useLoadAsset(LionMap);
+  const [Switch, setSwitch] = useState(false);
+
+  const { Bg, setBg } = useContext(BGContext);
+  // const [Switch, setSwitch] = useState(false);
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
     useContext(SceneContext);
   const { intro } = Assets;
@@ -21,16 +27,19 @@ export default function Scene2({ scenename }) {
   };
 
   useEffect(() => {
-    if (Assets?.Scene2 && !Loading) {
+    if (Assets?.Scene2) {
       Assets?.Scene2?.sounds[0]?.play();
       Assets?.Scene2?.sounds[0].on("end", () => {
-        setSceneId("/Lion_Game2");
+        // setSceneId("/Lion_Game2");
+        setSwitch(true);
       });
     }
-  }, [Assets, Loading, isLoading]);
+  }, []);
 
   useEffect(() => {
-    if (Assets && Ref.current && !Loading) {
+    setBg(Assets?.Scene2?.Bg);
+
+    if (Assets && Ref.current) {
       try {
         lottie.loadAnimation({
           name: "placeholder",
@@ -38,32 +47,32 @@ export default function Scene2({ scenename }) {
           renderer: "svg",
           loop: true,
           autoplay: true,
-          animationData: Assets?.Scene22?.lottie[16],
+          animationData: Assets?.Scene2?.lottie[0],
         });
       } catch (err) {
         console.log(err);
       }
     }
-  }, [Assets, Loading]);
+  }, [Assets]);
 
   const forward = () => {
-    stop_all_sounds();
-    setSceneId("/Lion_Game2");
+    // setSceneId("/Lion_Game2");
+    setSwitch(true);
   };
+  useEffect(() => {
+    if (Switch && !Next.Loading) {
+      setSceneId("/Lion_Game2");
+      stop_all_sounds();
+    }
+  }, [Next.Loading, Switch]);
 
   return (
     <Scenes
+      Bg={Bg}
       sprites={
         <>
           {/* Title */}
-          <Image
-            src={Assets?.Scene2?.sprites[1]}
-            alt="txt"
-            id="fadeup"
-            className="intro_BG"
-          />
 
-          <div ref={Ref} id="fadeup" className="Scene2_lottie_container"></div>
           <Image
             src={Assets?.Scene2?.sprites[0]}
             alt="txt"
@@ -72,6 +81,7 @@ export default function Scene2({ scenename }) {
             onClick={forward}
             style={{ cursor: "pointer" }}
           />
+          <div ref={Ref} id="fadeup" className="Scene2_lottie_container"></div>
         </>
       }
     />

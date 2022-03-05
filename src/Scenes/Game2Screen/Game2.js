@@ -7,7 +7,7 @@ import IntroMap from "./Game2AssetMap";
 import lottie from "lottie-web";
 import "../../styles/Game2.css";
 import Image from "../../utils/elements/Image";
-import LionMap from "./LionMap";
+import LionLottieMap from "./LionLottieMap";
 import DogMap from "./DogMap";
 import HorseMap from "./HorseMap";
 import RabbitMap from "./RabbitMap";
@@ -24,11 +24,12 @@ import BatMap from "./BatMap";
 import OwlMap from "./OwlMap";
 import Star from "./progressBar";
 import { counter } from "./Helper_function";
+import { BGContext } from "../../contexts/Background";
 
 function get_tracer_obj(type) {
   switch (type) {
     case "lion":
-      return LionMap;
+      return LionLottieMap;
       break;
     case "dog":
       return DogMap;
@@ -74,61 +75,67 @@ export default function Game2({
   NextSceneId,
   count,
   setCount,
+  preLoad,
 }) {
-  const { Bg, Loading } = useLoadAsset(get_tracer_obj(sceneName));
+  const Next = useLoadAsset(preLoad);
+  const [Switch, setSwitch] = useState(false);
+
+  // const { Bg, Loading } = useLoadAsset(get_tracer_obj(sceneName));
   // const [Loading, setLoading] = useState(true);
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
     useContext(SceneContext);
   const [playing, setplaying] = useState(false);
   const [correct, setCorrect] = useState(0);
   const [wrong, setWrong] = useState(0);
+  const [imgID, setImgID] = useState(null);
   const { intro } = Assets;
 
   const Ref = useRef(null);
 
   useEffect(() => {
-    if (Assets?.Scene22 && !Loading) {
-      Assets?.Scene22?.sounds[2]?.play();
-      Assets?.Scene22?.sounds[2].on("end", () => {});
+    if (count === 5) {
+      setCount(0);
     }
-  }, [Assets, Loading, isLoading]);
 
-  console.log(Loading);
+    setImgID(sceneName);
+    if (Assets?.lion) {
+      Assets?.lion?.sounds[0]?.play();
+      Assets?.lion?.sounds[0].on("end", () => {});
+    }
+  }, []);
 
   const playCorrectSound = () => {
-    Assets?.Scene22?.sounds[2]?.stop();
+    Assets?.lion?.sounds[0]?.stop();
     counter(count, setCount);
-    if (Assets?.Scene22 && !Loading) {
+    if (Assets?.lion) {
       setplaying(true);
-      Assets?.Scene22?.sounds[0]?.play();
-      Assets?.Scene22?.sounds[0]?.on("end", () => {
+      Assets?.lion?.sounds[2]?.play();
+      Assets?.lion?.sounds[2]?.on("end", () => {
         setplaying(false);
       });
     }
   };
   const playWrongSound = () => {
-    if (Assets?.Scene22 && !Loading) {
+    if (Assets?.lion) {
       setplaying(true);
-      Assets?.Scene22?.sounds[1]?.play();
-      Assets?.Scene22?.sounds[1]?.on("end", () => {
+      Assets?.lion?.sounds[1]?.play();
+      Assets?.lion?.sounds[1]?.on("end", () => {
         setplaying(false);
       });
     }
   };
 
   const Option1 = () => {
-    console.log("Correct");
     if (playing === false) {
       playCorrectSound();
       setCorrect(1);
       const timeout = setTimeout(() => {
-        setSceneId(NextSceneId);
+        setSwitch(true);
       }, 1500);
     }
   };
 
   const Option2 = () => {
-    console.log("Wrong");
     if (playing === false) {
       playWrongSound();
       setWrong(1);
@@ -141,20 +148,29 @@ export default function Game2({
     }, 3000);
   }, [wrong]);
 
+  useEffect(() => {
+    if (Switch && !Next.Loading) {
+      setSceneId(NextSceneId);
+    }
+  }, [Next.Loading, Switch]);
+
+  console.log(sceneName);
+  console.log(Assets);
+
   return (
     <Scenes
       sprites={
         <>
           {/* Title */}
           <Image
-            src={Assets?.[sceneName]?.sprites[2]}
+            src={Assets?.[imgID]?.sprites[0]}
             alt="txt"
             id="fadeup"
             className="Game2_question_img"
           />
 
           <Image
-            src={Assets?.[sceneName]?.sprites[0]}
+            src={Assets?.lion?.sprites[5]}
             alt="txt"
             id="fadeup"
             className="Game2_Character_Container"
@@ -162,7 +178,7 @@ export default function Game2({
 
           <div className="Character">
             <Image
-              src={Assets?.[sceneName]?.sprites[4]}
+              src={Assets?.[sceneName]?.sprites[1]}
               alt="txt"
               id="fadeup"
               className="Character_img"
@@ -171,7 +187,7 @@ export default function Game2({
 
           <div className="Character_Name">
             <Image
-              src={Assets?.[sceneName]?.sprites[5]}
+              src={Assets?.[sceneName]?.sprites[2]}
               alt="txt"
               id="fadeup"
               className="CharacterName_img"
@@ -186,7 +202,7 @@ export default function Game2({
             }}
           ></div>
           <Image
-            src={Assets?.Scene22?.sprites[0]}
+            src={Assets?.Scene2?.sprites[4]}
             alt="txt"
             id="fadeup"
             className="Option1Green"
@@ -202,7 +218,7 @@ export default function Game2({
             style={{ left: position === 1 ? "51%" : "0%" }}
           ></div>
           <Image
-            src={Assets?.Scene22?.sprites[1]}
+            src={Assets?.Scene2?.sprites[5]}
             alt="txt"
             id="fadeup"
             className="Option1Red"
@@ -213,7 +229,7 @@ export default function Game2({
           />
 
           <Image
-            src={Assets?.[sceneName]?.sprites[1]}
+            src={Assets?.lion?.sprites[6]}
             alt="txt"
             id="fadeup"
             className="Option1NameContainer"
@@ -226,7 +242,7 @@ export default function Game2({
             }}
           >
             <Image
-              src={Assets?.[sceneName]?.sprites[6]}
+              src={Assets?.[sceneName]?.sprites[3]}
               alt="txt"
               id="fadeup"
               className="Option1Name_img"
@@ -234,7 +250,7 @@ export default function Game2({
           </div>
 
           <Image
-            src={Assets?.[sceneName]?.sprites[1]}
+            src={Assets?.lion?.sprites[6]}
             alt="txt"
             id="fadeup"
             className="Option2NameContainer"
@@ -247,7 +263,7 @@ export default function Game2({
             }}
           >
             <Image
-              src={Assets?.[sceneName]?.sprites[7]}
+              src={Assets?.[sceneName]?.sprites[4]}
               alt="txt"
               id="fadeup"
               className="Option2Name_img"

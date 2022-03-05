@@ -21,8 +21,6 @@ export default function Star({ num }) {
     }, 300);
   }, []);
 
-  console.log(num);
-
   return (
     <>
       {!isLoading && (
@@ -93,13 +91,13 @@ export default function Star({ num }) {
             />
           </div> */}
           <Image
-            src={Assets?.Scene22?.sprites[2]}
+            src={Assets?.Scene2?.sprites[1]}
             alt="txt"
             id="fadeup"
             className="Progress_Bar"
           />
           <Image
-            src={Assets?.Scene22?.sprites[3]}
+            src={Assets?.Scene2?.sprites[2]}
             alt="txt"
             id="fadeup"
             className="Progress_Bar"
@@ -108,7 +106,7 @@ export default function Star({ num }) {
           <div className="starspos">
             {[...Array(num)].map((elementInArray, index) => (
               <Image
-                src={Assets?.Scene22?.sprites[4]}
+                src={Assets?.Scene2?.sprites[3]}
                 alt=""
                 className="progressBarStars"
               />

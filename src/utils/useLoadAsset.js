@@ -16,14 +16,16 @@ export default function useLoadAsset(Map) {
 
   useEffect(() => {
     const newSceneData = {
+      Bg: "",
       sounds: [],
       sprites: [],
     };
 
     const loadImage = new Promise((resolve, reject) => {
-      LoadImage(Map?.Bg)
+      LoadImage(Map.Bg)
         .then((v) => {
-          setBg(v);
+          // setBg(v)
+          newSceneData["Bg"] = v;
           resolve(v);
         })
         .catch((err) => {
@@ -32,7 +34,7 @@ export default function useLoadAsset(Map) {
     });
 
     const loadAudio = Promise.all(
-      Map?.sounds?.map((v) => {
+      Map.sounds.map((v) => {
         return AudioPlayer(v);
       })
     );
@@ -46,7 +48,7 @@ export default function useLoadAsset(Map) {
       });
 
     const loadSprites = Promise.all(
-      Map?.sprites?.map((v) => {
+      Map.sprites.map((v) => {
         return LoadImage(v);
       })
     );
@@ -60,7 +62,7 @@ export default function useLoadAsset(Map) {
       });
 
     const loadLottie = Promise.all(
-      Map?.lottie?.map((v) => {
+      Map.lottie.map((v) => {
         return LoadJson(v);
       })
     );
@@ -73,7 +75,7 @@ export default function useLoadAsset(Map) {
         console.log(err);
       });
 
-    setAssets({ ...Assets, [Map?.id]: newSceneData });
+    setAssets({ ...Assets, [Map.id]: newSceneData });
 
     Promise.all([loadImage, loadAudio, loadSprites, loadLottie])
       .then((v) => {

@@ -5,15 +5,13 @@ const lottieUrl = "internal/lottie/";
 const IntroMap = {
   id: "intro",
 
-  sprites: [
-    `${imgUrl}Intro-Text.svg`,
-    `${imgUrl}btn.svg`,
-    `${imgUrl}Intro_BG.svg`,
-  ],
+  Bg: `${imgUrl}Intro_BG.svg`,
+
+  sprites: [`${imgUrl}Intro-Text.svg`, `${imgUrl}btn.svg`],
 
   sounds: [`${soundUrl}01.mp3`],
 
-  lottie: [],
+  lottie: [`${lottieUrl}Scene_01.json`],
 };
 
 export default IntroMap;

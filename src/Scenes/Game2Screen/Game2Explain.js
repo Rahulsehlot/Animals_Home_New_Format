@@ -73,9 +73,14 @@ export default function Game2Explain({
   count,
   setCount,
   lottieID,
+  preLoad,
 }) {
-  const { Bg, Loading } = useLoadAsset(get_tracer_obj(sceneName));
+  const Next = useLoadAsset(preLoad);
+  const [Switch, setSwitch] = useState(false);
+
+  // const { Bg, Loading } = useLoadAsset(get_tracer_obj(sceneName));
   // const [Loading, setLoading] = useState(true);
+
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
     useContext(SceneContext);
   const [playing, setplaying] = useState(false);
@@ -83,20 +88,17 @@ export default function Game2Explain({
   const { intro } = Assets;
 
   const Ref = useRef(null);
-  console.log(SceneId);
   useEffect(() => {
-    if (Assets?.[sceneName] && !Loading) {
+    if (Assets?.[sceneName]) {
       Assets?.[sceneName]?.sounds[0]?.play();
-      Assets?.[sceneName]?.sounds[0].on("end", () => {
-        setSceneId(NextSceneId);
-        console.log(NextSceneId);
-        console.log(count);
+      Assets?.[sceneName]?.sounds[0]?.on("end", () => {
+        setSwitch(true);
       });
     }
-  }, [Assets, Loading, isLoading]);
+  }, []);
 
   useEffect(() => {
-    if (Assets && Ref.current && !Loading) {
+    if (Assets && Ref.current) {
       try {
         lottie.loadAnimation({
           name: "placeholder",
@@ -104,15 +106,20 @@ export default function Game2Explain({
           renderer: "svg",
           loop: true,
           autoplay: true,
-          animationData: Assets?.Scene22?.lottie[lottieID],
+          animationData: Assets?.[sceneName]?.lottie[0],
         });
       } catch (err) {
         console.log(err);
       }
     }
-  }, [Assets, Loading]);
+  }, []);
 
-  console.log(NextSceneId);
+  useEffect(() => {
+    if (Switch && !Next.Loading) {
+      setSceneId(NextSceneId);
+    }
+  }, [Next.Loading, Switch]);
+
   return (
     <Scenes
       sprites={
@@ -121,35 +128,35 @@ export default function Game2Explain({
           <Star num={count} />
 
           <Image
-            src={Assets?.[sceneName]?.sprites[3]}
+            src={Assets?.[sceneName]?.sprites[0]}
             alt="txt"
             id="fadeup"
             className="Game2_question_img"
           />
 
           <Image
-            src={Assets?.[sceneName]?.sprites[8]}
+            src={Assets?.[sceneName]?.sprites[1]}
             alt="txt"
             id="fadeup"
             className={"Game2_animal_food_" + sceneName}
           />
 
           <Image
-            src={Assets?.[sceneName]?.sprites[12]}
+            src={Assets?.[sceneName]?.sprites[4]}
             alt="txt"
             id="fadeup"
             className={"Game2_animal1_food_" + sceneName}
           />
 
           <Image
-            src={Assets?.[sceneName]?.sprites[12]}
+            src={Assets?.[sceneName]?.sprites[5]}
             alt="txt"
             id="fadeup"
             className={"Game2_animal2_food_" + sceneName}
           />
 
           <Image
-            src={Assets?.[sceneName]?.sprites[13]}
+            src={Assets?.[sceneName]?.sprites[6]}
             alt="txt"
             id="fadeup"
             className={"Game2_animal3_food_" + sceneName}
@@ -159,7 +166,7 @@ export default function Game2Explain({
             <div id="fadeup" className={"animal_text_" + sceneName}></div>
           ) : (
             <Image
-              src={Assets?.[sceneName]?.sprites[9]}
+              src={Assets?.lionLottie?.sprites[3]}
               alt="txt"
               id="fadeup"
               className={"animal_text_" + sceneName}
@@ -168,7 +175,7 @@ export default function Game2Explain({
 
           <div className={"animal_text_" + sceneName}>
             <Image
-              src={Assets?.[sceneName]?.sprites[10]}
+              src={Assets?.[sceneName]?.sprites[2]}
               alt="txt"
               id="fadeup"
               className="text"
@@ -177,7 +184,7 @@ export default function Game2Explain({
 
           <div className={sceneName + "_Foreground-div"}>
             <Image
-              src={Assets?.[sceneName]?.sprites[11]}
+              src={Assets?.[sceneName]?.sprites[4]}
               alt="txt"
               id="fadeup"
               className="horse_Foreground"

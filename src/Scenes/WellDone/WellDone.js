@@ -6,20 +6,19 @@ import PlayAudio from "../../utils/playAudio";
 import lottie from "lottie-web";
 import "../../styles/Scene2.css";
 import Image from "../../utils/elements/Image";
-import IntroMap from "./WellDoneAssetMap";
 
 export default function WellDone() {
-  const { Loading } = useLoadAsset(IntroMap);
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
     useContext(SceneContext);
   const { intro } = Assets;
   const [playing, setplaying] = useState(false);
+  const [pointerOn, setpointerOn] = useState(false);
 
   const Ref = useRef(null);
   const Ref1 = useRef(null);
 
   useEffect(() => {
-    if (Assets?.wellDone && !Loading) {
+    if (Assets?.wellDone) {
       Assets?.wellDone?.sounds[0]?.play();
       setplaying(true);
       Assets?.wellDone?.sounds[0].on("end", () => {
@@ -27,13 +26,14 @@ export default function WellDone() {
         Assets?.wellDone?.sounds[2]?.play();
         Assets?.wellDone?.sounds[2].on("end", () => {
           setplaying(false);
+          setpointerOn(true);
         });
       });
     }
-  }, [Assets, Loading, isLoading]);
+  }, []);
 
   useEffect(() => {
-    if (Assets && Ref.current && !Loading) {
+    if (Assets && Ref.current) {
       try {
         lottie.loadAnimation({
           name: "placeholder",
@@ -41,30 +41,30 @@ export default function WellDone() {
           renderer: "svg",
           loop: false,
           autoplay: true,
-          animationData: Assets?.Scene22?.lottie[17],
+          animationData: Assets?.wellDone?.lottie[0],
         });
       } catch (err) {
         console.log(err);
       }
     }
-  }, [Assets, Loading]);
+  }, [Assets]);
 
   useEffect(() => {
-    if (Assets && Ref.current && !Loading) {
+    if (Assets && Ref.current) {
       try {
         lottie.loadAnimation({
           name: "placeholder",
           container: Ref1.current,
           renderer: "svg",
-          loop: false,
+          loop: true,
           autoplay: true,
-          animationData: Assets?.Scene22?.lottie[18],
+          animationData: Assets?.wellDone?.lottie[1],
         });
       } catch (err) {
         console.log(err);
       }
     }
-  }, [Assets, Loading]);
+  }, [Assets]);
 
   const forward = () => {
     if (playing === false) {
@@ -96,7 +96,6 @@ export default function WellDone() {
             alt="txt"
             id="fadeup"
             className="trunky_podium"
-            onClick={forward}
           />
 
           <Image
@@ -105,7 +104,7 @@ export default function WellDone() {
             id="fadeup"
             className="next_wellDone"
             onClick={forward}
-            style={{ cursor: "pointer" }}
+            style={{ cursor: pointerOn === true ? "pointer" : "" }}
           />
         </>
       }
