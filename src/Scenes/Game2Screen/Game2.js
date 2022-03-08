@@ -79,6 +79,8 @@ export default function Game2({
 }) {
   const Next = useLoadAsset(preLoad);
   const [Switch, setSwitch] = useState(false);
+  const [secondAudio, setsecondAudio] = useState(false);
+  const [clicked, setClicked] = useState(0);
 
   // const { Bg, Loading } = useLoadAsset(get_tracer_obj(sceneName));
   // const [Loading, setLoading] = useState(true);
@@ -89,37 +91,45 @@ export default function Game2({
   const [wrong, setWrong] = useState(0);
   const [imgID, setImgID] = useState(null);
   const { intro } = Assets;
+  const [sound_1, setsound_1] = useState(null);
 
   const Ref = useRef(null);
 
   useEffect(() => {
+    setsound_1(Assets?.[imgID]?.sounds[0]);
     if (count === 5) {
       setCount(0);
     }
 
     setImgID(sceneName);
     if (Assets?.lion) {
-      Assets?.lion?.sounds[0]?.play();
-      Assets?.lion?.sounds[0].on("end", () => {});
+      Assets?.lion?.sounds[1]?.play();
+      Assets?.lion?.sounds[1]?.on("end", () => {});
     }
   }, []);
+  console.log(sceneName);
 
   const playCorrectSound = () => {
-    Assets?.lion?.sounds[0]?.stop();
+    Assets?.lion?.sounds[1]?.stop();
     counter(count, setCount);
+    if (Assets?.lion) {
+      setplaying(true);
+      Assets?.lion?.sounds[3]?.play();
+      Assets?.lion?.sounds[3]?.on("end", () => {
+        setplaying(false);
+        setSwitch(true);
+        // setSwitch(true);
+        // });
+      });
+    }
+  };
+
+  console.log(Assets?.[imgID]?.sounds[0]);
+  const playWrongSound = () => {
     if (Assets?.lion) {
       setplaying(true);
       Assets?.lion?.sounds[2]?.play();
       Assets?.lion?.sounds[2]?.on("end", () => {
-        setplaying(false);
-      });
-    }
-  };
-  const playWrongSound = () => {
-    if (Assets?.lion) {
-      setplaying(true);
-      Assets?.lion?.sounds[1]?.play();
-      Assets?.lion?.sounds[1]?.on("end", () => {
         setplaying(false);
       });
     }
@@ -129,9 +139,10 @@ export default function Game2({
     if (playing === false) {
       playCorrectSound();
       setCorrect(1);
-      const timeout = setTimeout(() => {
-        setSwitch(true);
-      }, 1500);
+      setClicked(1);
+      // const timeout = setTimeout(() => {
+      //   setSwitch(true);
+      // }, 7000);
     }
   };
 
@@ -149,13 +160,38 @@ export default function Game2({
   }, [wrong]);
 
   useEffect(() => {
+    // if (secondAudio) {
+    //   Assets?.[imgID]?.sounds[0]?.play();
+    //   Assets?.[imgID]?.sounds[0]?.on("end", () => {});
+    //   setSwitch(true);
+    // }
+
     if (Switch && !Next.Loading) {
-      setSceneId(NextSceneId);
+      Assets?.[sceneName]?.sounds[0]?.play();
+      Assets?.[sceneName]?.sounds[0]?.on("end", () => {
+        Assets?.[sceneName]?.sounds[0]?.stop();
+        setSceneId(NextSceneId);
+      });
     }
   }, [Next.Loading, Switch]);
 
-  console.log(sceneName);
-  console.log(Assets);
+  const [seconds, setSeconds] = useState(0);
+
+  useEffect(() => {
+    if (clicked === 1) {
+      Assets?.lion?.sounds[1]?.stop();
+    }
+
+    if (seconds > 15) {
+      setSeconds(0);
+      Assets?.lion?.sounds[1]?.play();
+    }
+  });
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSeconds((seconds) => seconds + 1);
+    }, 1000);
+  }, []);
 
   return (
     <Scenes

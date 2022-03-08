@@ -15,7 +15,7 @@ const BearMap = {
     `${imgUrl}animalHouse_Name/tree.svg`,
   ],
 
-  sounds: [],
+  sounds: [`${soundUrl}Eats/bear_lives.mp3`],
 
   lottie: [],
 };

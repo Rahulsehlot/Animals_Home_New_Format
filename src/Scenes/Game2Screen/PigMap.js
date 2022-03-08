@@ -13,7 +13,7 @@ const PigMap = {
     `${imgUrl}animalHouse_Name/basket.svg`,
   ],
 
-  sounds: [],
+  sounds: [`${soundUrl}Eats/pig_lives.mp3`],
 
   lottie: [],
 };

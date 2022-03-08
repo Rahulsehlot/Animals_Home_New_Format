@@ -13,7 +13,7 @@ const HenMap = {
     `${imgUrl}animalHouse_Name/tree_hole.svg`,
   ],
 
-  sounds: [],
+  sounds: [`${soundUrl}Eats/hen_lives.mp3`],
 
   lottie: [],
 };

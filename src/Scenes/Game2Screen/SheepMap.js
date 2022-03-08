@@ -13,7 +13,7 @@ const SheepMap = {
     `${imgUrl}animalHouse_Name/den.svg`,
   ],
 
-  sounds: [],
+  sounds: [`${soundUrl}Eats/sheep_lives.mp3`],
 
   lottie: [],
 };

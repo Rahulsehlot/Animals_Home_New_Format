@@ -13,7 +13,7 @@ const MonkeyMap = {
     `${imgUrl}animalHouse_Name/coop.svg`,
   ],
 
-  sounds: [],
+  sounds: [`${soundUrl}Eats/monkey_lives.mp3`],
 
   lottie: [],
 };

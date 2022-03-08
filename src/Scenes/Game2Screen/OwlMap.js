@@ -13,7 +13,7 @@ const OwlMap = {
     `${imgUrl}animalHouse_Name/nest.svg`,
   ],
 
-  sounds: [],
+  sounds: [`${soundUrl}Eats/owl_lives.mp3`],
 
   lottie: [],
 };

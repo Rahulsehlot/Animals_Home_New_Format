@@ -13,7 +13,7 @@ const RabbitMap = {
     `${imgUrl}animalHouse_Name/tree.svg`,
   ],
 
-  sounds: [],
+  sounds: [`${soundUrl}Eats/rabbit_lives.mp3`],
 
   lottie: [],
 };

@@ -16,6 +16,7 @@ const LionMap = {
   ],
 
   sounds: [
+    `${soundUrl}Eats/lion_lives.mp3`,
     `${soundUrl}look_at_the_animal_and_tap_its_home.mp3`,
     `${soundUrl}retry.mp3`,
     `${soundUrl}great_work.mp3`,

@@ -13,7 +13,7 @@ const BatMap = {
     `${imgUrl}animalHouse_Name/coop.svg`,
   ],
 
-  sounds: [],
+  sounds: [`${soundUrl}Eats/bat_lives.mp3`],
 
   lottie: [],
 };

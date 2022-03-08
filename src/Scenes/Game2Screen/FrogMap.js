@@ -13,7 +13,7 @@ const FrogMap = {
     `${imgUrl}animalHouse_Name/desert.svg`,
   ],
 
-  sounds: [],
+  sounds: [`${soundUrl}Eats/frog_lives.mp3`],
 
   lottie: [],
 };

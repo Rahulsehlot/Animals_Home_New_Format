@@ -89,12 +89,14 @@ export default function Game2Explain({
 
   const Ref = useRef(null);
   useEffect(() => {
-    if (Assets?.[sceneName]) {
-      Assets?.[sceneName]?.sounds[0]?.play();
-      Assets?.[sceneName]?.sounds[0]?.on("end", () => {
-        setSwitch(true);
-      });
-    }
+    const timeout = setTimeout(() => {
+      if (Assets?.[sceneName]) {
+        Assets?.[sceneName]?.sounds[0]?.play();
+        Assets?.[sceneName]?.sounds[0]?.on("end", () => {
+          setSwitch(true);
+        });
+      }
+    }, 700);
   }, []);
 
   useEffect(() => {
@@ -116,7 +118,9 @@ export default function Game2Explain({
 
   useEffect(() => {
     if (Switch && !Next.Loading) {
-      setSceneId(NextSceneId);
+      const timeout = setTimeout(() => {
+        setSceneId(NextSceneId);
+      }, 1500);
     }
   }, [Next.Loading, Switch]);
 

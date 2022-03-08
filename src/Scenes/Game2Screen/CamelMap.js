@@ -13,7 +13,7 @@ const CamelMap = {
     `${imgUrl}animalHouse_Name/pond.svg`,
   ],
 
-  sounds: [],
+  sounds: [`${soundUrl}Eats/camel_lives.mp3`],
 
   lottie: [],
 };

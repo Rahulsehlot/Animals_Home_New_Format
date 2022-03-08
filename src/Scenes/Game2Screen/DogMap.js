@@ -13,7 +13,7 @@ const DogMap = {
     `${imgUrl}animalHouse_Name/burrow.svg`,
   ],
 
-  sounds: [],
+  sounds: [`${soundUrl}Eats/dog_lives.mp3`],
 
   lottie: [],
 };

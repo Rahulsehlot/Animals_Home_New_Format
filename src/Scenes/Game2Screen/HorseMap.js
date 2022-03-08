@@ -13,7 +13,7 @@ const HorseMap = {
     `${imgUrl}animalHouse_Name/cave.svg`,
   ],
 
-  sounds: [],
+  sounds: [`${soundUrl}Eats/horse_lives.mp3`],
 
   lottie: [],
 };
