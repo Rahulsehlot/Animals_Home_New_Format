@@ -116,7 +116,6 @@ export default function Game2({
       setplaying(true);
       Assets?.lion?.sounds[3]?.play();
       Assets?.lion?.sounds[3]?.on("end", () => {
-        setplaying(false);
         setSwitch(true);
         // setSwitch(true);
         // });
@@ -169,6 +168,8 @@ export default function Game2({
     if (Switch && !Next.Loading) {
       Assets?.[sceneName]?.sounds[0]?.play();
       Assets?.[sceneName]?.sounds[0]?.on("end", () => {
+        setplaying(false);
+
         Assets?.[sceneName]?.sounds[0]?.stop();
         setSceneId(NextSceneId);
       });
