@@ -222,14 +222,30 @@ export default function Game2({
             />
           </div>
 
-          <div className="Character_Name">
-            <Image
-              src={Assets?.[sceneName]?.sprites[2]}
-              alt="txt"
-              id="fadeup"
-              className="CharacterName_img"
-            />
-          </div>
+          {SceneId === "/Sparrow_Game2" ? (
+            <div className="Character_Name">
+              <Image
+                src={Assets?.[sceneName]?.sprites[2]}
+                alt="txt"
+                id="fadeup"
+                className="CharacterName_img_Sparrow"
+              />
+            </div>
+          ) : (
+            <>
+              <div className="Character_Name">
+                <Image
+                  src={Assets?.[sceneName]?.sprites[2]}
+                  alt="txt"
+                  id="fadeup"
+                  className="CharacterName_img"
+                  style={{
+                    display: SceneId === "/Sparrow_Game2" ? "none" : "block",
+                  }}
+                />
+              </div>
+            </>
+          )}
 
           <div
             className="Option1"

@@ -82,8 +82,14 @@
 }
 
 .CharacterName_img {
-  width: 80%;
-  height: 80%;
+  width: 100%;
+  height: 125%;
+}
+
+.CharacterName_img_Sparrow {
+  width: 100%;
+  height: 125%;
+  align-self: baseline;
 }
 
 .Option1NameContainer {
@@ -640,11 +646,6 @@
   justify-content: center;
 }
 
-#stars {
-  width: 20%;
-  height: 80%;
-}
-
 .star_wrap1 {
   display: flex;
   width: 22%;
@@ -656,35 +657,8 @@
   z-index: 9999;
   align-items: center;
   justify-content: center;
-  animation: Starfade 1s forwards 1;
 }
 
-@keyframes Starfade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.current_star {
-  animation-duration: 0.5s;
-  animation-name: animate-pop;
-  animation-timing-function: cubic-bezier(0.26, 0.53, 0.74, 1.48);
-}
-
-@keyframes animate-pop {
-  0% {
-    opacity: 0;
-    transform: scale(0.5, 0.5);
-  }
-
-  100% {
-    opacity: 1;
-    transform: scale(1, 1);
-  }
-}
 .Progress_Bar {
   position: fixed;
   z-index: 5;
