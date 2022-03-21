@@ -84,8 +84,7 @@ export default function Game2({
 
   // const { Bg, Loading } = useLoadAsset(get_tracer_obj(sceneName));
   // const [Loading, setLoading] = useState(true);
-  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
-    useContext(SceneContext);
+  const { SceneId, setSceneId, Assets, setAssets } = useContext(SceneContext);
   const [playing, setplaying] = useState(false);
   const [correct, setCorrect] = useState(0);
   const [wrong, setWrong] = useState(0);
@@ -194,10 +193,35 @@ export default function Game2({
     }, 1000);
   }, []);
 
+  const transRef = useRef(null);
+  const [isLoading, setisLoading] = useState(true);
+  useEffect(() => {
+    if (Assets && transRef.current) {
+      lottie.loadAnimation({
+        name: "boy",
+        container: transRef.current,
+        renderer: "svg",
+        autoplay: true,
+        loop: true,
+        animationData: Assets?.intro?.lottie[1],
+        speed: 0.7,
+      });
+    }
+    setTimeout(() => {
+      setisLoading(false);
+    }, 2000);
+  }, []);
+
   return (
     <Scenes
       sprites={
         <>
+          <div
+            className="transition"
+            style={{ opacity: isLoading ? 1 : 0 }}
+            ref={transRef}
+          ></div>
+
           {/* Title */}
           <Image
             src={Assets?.[imgID]?.sprites[0]}

@@ -8,7 +8,7 @@ const HorseLottieMap = {
   sprites: [
     `${imgUrl}Houses/Horse_Explain.svg`,
     `${imgUrl}animal-food/Hay.svg`,
-    `${imgUrl}animalFood_Name/grass.svg`,
+    `${imgUrl}animalFood_Name/hay.svg`,
     `${imgUrl}`,
     `${imgUrl}horse_ForeGround.svg`,
   ],

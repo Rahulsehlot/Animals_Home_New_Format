@@ -614,13 +614,16 @@
   z-index: 155;
 }
 
-.Game2_animal1_food_horseLottie,
 .Game2_animal1_food_owlLottie {
   position: fixed;
   left: 61.5%;
   bottom: 0%;
   width: 1.5%;
   z-index: 155;
+}
+
+.Game2_animal1_food_horseLottie {
+  display: none;
 }
 
 .Game2_animal1_food_rabbitLottie {
@@ -661,7 +664,7 @@
 
 .Progress_Bar {
   position: fixed;
-  z-index: 5;
+  z-index: 255;
   right: 2%;
   top: 5%;
   width: 24%;
@@ -687,7 +690,7 @@
 
 .progressBarStars {
   position: relative;
-  z-index: 20;
+  z-index: 256;
   margin-left: 0.8%;
   height: 102%;
   animation-duration: 0.5s;
@@ -700,7 +703,7 @@
   left: 76.8%;
   height: 7%;
   position: fixed;
-  z-index: 15;
+  z-index: 257;
   width: 23%;
 }
 

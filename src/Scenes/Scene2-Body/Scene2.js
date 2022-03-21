@@ -13,15 +13,13 @@ import { BGContext } from "../../contexts/Background";
 export default function Scene2({ scenename }) {
   const Next = useLoadAsset(LionMap);
   const [Switch, setSwitch] = useState(false);
-
   const { Bg, setBg } = useContext(BGContext);
   // const [Switch, setSwitch] = useState(false);
-  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
-    useContext(SceneContext);
+  const { SceneId, setSceneId, Assets, setAssets } = useContext(SceneContext);
   const { intro } = Assets;
 
   const Ref = useRef(null);
-
+  const transRef = useRef(null);
   const stop_all_sounds = () => {
     Assets.Scene2?.sounds?.map((v) => v?.stop());
   };
@@ -30,7 +28,7 @@ export default function Scene2({ scenename }) {
     if (Assets?.Scene2) {
       Assets?.Scene2?.sounds[0]?.play();
       Assets?.Scene2?.sounds[0].on("end", () => {
-        // setSceneId("/Lion_Game2");
+        setSceneId("/Lion_Game2");
         setSwitch(true);
       });
     }
@@ -56,7 +54,7 @@ export default function Scene2({ scenename }) {
   }, [Assets]);
 
   const forward = () => {
-    // setSceneId("/Lion_Game2");
+    setSceneId("/Lion_Game2");
     setSwitch(true);
   };
   useEffect(() => {
@@ -66,13 +64,35 @@ export default function Scene2({ scenename }) {
     }
   }, [Next.Loading, Switch]);
 
+  const [isLoading, setisLoading] = useState(true);
+  useEffect(() => {
+    if (Assets && transRef.current) {
+      lottie.loadAnimation({
+        name: "boy",
+        container: transRef.current,
+        renderer: "svg",
+        autoplay: true,
+        loop: true,
+        animationData: Assets?.intro?.lottie[1],
+        speed: 0.7,
+      });
+    }
+    setTimeout(() => {
+      setisLoading(false);
+    }, 2000);
+  }, []);
+
   return (
     <Scenes
       Bg={Bg}
       sprites={
         <>
           {/* Title */}
-
+          <div
+            className="transition"
+            style={{ opacity: isLoading ? 1 : 0 }}
+            ref={transRef}
+          ></div>
           <Image
             src={Assets?.Scene2?.sprites[0]}
             alt="txt"
