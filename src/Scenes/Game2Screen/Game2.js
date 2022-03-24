@@ -91,6 +91,8 @@ export default function Game2({
   const [imgID, setImgID] = useState(null);
   const { intro } = Assets;
   const [sound_1, setsound_1] = useState(null);
+  const transRef = useRef(null);
+  const [isLoading, setisLoading] = useState(true);
 
   const Ref = useRef(null);
 
@@ -101,11 +103,13 @@ export default function Game2({
     }
 
     setImgID(sceneName);
-    if (Assets?.lion) {
-      Assets?.lion?.sounds[1]?.play();
-      Assets?.lion?.sounds[1]?.on("end", () => {});
+    if (isLoading === false) {
+      if (Assets?.lion) {
+        Assets?.lion?.sounds[1]?.play();
+        Assets?.lion?.sounds[1]?.on("end", () => {});
+      }
     }
-  }, []);
+  }, [isLoading]);
   console.log(sceneName);
 
   const playCorrectSound = () => {
@@ -134,20 +138,24 @@ export default function Game2({
   };
 
   const Option1 = () => {
-    if (playing === false) {
-      playCorrectSound();
-      setCorrect(1);
-      setClicked(1);
-      // const timeout = setTimeout(() => {
-      //   setSwitch(true);
-      // }, 7000);
+    if (isLoading === false) {
+      if (playing === false) {
+        playCorrectSound();
+        setCorrect(1);
+        setClicked(1);
+        // const timeout = setTimeout(() => {
+        //   setSwitch(true);
+        // }, 7000);
+      }
     }
   };
 
   const Option2 = () => {
-    if (playing === false) {
-      playWrongSound();
-      setWrong(1);
+    if (isLoading === false) {
+      if (playing === false) {
+        playWrongSound();
+        setWrong(1);
+      }
     }
   };
 
@@ -193,8 +201,6 @@ export default function Game2({
     }, 1000);
   }, []);
 
-  const transRef = useRef(null);
-  const [isLoading, setisLoading] = useState(true);
   useEffect(() => {
     if (Assets && transRef.current) {
       lottie.loadAnimation({
@@ -209,7 +215,7 @@ export default function Game2({
     }
     setTimeout(() => {
       setisLoading(false);
-    }, 2000);
+    }, 500);
   }, []);
 
   return (
@@ -218,7 +224,7 @@ export default function Game2({
         <>
           <div
             className="transition"
-            style={{ opacity: isLoading ? 1 : 0 }}
+            style={{ display: isLoading ? "block" : "none" }}
             ref={transRef}
           ></div>
 

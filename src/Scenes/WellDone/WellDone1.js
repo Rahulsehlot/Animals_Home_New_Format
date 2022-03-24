@@ -12,10 +12,10 @@ export default function WellDone1({ scenename, NextSceneId, preLoad }) {
   const Next = useLoadAsset(preLoad);
   const [pointerOn, setpointerOn] = useState(false);
 
-  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
-    useContext(SceneContext);
+  const { SceneId, setSceneId, Assets, setAssets } = useContext(SceneContext);
   const { intro } = Assets;
   const [playing, setplaying] = useState(false);
+  const [isLoading, setisLoading] = useState(true);
 
   const Ref = useRef(null);
   const Ref1 = useRef(null);
@@ -25,19 +25,21 @@ export default function WellDone1({ scenename, NextSceneId, preLoad }) {
   };
 
   useEffect(() => {
-    if (Assets?.wellDone) {
-      Assets?.wellDone?.sounds[1]?.play();
-      setplaying(true);
+    if (isLoading === false) {
+      if (Assets?.wellDone) {
+        Assets?.wellDone?.sounds[1]?.play();
+        setplaying(true);
 
-      Assets?.wellDone?.sounds[1].on("end", () => {
-        // setSceneId(NextSceneId);
-        setpointerOn(true);
+        Assets?.wellDone?.sounds[1].on("end", () => {
+          // setSceneId(NextSceneId);
+          setpointerOn(true);
 
-        // setSceneId("/Lion_Game2");
-        setplaying(false);
-      });
+          // setSceneId("/Lion_Game2");
+          setplaying(false);
+        });
+      }
     }
-  }, []);
+  }, [isLoading]);
 
   useEffect(() => {
     if (Assets && Ref.current) {
@@ -55,6 +57,8 @@ export default function WellDone1({ scenename, NextSceneId, preLoad }) {
       }
     }
   }, []);
+
+  const transRef = useRef(null);
 
   useEffect(() => {
     if (Assets && Ref.current) {
@@ -79,11 +83,33 @@ export default function WellDone1({ scenename, NextSceneId, preLoad }) {
     }
   };
 
+  useEffect(() => {
+    if (Assets && transRef.current) {
+      lottie.loadAnimation({
+        name: "boy",
+        container: transRef.current,
+        renderer: "svg",
+        autoplay: true,
+        loop: true,
+        animationData: Assets?.intro?.lottie[1],
+        speed: 0.7,
+      });
+    }
+    setTimeout(() => {
+      setisLoading(false);
+    }, 500);
+  }, []);
+
   return (
     <Scenes
       sprites={
         <>
           {/* Title */}
+          <div
+            className="transition"
+            style={{ display: isLoading ? "block" : "none" }}
+            ref={transRef}
+          ></div>
 
           <Image
             src={Assets?.wellDone?.sprites[3]}

@@ -15,7 +15,7 @@
   display: flex;
   justify-content: center;
   cursor: pointer;
-  z-index: 250;
+  z-index: 550;
 }
 
 .Option2 {
@@ -27,7 +27,7 @@
   display: flex;
   justify-content: center;
   cursor: pointer;
-  z-index: 250;
+  z-index: 550;
 }
 
 .audio_replay_icon_Game2Disabled,
@@ -167,7 +167,7 @@
   left: 75%;
   bottom: 10%;
   width: 18%;
-  z-index: 999;
+  z-index: 39;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -194,7 +194,7 @@
   right: 55%;
   bottom: 6%;
   width: 18%;
-  z-index: 999;
+  z-index: 39;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -230,7 +230,7 @@
   right: 50%;
   bottom: 10%;
   width: 18%;
-  z-index: 999;
+  z-index: 39;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -267,7 +267,7 @@
   left: 45%;
   bottom: 15%;
   width: 18%;
-  z-index: 999;
+  z-index: 39;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -313,7 +313,7 @@
   left: 55%;
   bottom: 10%;
   width: 18%;
-  z-index: 999;
+  z-index: 39;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -341,7 +341,7 @@
   left: 55%;
   bottom: 10%;
   width: 18%;
-  z-index: 999;
+  z-index: 39;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -368,7 +368,7 @@
   left: 60%;
   bottom: 10%;
   width: 18%;
-  z-index: 999;
+  z-index: 39;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -394,7 +394,7 @@
   width: 110%;
   height: 130%;
   border-radius: 30pt;
-  z-index: 999;
+  z-index: 39;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -435,7 +435,7 @@
   right: 35%;
   bottom: 10%;
   width: 18%;
-  z-index: 999;
+  z-index: 39;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -462,7 +462,7 @@
   right: 40%;
   bottom: 10%;
   width: 18%;
-  z-index: 999;
+  z-index: 39;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -489,7 +489,7 @@
   right: 10%;
   bottom: 10%;
   width: 18%;
-  z-index: 999;
+  z-index: 39;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -508,7 +508,7 @@
   right: 40%;
   bottom: 10%;
   width: 18%;
-  z-index: 999;
+  z-index: 39;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -535,7 +535,7 @@
   right: 25%;
   bottom: 10%;
   width: 18%;
-  z-index: 999;
+  z-index: 39;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -588,7 +588,7 @@
   left: 35%;
   bottom: 10%;
   width: 18%;
-  z-index: 999;
+  z-index: 39;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -643,7 +643,7 @@
   left: 40%;
   bottom: 10%;
   width: 18%;
-  z-index: 999;
+  z-index: 39;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -52,10 +52,10 @@
   overflow: hidden;
 }
 
-/* .transition {
+.transition {
   position: fixed;
   left: 0%;
   top: 0%;
-  width: 100%;
-  z-index: 564546;
-} */
+  width: 500%;
+  z-index: 5046;
+}

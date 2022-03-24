@@ -85,18 +85,21 @@ export default function Game2Explain({
   const [playing, setplaying] = useState(false);
   const [grey, setGrey] = useState(false);
   const { intro } = Assets;
+  const [isLoading, setisLoading] = useState(true);
 
   const Ref = useRef(null);
   useEffect(() => {
     const timeout = setTimeout(() => {
-      if (Assets?.[sceneName]) {
-        Assets?.[sceneName]?.sounds[0]?.play();
-        Assets?.[sceneName]?.sounds[0]?.on("end", () => {
-          setSwitch(true);
-        });
+      if (isLoading === false) {
+        if (Assets?.[sceneName]) {
+          Assets?.[sceneName]?.sounds[0]?.play();
+          Assets?.[sceneName]?.sounds[0]?.on("end", () => {
+            setSwitch(true);
+          });
+        }
       }
     }, 700);
-  }, []);
+  }, [isLoading]);
 
   useEffect(() => {
     if (Assets && Ref.current) {
@@ -124,7 +127,6 @@ export default function Game2Explain({
   }, [Next.Loading, Switch]);
 
   const transRef = useRef(null);
-  const [isLoading, setisLoading] = useState(true);
   useEffect(() => {
     if (Assets && transRef.current) {
       lottie.loadAnimation({
@@ -139,7 +141,7 @@ export default function Game2Explain({
     }
     setTimeout(() => {
       setisLoading(false);
-    }, 2000);
+    }, 500);
   }, []);
 
   return (
@@ -148,7 +150,7 @@ export default function Game2Explain({
         <>
           <div
             className="transition"
-            style={{ opacity: isLoading ? 1 : 0 }}
+            style={{ display: isLoading ? "block" : "none" }}
             ref={transRef}
           ></div>
 

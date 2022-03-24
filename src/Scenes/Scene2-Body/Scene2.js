@@ -20,19 +20,23 @@ export default function Scene2({ scenename }) {
 
   const Ref = useRef(null);
   const transRef = useRef(null);
+  const [isLoading, setisLoading] = useState(true);
+
   const stop_all_sounds = () => {
     Assets.Scene2?.sounds?.map((v) => v?.stop());
   };
 
   useEffect(() => {
-    if (Assets?.Scene2) {
-      Assets?.Scene2?.sounds[0]?.play();
-      Assets?.Scene2?.sounds[0].on("end", () => {
-        setSceneId("/Lion_Game2");
-        setSwitch(true);
-      });
+    if (isLoading === false) {
+      if (Assets?.Scene2) {
+        Assets?.Scene2?.sounds[0]?.play();
+        Assets?.Scene2?.sounds[0].on("end", () => {
+          setSceneId("/Lion_Game2");
+          setSwitch(true);
+        });
+      }
     }
-  }, []);
+  }, [isLoading]);
 
   useEffect(() => {
     setBg(Assets?.Scene2?.Bg);
@@ -54,17 +58,16 @@ export default function Scene2({ scenename }) {
   }, [Assets]);
 
   const forward = () => {
-    setSceneId("/Lion_Game2");
+    // setSceneId("/Lion_Game2");
     setSwitch(true);
   };
   useEffect(() => {
     if (Switch && !Next.Loading) {
-      setSceneId("/Lion_Game2");
       stop_all_sounds();
+      setSceneId("/Lion_Game2");
     }
   }, [Next.Loading, Switch]);
 
-  const [isLoading, setisLoading] = useState(true);
   useEffect(() => {
     if (Assets && transRef.current) {
       lottie.loadAnimation({
@@ -79,7 +82,7 @@ export default function Scene2({ scenename }) {
     }
     setTimeout(() => {
       setisLoading(false);
-    }, 2000);
+    }, 500);
   }, []);
 
   return (
@@ -90,7 +93,7 @@ export default function Scene2({ scenename }) {
           {/* Title */}
           <div
             className="transition"
-            style={{ opacity: isLoading ? 1 : 0 }}
+            style={{ display: isLoading ? "block" : "none" }}
             ref={transRef}
           ></div>
           <Image
