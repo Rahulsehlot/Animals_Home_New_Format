@@ -8,7 +8,7 @@ const SparrowLottieMap = {
   sprites: [
     `${imgUrl}Houses/Nest_Explain.svg`,
     `${imgUrl}animal-food/Grain.svg`,
-    `${imgUrl}animalFood_Name/Grain.svg`,
+    `${imgUrl}animalFood_Name/grain.svg`,
   ],
 
   sounds: [`${soundUrl}Eats/birds_eats.mp3`],

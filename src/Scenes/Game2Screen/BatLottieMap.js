@@ -10,8 +10,8 @@ const BatLottieMap = {
     `${imgUrl}animal-food/insects.svg`,
     `${imgUrl}animalFood_Name/insects.svg`,
     `${imgUrl}animal-food/Bat_Insects.svg`,
-    `${imgUrl}animal-food/Bat_Insects_1.svg`,
-    `${imgUrl}animal-food/Bat_Insects_1.svg`,
+    `${imgUrl}animal-food/Bat_insects_1.svg`,
+    `${imgUrl}animal-food/Bat_insects_1.svg`,
     `${imgUrl}animal-food/Insects_04.svg`,
   ],
 
