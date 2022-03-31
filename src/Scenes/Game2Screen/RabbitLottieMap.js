@@ -5,8 +5,10 @@ const lottieUrl = "internal/lottie/";
 const RabbitLottieMap = {
   id: "rabbitLottie",
 
+  Bg: `${imgUrl}Houses/Rabbit_Explain.svg`,
+
   sprites: [
-    `${imgUrl}Houses/Rabbit_Explain.svg`,
+    `${imgUrl}`,
     `${imgUrl}animal-food/Carrots.svg`,
     `${imgUrl}animalFood_Name/carrots.svg`,
     `${imgUrl}`,

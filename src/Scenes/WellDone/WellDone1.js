@@ -7,9 +7,11 @@ import lottie from "lottie-web";
 import "../../styles/Scene2.css";
 import Image from "../../utils/elements/Image";
 import IntroMap from "./WellDoneAssetMap";
+import { BGContext } from "../../contexts/Background";
 
 export default function WellDone1({ scenename, NextSceneId, preLoad }) {
   const Next = useLoadAsset(preLoad);
+  const { Bg, setBg } = useContext(BGContext);
   const [pointerOn, setpointerOn] = useState(false);
 
   const { SceneId, setSceneId, Assets, setAssets } = useContext(SceneContext);
@@ -25,6 +27,8 @@ export default function WellDone1({ scenename, NextSceneId, preLoad }) {
   };
 
   useEffect(() => {
+    setBg(Assets?.wellDone?.Bg);
+
     if (isLoading === false) {
       if (Assets?.wellDone) {
         Assets?.wellDone?.sounds[1]?.play();
@@ -102,6 +106,7 @@ export default function WellDone1({ scenename, NextSceneId, preLoad }) {
 
   return (
     <Scenes
+      Bg={Bg}
       sprites={
         <>
           {/* Title */}
@@ -111,12 +116,12 @@ export default function WellDone1({ scenename, NextSceneId, preLoad }) {
             ref={transRef}
           ></div>
 
-          <Image
+          {/* <Image
             src={Assets?.wellDone?.sprites[3]}
             alt="txt"
             id="fadeup"
             className="intro_BG"
-          />
+          /> */}
 
           <div
             ref={Ref}

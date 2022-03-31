@@ -78,6 +78,8 @@ export default function Game2({
   preLoad,
 }) {
   const Next = useLoadAsset(preLoad);
+  const { Bg, setBg } = useContext(BGContext);
+
   const [Switch, setSwitch] = useState(false);
   const [secondAudio, setsecondAudio] = useState(false);
   const [clicked, setClicked] = useState(0);
@@ -110,7 +112,6 @@ export default function Game2({
       }
     }
   }, [isLoading]);
-  console.log(sceneName);
 
   const playCorrectSound = () => {
     Assets?.lion?.sounds[1]?.stop();
@@ -126,7 +127,6 @@ export default function Game2({
     }
   };
 
-  console.log(Assets?.[imgID]?.sounds[0]);
   const playWrongSound = () => {
     if (Assets?.lion) {
       setplaying(true);
@@ -166,6 +166,8 @@ export default function Game2({
   }, [wrong]);
 
   useEffect(() => {
+    setBg(Assets?.[sceneName]?.Bg);
+
     // if (secondAudio) {
     //   Assets?.[imgID]?.sounds[0]?.play();
     //   Assets?.[imgID]?.sounds[0]?.on("end", () => {});
@@ -220,6 +222,7 @@ export default function Game2({
 
   return (
     <Scenes
+      Bg={Bg}
       sprites={
         <>
           <div
@@ -229,12 +232,12 @@ export default function Game2({
           ></div>
 
           {/* Title */}
-          <Image
+          {/* <Image
             src={Assets?.[imgID]?.sprites[0]}
             alt="txt"
             id="fadeup"
             className="Game2_question_img"
-          />
+          /> */}
 
           <Image
             src={Assets?.lion?.sprites[5]}

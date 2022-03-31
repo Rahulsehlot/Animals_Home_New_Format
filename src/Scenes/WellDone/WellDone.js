@@ -6,10 +6,13 @@ import PlayAudio from "../../utils/playAudio";
 import lottie from "lottie-web";
 import "../../styles/Scene2.css";
 import Image from "../../utils/elements/Image";
+import { BGContext } from "../../contexts/Background";
 
 export default function WellDone() {
   const { SceneId, setSceneId, Assets, setAssets } = useContext(SceneContext);
   const { intro } = Assets;
+  const { Bg, setBg } = useContext(BGContext);
+
   const [playing, setplaying] = useState(false);
   const [pointerOn, setpointerOn] = useState(false);
   const [isLoading, setisLoading] = useState(true);
@@ -18,7 +21,11 @@ export default function WellDone() {
   const Ref = useRef(null);
   const Ref1 = useRef(null);
 
+  console.log(Assets);
+
   useEffect(() => {
+    setBg(Assets?.wellDone?.Bg);
+
     if (isLoading === false) {
       if (Assets?.wellDone) {
         Assets?.wellDone?.sounds[0]?.play();
@@ -34,6 +41,8 @@ export default function WellDone() {
       }
     }
   }, [isLoading]);
+
+  console.log(Assets?.wellDone?.Bg);
 
   useEffect(() => {
     if (Assets && Ref.current) {
@@ -94,6 +103,7 @@ export default function WellDone() {
 
   return (
     <Scenes
+      Bg={Bg}
       sprites={
         <>
           <div
@@ -103,12 +113,12 @@ export default function WellDone() {
           ></div>
 
           {/* Title */}
-          <Image
+          {/* <Image
             src={Assets?.wellDone?.sprites[3]}
             alt="txt"
             id="fadeup"
             className="intro_BG"
-          />
+          /> */}
 
           <div
             ref={Ref}

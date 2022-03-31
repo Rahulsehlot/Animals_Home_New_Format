@@ -23,6 +23,7 @@ import CamelMap from "./CamelMap";
 import BatMap from "./BatMap";
 import OwlMap from "./OwlMap";
 import Star from "./progressBar";
+import { BGContext } from "../../contexts/Background";
 
 function get_tracer_obj(type) {
   switch (type) {
@@ -76,6 +77,8 @@ export default function Game2Explain({
   preLoad,
 }) {
   const Next = useLoadAsset(preLoad);
+  const { Bg, setBg } = useContext(BGContext);
+
   const [Switch, setSwitch] = useState(false);
 
   // const { Bg, Loading } = useLoadAsset(get_tracer_obj(sceneName));
@@ -119,6 +122,8 @@ export default function Game2Explain({
   }, []);
 
   useEffect(() => {
+    setBg(Assets?.[sceneName]?.Bg);
+
     if (Switch && !Next.Loading) {
       const timeout = setTimeout(() => {
         setSceneId(NextSceneId);
@@ -146,6 +151,7 @@ export default function Game2Explain({
 
   return (
     <Scenes
+      Bg={Bg}
       sprites={
         <>
           <div
@@ -157,12 +163,12 @@ export default function Game2Explain({
           {/* Title */}
           <Star num={count} />
 
-          <Image
+          {/* <Image
             src={Assets?.[sceneName]?.sprites[0]}
             alt="txt"
             id="fadeup"
             className="Game2_question_img"
-          />
+          /> */}
 
           <Image
             src={Assets?.[sceneName]?.sprites[1]}

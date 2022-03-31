@@ -64,6 +64,7 @@ export default function Scene2({ scenename }) {
   useEffect(() => {
     if (Switch && !Next.Loading) {
       stop_all_sounds();
+      setBg(Assets?.lion?.Bg);
       setSceneId("/Lion_Game2");
     }
   }, [Next.Loading, Switch]);
@@ -91,11 +92,11 @@ export default function Scene2({ scenename }) {
       sprites={
         <>
           {/* Title */}
-          <div
+          {/* <div
             className="transition"
             style={{ display: isLoading ? "block" : "none" }}
             ref={transRef}
-          ></div>
+          ></div> */}
           <Image
             src={Assets?.Scene2?.sprites[0]}
             alt="txt"
