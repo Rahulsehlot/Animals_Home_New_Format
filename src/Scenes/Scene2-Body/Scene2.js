@@ -92,11 +92,11 @@ export default function Scene2({ scenename }) {
       sprites={
         <>
           {/* Title */}
-          {/* <div
+          <div
             className="transition"
             style={{ display: isLoading ? "block" : "none" }}
             ref={transRef}
-          ></div> */}
+          ></div>
           <Image
             src={Assets?.Scene2?.sprites[0]}
             alt="txt"
