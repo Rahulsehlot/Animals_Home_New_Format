@@ -33,6 +33,7 @@ export default function GameContainer({ children }) {
     top: "50%",
     transform: "translate(-50%,-50%)",
     overflow: "hidden",
+    backgroundColor: "#6ED863",
   };
 
   return (
