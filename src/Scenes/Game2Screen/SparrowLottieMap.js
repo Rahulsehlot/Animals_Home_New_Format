@@ -5,17 +5,17 @@ const lottieUrl = "internal/lottie/";
 const SparrowLottieMap = {
   id: "sparrowLottie",
 
-  Bg: `${imgUrl}Houses/Nest_Explain.svg`,
+  Bg: `${imgUrl}houses/nest_explain.svg`,
 
   sprites: [
     `${imgUrl}`,
-    `${imgUrl}animal-food/Grain.svg`,
-    `${imgUrl}animalFood_Name/grain.svg`,
+    `${imgUrl}animal_food/grain.svg`,
+    `${imgUrl}animalfood_name/grain.svg`,
   ],
 
-  sounds: [`${soundUrl}Eats/birds_eats.mp3`],
+  sounds: [`${soundUrl}eats/birds_eats.mp3`],
 
-  lottie: [`${lottieUrl}Spparow_eats.json`],
+  lottie: [`${lottieUrl}spparow_eats.json`],
 };
 
 export default SparrowLottieMap;

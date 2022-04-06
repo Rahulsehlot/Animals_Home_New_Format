@@ -5,13 +5,13 @@ const lottieUrl = "internal/lottie/";
 const MonkeyLottieMap = {
   id: "monkeyLottie",
 
-  Bg: `${imgUrl}Houses/Monkey_Explain.svg`,
+  Bg: `${imgUrl}houses/monkey_explain.svg`,
 
-  sprites: [`${imgUrl}`, `${imgUrl}`, `${imgUrl}animalFood_Name/banana.svg`],
+  sprites: [`${imgUrl}`, `${imgUrl}`, `${imgUrl}animalfood_name/banana.svg`],
 
-  sounds: [`${soundUrl}Eats/monkey_eats.mp3`],
+  sounds: [`${soundUrl}eats/monkey_eats.mp3`],
 
-  lottie: [`${lottieUrl}Monkey_eats.json`],
+  lottie: [`${lottieUrl}monkey_eats.json`],
 };
 
 export default MonkeyLottieMap;

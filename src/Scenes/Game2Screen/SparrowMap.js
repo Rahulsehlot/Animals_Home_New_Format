@@ -5,17 +5,17 @@ const lottieUrl = "internal/lottie/";
 const SparrowMap = {
   id: "sparrow",
 
-  Bg: `${imgUrl}Houses/Nest_Question.svg`,
+  Bg: `${imgUrl}houses/nest_question.svg`,
 
   sprites: [
     `${imgUrl}`,
-    `${imgUrl}animals/Sparrow.svg`,
-    `${imgUrl}animal_Name/sparrow.svg`,
-    `${imgUrl}animalHouse_Name/nest.svg`,
-    `${imgUrl}animalHouse_Name/kennel.svg`,
+    `${imgUrl}animals/sparrow.svg`,
+    `${imgUrl}animal_name/sparrow.svg`,
+    `${imgUrl}animalhouse_name/nest.svg`,
+    `${imgUrl}animalhouse_name/kennel.svg`,
   ],
 
-  sounds: [`${soundUrl}Eats/bird_lives.mp3`],
+  sounds: [`${soundUrl}eats/bird_lives.mp3`],
 
   lottie: [],
 };

@@ -5,20 +5,20 @@ const lottieUrl = "internal/lottie/";
 const OwlLottieMap = {
   id: "owlLottie",
 
-  Bg: `${imgUrl}Houses/Owl_Explain.svg`,
+  Bg: `${imgUrl}houses/owl_explain.svg`,
 
   sprites: [
     `${imgUrl}`,
-    `${imgUrl}animal-food/Owl_worms.svg`,
-    `${imgUrl}animalFood_Name/worms.svg`,
+    `${imgUrl}animal_food/owl_worms.svg`,
+    `${imgUrl}animalfood_name/worms.svg`,
     `${imgUrl}`,
-    `${imgUrl}animal-food/Owl_worms_1.svg`,
-    `${imgUrl}animal-food/Owl_worms.svg`,
+    `${imgUrl}animal_food/owl_worms_1.svg`,
+    `${imgUrl}animal_food/owl_worms.svg`,
   ],
 
-  sounds: [`${soundUrl}Eats/owl_eats.mp3`],
+  sounds: [`${soundUrl}eats/owl_eats.mp3`],
 
-  lottie: [`${lottieUrl}Owl_eats.json`],
+  lottie: [`${lottieUrl}owl_eats.json`],
 };
 
 export default OwlLottieMap;

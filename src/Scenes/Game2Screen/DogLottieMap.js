@@ -5,17 +5,17 @@ const lottieUrl = "internal/lottie/";
 const DogLottieMap = {
   id: "dogLottie",
 
-  Bg: `${imgUrl}Houses/Dog_Explain.svg`,
+  Bg: `${imgUrl}houses/dog_explain.svg`,
 
   sprites: [
     `${imgUrl}`,
-    `${imgUrl}animal-food/Bone.svg`,
-    `${imgUrl}animalFood_Name/bone.svg`,
+    `${imgUrl}animal_food/bone.svg`,
+    `${imgUrl}animalfood_name/bone.svg`,
   ],
 
-  sounds: [`${soundUrl}Eats/dog_eats.mp3`],
+  sounds: [`${soundUrl}eats/dog_eats.mp3`],
 
-  lottie: [`${lottieUrl}Dog_eats.json`],
+  lottie: [`${lottieUrl}dog_eats.json`],
 };
 
 export default DogLottieMap;

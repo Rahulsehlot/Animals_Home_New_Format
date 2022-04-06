@@ -5,17 +5,17 @@ const lottieUrl = "internal/lottie/";
 const SheepMap = {
   id: "sheep",
 
-  Bg: `${imgUrl}Houses/Sheep_Question.svg`,
+  Bg: `${imgUrl}houses/sheep_question.svg`,
 
   sprites: [
     `${imgUrl}`,
-    `${imgUrl}animals/Sheep.svg`,
-    `${imgUrl}animal_Name/sheep.svg`,
-    `${imgUrl}animalHouse_Name/pen.svg`,
-    `${imgUrl}animalHouse_Name/den.svg`,
+    `${imgUrl}animals/sheep.svg`,
+    `${imgUrl}animal_name/sheep.svg`,
+    `${imgUrl}animalhouse_name/pen.svg`,
+    `${imgUrl}animalhouse_name/den.svg`,
   ],
 
-  sounds: [`${soundUrl}Eats/sheep_lives.mp3`],
+  sounds: [`${soundUrl}eats/sheep_lives.mp3`],
 
   lottie: [],
 };

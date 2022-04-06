@@ -5,17 +5,17 @@ const lottieUrl = "internal/lottie/";
 const PigLottieMap = {
   id: "pigLottie",
 
-  Bg: `${imgUrl}Houses/Pig_Explain.svg`,
+  Bg: `${imgUrl}houses/pig_explain.svg`,
 
   sprites: [
     `${imgUrl}`,
-    `${imgUrl}animal-food/mixture_and_vegetables.svg`,
-    `${imgUrl}animalFood_Name/mixture_and_vegetable.svg`,
+    `${imgUrl}animal_food/mixture_and_vegetables.svg`,
+    `${imgUrl}animalfood_name/mixture_and_vegetable.svg`,
   ],
 
-  sounds: [`${soundUrl}Eats/pig_eats.mp3`],
+  sounds: [`${soundUrl}eats/pig_eats.mp3`],
 
-  lottie: [`${lottieUrl}Pig_eats.json`],
+  lottie: [`${lottieUrl}pig_eats.json`],
 };
 
 export default PigLottieMap;

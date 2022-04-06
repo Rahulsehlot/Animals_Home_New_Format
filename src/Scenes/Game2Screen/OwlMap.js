@@ -5,17 +5,17 @@ const lottieUrl = "internal/lottie/";
 const OwlMap = {
   id: "owl",
 
-  Bg: `${imgUrl}Houses/Owl_Question.svg`,
+  Bg: `${imgUrl}houses/owl_question.svg`,
 
   sprites: [
     `${imgUrl}`,
-    `${imgUrl}animals/Owl.svg`,
-    `${imgUrl}animal_Name/owl.svg`,
-    `${imgUrl}animalHouse_Name/tree_hole.svg`,
-    `${imgUrl}animalHouse_Name/nest.svg`,
+    `${imgUrl}animals/owl.svg`,
+    `${imgUrl}animal_name/owl.svg`,
+    `${imgUrl}animalhouse_name/tree_hole.svg`,
+    `${imgUrl}animalhouse_name/nest.svg`,
   ],
 
-  sounds: [`${soundUrl}Eats/owl_lives.mp3`],
+  sounds: [`${soundUrl}eats/owl_lives.mp3`],
 
   lottie: [],
 };

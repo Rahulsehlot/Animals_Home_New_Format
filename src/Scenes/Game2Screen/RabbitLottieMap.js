@@ -5,19 +5,19 @@ const lottieUrl = "internal/lottie/";
 const RabbitLottieMap = {
   id: "rabbitLottie",
 
-  Bg: `${imgUrl}Houses/Rabbit_Explain.svg`,
+  Bg: `${imgUrl}houses/rabbit_explain.svg`,
 
   sprites: [
     `${imgUrl}`,
-    `${imgUrl}animal-food/Carrots.svg`,
-    `${imgUrl}animalFood_Name/carrots.svg`,
+    `${imgUrl}animal_food/carrots.svg`,
+    `${imgUrl}animalfood_name/carrots.svg`,
     `${imgUrl}`,
-    `${imgUrl}rabbit_ForeGround.svg`,
+    `${imgUrl}rabbit_foreground.svg`,
   ],
 
-  sounds: [`${soundUrl}Eats/rabbit_eats.mp3`],
+  sounds: [`${soundUrl}eats/rabbit_eats.mp3`],
 
-  lottie: [`${lottieUrl}Rabbit_eats.json`],
+  lottie: [`${lottieUrl}rabbit_eats.json`],
 };
 
 export default RabbitLottieMap;

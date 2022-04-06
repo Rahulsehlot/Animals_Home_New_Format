@@ -5,17 +5,17 @@ const lottieUrl = "internal/lottie/";
 const CamelLottieMap = {
   id: "camelLottie",
 
-  Bg: `${imgUrl}Houses/Camel_Explain.svg`,
+  Bg: `${imgUrl}houses/camel_explain.svg`,
 
   sprites: [
     `${imgUrl}`,
-    `${imgUrl}animal-food/Camel_Grass.svg`,
-    `${imgUrl}animalFood_Name/grass.svg`,
+    `${imgUrl}animal_food/camel_grass.svg`,
+    `${imgUrl}animalfood_name/grass.svg`,
   ],
 
-  sounds: [`${soundUrl}Eats/camel_eats.mp3`],
+  sounds: [`${soundUrl}eats/camel_eats.mp3`],
 
-  lottie: [`${lottieUrl}Camel_eats.json`],
+  lottie: [`${lottieUrl}camel_eats.json`],
 };
 
 export default CamelLottieMap;

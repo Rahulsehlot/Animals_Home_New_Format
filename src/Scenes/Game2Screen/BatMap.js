@@ -5,17 +5,17 @@ const lottieUrl = "internal/lottie/";
 const BatMap = {
   id: "bat",
 
-  Bg: `${imgUrl}Houses/Bat_Question.svg`,
+  Bg: `${imgUrl}houses/bat_question.svg`,
 
   sprites: [
     `${imgUrl}`,
-    `${imgUrl}animals/Bat.svg`,
-    `${imgUrl}animal_Name/bat.svg`,
-    `${imgUrl}animalHouse_Name/cave.svg`,
-    `${imgUrl}animalHouse_Name/coop.svg`,
+    `${imgUrl}animals/bat.svg`,
+    `${imgUrl}animal_name/bat.svg`,
+    `${imgUrl}animalhouse_name/cave.svg`,
+    `${imgUrl}animalhouse_name/coop.svg`,
   ],
 
-  sounds: [`${soundUrl}Eats/bat_lives.mp3`],
+  sounds: [`${soundUrl}eats/bat_lives.mp3`],
 
   lottie: [],
 };
