@@ -8,13 +8,6 @@ export default function Star({ num }) {
   const [isLoading, setisLoading] = useState(true);
   const { SceneId, Assets } = useContext(SceneContext);
 
-  const [Grey, setGrey] = useState("");
-  const [Gold, setGold] = useState("");
-  const [bar, setBar] = useState("");
-  useEffect(() => {
-    LoadStars(setGrey, setGold, setBar);
-  }, []);
-
   useEffect(() => {
     setTimeout(() => {
       setisLoading(false);

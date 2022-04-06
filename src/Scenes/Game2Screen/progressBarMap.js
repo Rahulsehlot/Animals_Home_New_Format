@@ -7,7 +7,7 @@ const ProgressMap = {
 
   sprites: [
     `${imgUrl}progress_bar.svg`,
-    `${imgUrl}progress_off.svg`,
+    `${imgUrl}progress_bar_02.svg`,
     `${imgUrl}progress_on.svg`,
   ],
 
