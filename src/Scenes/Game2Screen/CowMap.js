@@ -8,7 +8,6 @@ const CowMap = {
   Bg: `${imgUrl}houses/cow_question.svg`,
 
   sprites: [
-    `${imgUrl}`,
     `${imgUrl}animals/cow.svg`,
     `${imgUrl}animal_name/cow.svg`,
     `${imgUrl}animalhouse_name/cowshed.svg`,

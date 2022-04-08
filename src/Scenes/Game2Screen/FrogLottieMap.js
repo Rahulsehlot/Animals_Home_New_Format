@@ -8,7 +8,6 @@ const FrogLottieMap = {
   Bg: `${imgUrl}houses/frog_explain.svg`,
 
   sprites: [
-    `${imgUrl}`,
     `${imgUrl}animal_food/insects.svg`,
     `${imgUrl}animalfood_name/insects.svg`,
     `${imgUrl}animal_food/bat_insects.svg`,

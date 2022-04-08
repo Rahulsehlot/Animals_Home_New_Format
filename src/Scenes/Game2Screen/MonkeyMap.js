@@ -8,7 +8,6 @@ const MonkeyMap = {
   Bg: `${imgUrl}houses/monkey_question.svg`,
 
   sprites: [
-    `${imgUrl}`,
     `${imgUrl}animals/monkey.svg`,
     `${imgUrl}animal_name/monkey.svg`,
     `${imgUrl}animalhouse_name/tree.svg`,

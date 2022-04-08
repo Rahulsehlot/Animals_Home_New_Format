@@ -240,7 +240,7 @@ export default function Game2({
           /> */}
 
           <Image
-            src={Assets?.lion?.sprites[5]}
+            src={Assets?.lion?.sprites[4]}
             alt="txt"
             id="fadeup"
             className="Game2_Character_Container"
@@ -248,7 +248,7 @@ export default function Game2({
 
           <div className="Character">
             <Image
-              src={Assets?.[sceneName]?.sprites[1]}
+              src={Assets?.[sceneName]?.sprites[0]}
               alt="txt"
               id="fadeup"
               className="Character_img"
@@ -258,7 +258,7 @@ export default function Game2({
           {SceneId === "/Sparrow_Game2" ? (
             <div className="Character_Name">
               <Image
-                src={Assets?.[sceneName]?.sprites[2]}
+                src={Assets?.[sceneName]?.sprites[1]}
                 alt="txt"
                 id="fadeup"
                 className="CharacterName_img_Sparrow"
@@ -268,7 +268,7 @@ export default function Game2({
             <>
               <div className="Character_Name">
                 <Image
-                  src={Assets?.[sceneName]?.sprites[2]}
+                  src={Assets?.[sceneName]?.sprites[1]}
                   alt="txt"
                   id="fadeup"
                   className="CharacterName_img"
@@ -315,7 +315,7 @@ export default function Game2({
           />
 
           <Image
-            src={Assets?.lion?.sprites[6]}
+            src={Assets?.lion?.sprites[5]}
             alt="txt"
             id="fadeup"
             className="Option1NameContainer"
@@ -328,7 +328,7 @@ export default function Game2({
             }}
           >
             <Image
-              src={Assets?.[sceneName]?.sprites[3]}
+              src={Assets?.[sceneName]?.sprites[2]}
               alt="txt"
               id="fadeup"
               className="Option1Name_img"
@@ -336,7 +336,7 @@ export default function Game2({
           </div>
 
           <Image
-            src={Assets?.lion?.sprites[6]}
+            src={Assets?.lion?.sprites[5]}
             alt="txt"
             id="fadeup"
             className="Option2NameContainer"
@@ -349,7 +349,7 @@ export default function Game2({
             }}
           >
             <Image
-              src={Assets?.[sceneName]?.sprites[4]}
+              src={Assets?.[sceneName]?.sprites[3]}
               alt="txt"
               id="fadeup"
               className="Option2Name_img"

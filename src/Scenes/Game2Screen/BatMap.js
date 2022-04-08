@@ -8,7 +8,6 @@ const BatMap = {
   Bg: `${imgUrl}houses/bat_question.svg`,
 
   sprites: [
-    `${imgUrl}`,
     `${imgUrl}animals/bat.svg`,
     `${imgUrl}animal_name/bat.svg`,
     `${imgUrl}animalhouse_name/cave.svg`,

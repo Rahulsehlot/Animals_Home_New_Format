@@ -8,7 +8,6 @@ const LionMap = {
   Bg: `${imgUrl}houses/lion_question.svg`,
 
   sprites: [
-    `${imgUrl}`,
     `${imgUrl}animals/lion.svg`,
     `${imgUrl}animal_name/lion.svg`,
     `${imgUrl}animalhouse_name/den.svg`,

@@ -8,7 +8,6 @@ const HenLottieMap = {
   Bg: `${imgUrl}houses/hen_explain.svg`,
 
   sprites: [
-    `${imgUrl}`,
     `${imgUrl}animal_food/hen_grain.svg`,
     `${imgUrl}animalfood_name/grain.svg`,
   ],

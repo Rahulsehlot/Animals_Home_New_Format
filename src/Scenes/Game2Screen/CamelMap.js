@@ -8,7 +8,6 @@ const CamelMap = {
   Bg: `${imgUrl}houses/frog_question.svg`,
 
   sprites: [
-    `${imgUrl}`,
     `${imgUrl}animals/camel.svg`,
     `${imgUrl}animal_name/camel.svg`,
     `${imgUrl}animalhouse_name/desert.svg`,

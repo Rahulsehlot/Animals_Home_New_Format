@@ -8,10 +8,8 @@ const OwlLottieMap = {
   Bg: `${imgUrl}houses/owl_explain.svg`,
 
   sprites: [
-    `${imgUrl}`,
     `${imgUrl}animal_food/owl_worms.svg`,
     `${imgUrl}animalfood_name/worms.svg`,
-    `${imgUrl}`,
     `${imgUrl}animal_food/owl_worms_1.svg`,
     `${imgUrl}animal_food/owl_worms.svg`,
   ],

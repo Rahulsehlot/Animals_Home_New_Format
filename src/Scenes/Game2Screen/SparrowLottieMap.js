@@ -8,7 +8,6 @@ const SparrowLottieMap = {
   Bg: `${imgUrl}houses/nest_explain.svg`,
 
   sprites: [
-    `${imgUrl}`,
     `${imgUrl}animal_food/grain.svg`,
     `${imgUrl}animalfood_name/grain.svg`,
   ],

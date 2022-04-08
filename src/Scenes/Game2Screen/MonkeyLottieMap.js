@@ -7,7 +7,7 @@ const MonkeyLottieMap = {
 
   Bg: `${imgUrl}houses/monkey_explain.svg`,
 
-  sprites: [`${imgUrl}`, `${imgUrl}`, `${imgUrl}animalfood_name/banana.svg`],
+  sprites: [`${imgUrl}animalfood_name/banana.svg`],
 
   sounds: [`${soundUrl}eats/monkey_eats.mp3`],
 

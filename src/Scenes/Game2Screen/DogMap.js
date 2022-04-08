@@ -8,7 +8,6 @@ const DogMap = {
   Bg: `${imgUrl}houses/dog_question.svg`,
 
   sprites: [
-    `${imgUrl}`,
     `${imgUrl}animals/dog.svg`,
     `${imgUrl}animal_name/dog.svg`,
     `${imgUrl}animalhouse_name/kennel.svg`,

@@ -8,7 +8,6 @@ const HenMap = {
   Bg: `${imgUrl}houses/hen_question.svg`,
 
   sprites: [
-    `${imgUrl}`,
     `${imgUrl}animals/hen.svg`,
     `${imgUrl}animal_name/hen.svg`,
     `${imgUrl}animalhouse_name/coop.svg`,

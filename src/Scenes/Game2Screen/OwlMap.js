@@ -8,7 +8,6 @@ const OwlMap = {
   Bg: `${imgUrl}houses/owl_question.svg`,
 
   sprites: [
-    `${imgUrl}`,
     `${imgUrl}animals/owl.svg`,
     `${imgUrl}animal_name/owl.svg`,
     `${imgUrl}animalhouse_name/tree_hole.svg`,

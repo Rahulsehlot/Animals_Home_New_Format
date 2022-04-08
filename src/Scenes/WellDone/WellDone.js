@@ -21,8 +21,6 @@ export default function WellDone() {
   const Ref = useRef(null);
   const Ref1 = useRef(null);
 
-  console.log(Assets);
-
   useEffect(() => {
     setBg(Assets?.wellDone?.Bg);
 
@@ -41,8 +39,6 @@ export default function WellDone() {
       }
     }
   }, [isLoading]);
-
-  console.log(Assets?.wellDone?.Bg);
 
   useEffect(() => {
     if (Assets && Ref.current) {

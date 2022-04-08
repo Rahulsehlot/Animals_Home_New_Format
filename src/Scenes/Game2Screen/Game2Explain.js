@@ -170,29 +170,33 @@ export default function Game2Explain({
             className="Game2_question_img"
           /> */}
 
-          <Image
-            src={Assets?.[sceneName]?.sprites[1]}
-            alt="txt"
-            id="fadeup"
-            className={"Game2_animal_food_" + sceneName}
-          />
+          {SceneId === "/Monkey_Game2_Explain" ? (
+            <></>
+          ) : (
+            <Image
+              src={Assets?.[sceneName]?.sprites[0]}
+              alt="txt"
+              id="fadeup"
+              className={"Game2_animal_food_" + sceneName}
+            />
+          )}
 
           <Image
-            src={Assets?.[sceneName]?.sprites[4]}
+            src={Assets?.[sceneName]?.sprites[2]}
             alt="txt"
             id="fadeup"
             className={"Game2_animal1_food_" + sceneName}
           />
 
           <Image
-            src={Assets?.[sceneName]?.sprites[5]}
+            src={Assets?.[sceneName]?.sprites[3]}
             alt="txt"
             id="fadeup"
             className={"Game2_animal2_food_" + sceneName}
           />
 
           <Image
-            src={Assets?.[sceneName]?.sprites[6]}
+            src={Assets?.[sceneName]?.sprites[4]}
             alt="txt"
             id="fadeup"
             className={"Game2_animal3_food_" + sceneName}
@@ -202,7 +206,7 @@ export default function Game2Explain({
             <div id="fadeup" className={"animal_text_div_" + sceneName}>
               <div className={"animal_text_" + sceneName}>
                 <Image
-                  src={Assets?.[sceneName]?.sprites[2]}
+                  src={Assets?.[sceneName]?.sprites[1]}
                   alt="txt"
                   id="fadeup"
                   className="text"
@@ -212,14 +216,18 @@ export default function Game2Explain({
           ) : (
             <>
               <Image
-                src={Assets?.lionLottie?.sprites[3]}
+                src={Assets?.lionLottie?.sprites[2]}
                 alt="txt"
                 id="fadeup"
                 className={"animal_text_" + sceneName}
               />
               <div className={"animal_text_" + sceneName}>
                 <Image
-                  src={Assets?.[sceneName]?.sprites[2]}
+                  src={
+                    SceneId === "/Monkey_Game2_Explain"
+                      ? Assets?.[sceneName]?.sprites[0]
+                      : Assets?.[sceneName]?.sprites[1]
+                  }
                   alt="txt"
                   id="fadeup"
                   className="text"
@@ -228,14 +236,31 @@ export default function Game2Explain({
             </>
           )}
 
-          <div className={sceneName + "_Foreground-div"}>
-            <Image
-              src={Assets?.[sceneName]?.sprites[4]}
-              alt="txt"
-              id="fadeup"
-              className="horse_Foreground"
-            />
-          </div>
+          {SceneId === "/Horse_Game2_Explain" ? (
+            <div className={sceneName + "_Foreground-div"}>
+              <Image
+                src={Assets?.[sceneName]?.sprites[2]}
+                alt="txt"
+                id="fadeup"
+                className="horse_Foreground"
+              />
+            </div>
+          ) : (
+            <></>
+          )}
+
+          {SceneId === "/Rabbit_Game2_Explain" ? (
+            <div className={sceneName + "_Foreground-div"}>
+              <Image
+                src={Assets?.[sceneName]?.sprites[2]}
+                alt="txt"
+                id="fadeup"
+                className="horse_Foreground"
+              />
+            </div>
+          ) : (
+            <></>
+          )}
 
           <div ref={Ref} className={"Game2_" + sceneName} id="fadeup"></div>
         </>
