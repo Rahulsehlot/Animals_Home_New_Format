@@ -78,35 +78,56 @@ export default function Game2({
   preLoad,
 }) {
   const Next = useLoadAsset(preLoad);
+  const { Bg, setBg } = useContext(BGContext);
+
   const [Switch, setSwitch] = useState(false);
+  const [secondAudio, setsecondAudio] = useState(false);
+  const [clicked, setClicked] = useState(0);
 
   // const { Bg, Loading } = useLoadAsset(get_tracer_obj(sceneName));
   // const [Loading, setLoading] = useState(true);
-  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
-    useContext(SceneContext);
+  const { SceneId, setSceneId, Assets, setAssets } = useContext(SceneContext);
   const [playing, setplaying] = useState(false);
   const [correct, setCorrect] = useState(0);
   const [wrong, setWrong] = useState(0);
   const [imgID, setImgID] = useState(null);
   const { intro } = Assets;
+  const [sound_1, setsound_1] = useState(null);
+  const transRef = useRef(null);
+  const [isLoading, setisLoading] = useState(true);
 
   const Ref = useRef(null);
 
   useEffect(() => {
+    setsound_1(Assets?.[imgID]?.sounds[0]);
     if (count === 5) {
       setCount(0);
     }
 
     setImgID(sceneName);
-    if (Assets?.lion) {
-      Assets?.lion?.sounds[0]?.play();
-      Assets?.lion?.sounds[0].on("end", () => {});
+    if (isLoading === false) {
+      if (Assets?.lion) {
+        Assets?.lion?.sounds[1]?.play();
+        Assets?.lion?.sounds[1]?.on("end", () => {});
+      }
     }
-  }, []);
+  }, [isLoading]);
 
   const playCorrectSound = () => {
-    Assets?.lion?.sounds[0]?.stop();
+    Assets?.lion?.sounds[1]?.stop();
     counter(count, setCount);
+    if (Assets?.lion) {
+      setplaying(true);
+      Assets?.lion?.sounds[3]?.play();
+      Assets?.lion?.sounds[3]?.on("end", () => {
+        setSwitch(true);
+        // setSwitch(true);
+        // });
+      });
+    }
+  };
+
+  const playWrongSound = () => {
     if (Assets?.lion) {
       setplaying(true);
       Assets?.lion?.sounds[2]?.play();
@@ -115,30 +136,26 @@ export default function Game2({
       });
     }
   };
-  const playWrongSound = () => {
-    if (Assets?.lion) {
-      setplaying(true);
-      Assets?.lion?.sounds[1]?.play();
-      Assets?.lion?.sounds[1]?.on("end", () => {
-        setplaying(false);
-      });
-    }
-  };
 
   const Option1 = () => {
-    if (playing === false) {
-      playCorrectSound();
-      setCorrect(1);
-      const timeout = setTimeout(() => {
-        setSwitch(true);
-      }, 1500);
+    if (isLoading === false) {
+      if (playing === false) {
+        playCorrectSound();
+        setCorrect(1);
+        setClicked(1);
+        // const timeout = setTimeout(() => {
+        //   setSwitch(true);
+        // }, 7000);
+      }
     }
   };
 
   const Option2 = () => {
-    if (playing === false) {
-      playWrongSound();
-      setWrong(1);
+    if (isLoading === false) {
+      if (playing === false) {
+        playWrongSound();
+        setWrong(1);
+      }
     }
   };
 
@@ -149,28 +166,81 @@ export default function Game2({
   }, [wrong]);
 
   useEffect(() => {
+    setBg(Assets?.[sceneName]?.Bg);
+
+    // if (secondAudio) {
+    //   Assets?.[imgID]?.sounds[0]?.play();
+    //   Assets?.[imgID]?.sounds[0]?.on("end", () => {});
+    //   setSwitch(true);
+    // }
+
     if (Switch && !Next.Loading) {
-      setSceneId(NextSceneId);
+      Assets?.[sceneName]?.sounds[0]?.play();
+      Assets?.[sceneName]?.sounds[0]?.on("end", () => {
+        setplaying(false);
+
+        Assets?.[sceneName]?.sounds[0]?.stop();
+        setSceneId(NextSceneId);
+      });
     }
   }, [Next.Loading, Switch]);
 
-  console.log(sceneName);
-  console.log(Assets);
+  const [seconds, setSeconds] = useState(0);
+
+  useEffect(() => {
+    if (clicked === 1) {
+      Assets?.lion?.sounds[1]?.stop();
+    }
+
+    if (seconds > 15) {
+      setSeconds(0);
+      Assets?.lion?.sounds[1]?.play();
+    }
+  });
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSeconds((seconds) => seconds + 1);
+    }, 1000);
+  }, []);
+
+  useEffect(() => {
+    if (Assets && transRef.current) {
+      lottie.loadAnimation({
+        name: "boy",
+        container: transRef.current,
+        renderer: "svg",
+        autoplay: true,
+        loop: true,
+        animationData: Assets?.intro?.lottie[1],
+        speed: 0.7,
+      });
+    }
+    setTimeout(() => {
+      setisLoading(false);
+    }, 500);
+  }, []);
 
   return (
     <Scenes
+      Bg={Bg}
       sprites={
         <>
+          <div
+            className="transition"
+            style={{ display: isLoading ? "block" : "none" }}
+            ref={transRef}
+          ></div>
+
           {/* Title */}
-          <Image
+          {/* <Image
             src={Assets?.[imgID]?.sprites[0]}
             alt="txt"
             id="fadeup"
             className="Game2_question_img"
-          />
+          /> */}
 
           <Image
-            src={Assets?.lion?.sprites[5]}
+            src={Assets?.lion?.sprites[4]}
             alt="txt"
             id="fadeup"
             className="Game2_Character_Container"
@@ -178,21 +248,37 @@ export default function Game2({
 
           <div className="Character">
             <Image
-              src={Assets?.[sceneName]?.sprites[1]}
+              src={Assets?.[sceneName]?.sprites[0]}
               alt="txt"
               id="fadeup"
               className="Character_img"
             />
           </div>
 
-          <div className="Character_Name">
-            <Image
-              src={Assets?.[sceneName]?.sprites[2]}
-              alt="txt"
-              id="fadeup"
-              className="CharacterName_img"
-            />
-          </div>
+          {SceneId === "/Sparrow_Game2" ? (
+            <div className="Character_Name">
+              <Image
+                src={Assets?.[sceneName]?.sprites[1]}
+                alt="txt"
+                id="fadeup"
+                className="CharacterName_img_Sparrow"
+              />
+            </div>
+          ) : (
+            <>
+              <div className="Character_Name">
+                <Image
+                  src={Assets?.[sceneName]?.sprites[1]}
+                  alt="txt"
+                  id="fadeup"
+                  className="CharacterName_img"
+                  style={{
+                    display: SceneId === "/Sparrow_Game2" ? "none" : "block",
+                  }}
+                />
+              </div>
+            </>
+          )}
 
           <div
             className="Option1"
@@ -229,7 +315,7 @@ export default function Game2({
           />
 
           <Image
-            src={Assets?.lion?.sprites[6]}
+            src={Assets?.lion?.sprites[5]}
             alt="txt"
             id="fadeup"
             className="Option1NameContainer"
@@ -242,7 +328,7 @@ export default function Game2({
             }}
           >
             <Image
-              src={Assets?.[sceneName]?.sprites[3]}
+              src={Assets?.[sceneName]?.sprites[2]}
               alt="txt"
               id="fadeup"
               className="Option1Name_img"
@@ -250,7 +336,7 @@ export default function Game2({
           </div>
 
           <Image
-            src={Assets?.lion?.sprites[6]}
+            src={Assets?.lion?.sprites[5]}
             alt="txt"
             id="fadeup"
             className="Option2NameContainer"
@@ -263,7 +349,7 @@ export default function Game2({
             }}
           >
             <Image
-              src={Assets?.[sceneName]?.sprites[4]}
+              src={Assets?.[sceneName]?.sprites[3]}
               alt="txt"
               id="fadeup"
               className="Option2Name_img"

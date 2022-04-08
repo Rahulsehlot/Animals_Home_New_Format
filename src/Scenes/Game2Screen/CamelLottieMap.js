@@ -1,19 +1,20 @@
-const imgUrl = "internal/images/";
-const soundUrl = "internal/sounds/";
-const lottieUrl = "internal/lottie/";
+const imgUrl = "ee02_ow_wai_pl1/images/";
+const soundUrl = "ee02_ow_wai_pl1/sounds/";
+const lottieUrl = "ee02_ow_wai_pl1/lottie/";
 
 const CamelLottieMap = {
   id: "camelLottie",
 
+  Bg: `${imgUrl}houses/camel_explain.svg`,
+
   sprites: [
-    `${imgUrl}Houses/Camel_Explain.svg`,
-    `${imgUrl}animal-food/Camel_Grass.svg`,
-    `${imgUrl}animalFood_Name/grass.svg`,
+    `${imgUrl}animal_food/camel_grass.svg`,
+    `${imgUrl}animalfood_name/grass.svg`,
   ],
 
-  sounds: [`${soundUrl}Eats/camel_eats.mp3`],
+  sounds: [`${soundUrl}eats/camel_eats.mp3`],
 
-  lottie: [`${lottieUrl}Camel_eats.json`],
+  lottie: [`${lottieUrl}camel_eats.json`],
 };
 
 export default CamelLottieMap;

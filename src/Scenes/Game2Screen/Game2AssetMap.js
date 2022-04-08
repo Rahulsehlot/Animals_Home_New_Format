@@ -1,19 +1,19 @@
-const imgUrl = "internal/images/";
-const soundUrl = "internal/sounds/";
-const lottieUrl = "internal/lottie/";
+const imgUrl = "ee02_ow_wai_pl1/images/";
+const soundUrl = "ee02_ow_wai_pl1/sounds/";
+const lottieUrl = "ee02_ow_wai_pl1/lottie/";
 
 const IntroMap = {
   id: "Scene22",
 
   sprites: [
-    `${imgUrl}SB_30_highlight _green.svg`,
-    `${imgUrl}SB_30_highlight_red.svg`,
+    `${imgUrl}sb_30_highlight_green.svg`,
+    `${imgUrl}sb_30_highlight_red.svg`,
     `${imgUrl}progress_bar.svg`,
     `${imgUrl}progress_bar_02.svg`,
     `${imgUrl}progress_on.svg`,
     `${imgUrl}character_container.svg`,
     `${imgUrl}icon.svg`,
-    `${imgUrl}Artboard.svg`,
+    `${imgUrl}artboard.svg`,
   ],
 
   sounds: [
@@ -23,21 +23,21 @@ const IntroMap = {
   ],
 
   lottie: [
-    `${lottieUrl}Lion_eats.json`,
-    `${lottieUrl}Dog_eats.json`,
-    `${lottieUrl}Horse_eats.json`,
-    `${lottieUrl}Rabbit_eats.json`,
-    `${lottieUrl}Frog_eats.json`,
-    `${lottieUrl}Spparow_eats.json`,
-    `${lottieUrl}Bear_eats.json`,
-    `${lottieUrl}Pig_eats.json`,
-    `${lottieUrl}Hen_eats.json`,
-    `${lottieUrl}Sheep_eats.json`,
-    `${lottieUrl}Cow_eats.json`,
-    `${lottieUrl}Monkey_eats.json`,
-    `${lottieUrl}Camel_eats.json`,
-    `${lottieUrl}Bat_eats.json`,
-    `${lottieUrl}Owl_eats.json`,
+    `${lottieUrl}lion_eats.json`,
+    `${lottieUrl}dog_eats.json`,
+    `${lottieUrl}horse_eats.json`,
+    `${lottieUrl}rabbit_eats.json`,
+    `${lottieUrl}frog_eats.json`,
+    `${lottieUrl}spparow_eats.json`,
+    `${lottieUrl}bear_eats.json`,
+    `${lottieUrl}pig_eats.json`,
+    `${lottieUrl}hen_eats.json`,
+    `${lottieUrl}sheep_eats.json`,
+    `${lottieUrl}cow_eats.json`,
+    `${lottieUrl}monkey_eats.json`,
+    `${lottieUrl}camel_eats.json`,
+    `${lottieUrl}bat_eats.json`,
+    `${lottieUrl}owl_eats.json`,
   ],
 };
 

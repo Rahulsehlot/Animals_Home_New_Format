@@ -1,19 +1,20 @@
-const imgUrl = "internal/images/";
-const soundUrl = "internal/sounds/";
-const lottieUrl = "internal/lottie/";
+const imgUrl = "ee02_ow_wai_pl1/images/";
+const soundUrl = "ee02_ow_wai_pl1/sounds/";
+const lottieUrl = "ee02_ow_wai_pl1/lottie/";
 
 const CamelMap = {
   id: "camel",
 
+  Bg: `${imgUrl}houses/frog_question.svg`,
+
   sprites: [
-    `${imgUrl}Houses/Frog_Question.svg`,
-    `${imgUrl}animals/Camel.svg`,
-    `${imgUrl}animal_Name/camel.svg`,
-    `${imgUrl}animalHouse_Name/desert.svg`,
-    `${imgUrl}animalHouse_Name/pond.svg`,
+    `${imgUrl}animals/camel.svg`,
+    `${imgUrl}animal_name/camel.svg`,
+    `${imgUrl}animalhouse_name/desert.svg`,
+    `${imgUrl}animalhouse_name/pond.svg`,
   ],
 
-  sounds: [],
+  sounds: [`${soundUrl}eats/camel_lives.mp3`],
 
   lottie: [],
 };

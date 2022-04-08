@@ -1,21 +1,20 @@
-const imgUrl = "internal/images/";
-const soundUrl = "internal/sounds/";
-const lottieUrl = "internal/lottie/";
+const imgUrl = "ee02_ow_wai_pl1/images/";
+const soundUrl = "ee02_ow_wai_pl1/sounds/";
+const lottieUrl = "ee02_ow_wai_pl1/lottie/";
 
 const BearMap = {
   id: "bear",
 
-  Bg: `${imgUrl}_Question_.svg`,
+  Bg: `${imgUrl}houses/bear_question.svg`,
 
   sprites: [
-    `${imgUrl}Houses/Bear_Question.svg`,
-    `${imgUrl}animals/Bear.svg`,
-    `${imgUrl}animal_Name/bear.svg`,
-    `${imgUrl}animalHouse_Name/den.svg`,
-    `${imgUrl}animalHouse_Name/tree.svg`,
+    `${imgUrl}animals/bear.svg`,
+    `${imgUrl}animal_name/bear.svg`,
+    `${imgUrl}animalhouse_name/den.svg`,
+    `${imgUrl}animalhouse_name/tree.svg`,
   ],
 
-  sounds: [],
+  sounds: [`${soundUrl}eats/bear_lives.mp3`],
 
   lottie: [],
 };

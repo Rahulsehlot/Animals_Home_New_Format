@@ -1,19 +1,20 @@
-const imgUrl = "internal/images/";
-const soundUrl = "internal/sounds/";
-const lottieUrl = "internal/lottie/";
+const imgUrl = "ee02_ow_wai_pl1/images/";
+const soundUrl = "ee02_ow_wai_pl1/sounds/";
+const lottieUrl = "ee02_ow_wai_pl1/lottie/";
 
 const DogMap = {
   id: "dog",
 
+  Bg: `${imgUrl}houses/dog_question.svg`,
+
   sprites: [
-    `${imgUrl}Houses/Dog_Question.svg`,
-    `${imgUrl}animals/Dog.svg`,
-    `${imgUrl}animal_Name/dog.svg`,
-    `${imgUrl}animalHouse_Name/kennel.svg`,
-    `${imgUrl}animalHouse_Name/burrow.svg`,
+    `${imgUrl}animals/dog.svg`,
+    `${imgUrl}animal_name/dog.svg`,
+    `${imgUrl}animalhouse_name/kennel.svg`,
+    `${imgUrl}animalhouse_name/burrow.svg`,
   ],
 
-  sounds: [],
+  sounds: [`${soundUrl}eats/dog_lives.mp3`],
 
   lottie: [],
 };

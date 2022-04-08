@@ -1,23 +1,24 @@
-const imgUrl = "internal/images/";
-const soundUrl = "internal/sounds/";
-const lottieUrl = "internal/lottie/";
+const imgUrl = "ee02_ow_wai_pl1/images/";
+const soundUrl = "ee02_ow_wai_pl1/sounds/";
+const lottieUrl = "ee02_ow_wai_pl1/lottie/";
 
 const BatLottieMap = {
   id: "batLottie",
 
+  Bg: `${imgUrl}houses/bat_explain.svg`,
+
   sprites: [
-    `${imgUrl}Houses/Bat_Explain.svg`,
-    `${imgUrl}animal-food/insects.svg`,
-    `${imgUrl}animalFood_Name/insects.svg`,
-    `${imgUrl}animal-food/Bat_Insects.svg`,
-    `${imgUrl}animal-food/Bat_Insects_1.svg`,
-    `${imgUrl}animal-food/Bat_Insects_1.svg`,
-    `${imgUrl}animal-food/Insects_04.svg`,
+    `${imgUrl}animal_food/insects.svg`,
+    `${imgUrl}animalfood_name/insects.svg`,
+    `${imgUrl}animal_food/bat_insects.svg`,
+    `${imgUrl}animal_food/bat_insects_1.svg`,
+    `${imgUrl}animal_food/bat_insects_1.svg`,
+    `${imgUrl}animal_food/insects_04.svg`,
   ],
 
-  sounds: [`${soundUrl}Eats/bat_eats_insects.mp3`],
+  sounds: [`${soundUrl}eats/bat_eats_insects.mp3`],
 
-  lottie: [`${lottieUrl}Bat_eats.json`],
+  lottie: [`${lottieUrl}bat_eats.json`],
 };
 
 export default BatLottieMap;

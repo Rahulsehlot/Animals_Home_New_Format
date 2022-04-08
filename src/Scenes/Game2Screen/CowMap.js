@@ -1,19 +1,20 @@
-const imgUrl = "internal/images/";
-const soundUrl = "internal/sounds/";
-const lottieUrl = "internal/lottie/";
+const imgUrl = "ee02_ow_wai_pl1/images/";
+const soundUrl = "ee02_ow_wai_pl1/sounds/";
+const lottieUrl = "ee02_ow_wai_pl1/lottie/";
 
 const CowMap = {
   id: "cow",
 
+  Bg: `${imgUrl}houses/cow_question.svg`,
+
   sprites: [
-    `${imgUrl}Houses/Cow_Question.svg`,
-    `${imgUrl}animals/Cow.svg`,
-    `${imgUrl}animal_Name/cow.svg`,
-    `${imgUrl}animalHouse_Name/cowshed.svg`,
-    `${imgUrl}animalHouse_Name/den.svg`,
+    `${imgUrl}animals/cow.svg`,
+    `${imgUrl}animal_name/cow.svg`,
+    `${imgUrl}animalhouse_name/cowshed.svg`,
+    `${imgUrl}animalhouse_name/den.svg`,
   ],
 
-  sounds: [],
+  sounds: [`${soundUrl}eats/cow_lives.mp3`],
 
   lottie: [],
 };

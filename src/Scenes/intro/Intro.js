@@ -24,7 +24,6 @@ export default function Intro({ setplayBtn, playBtn }) {
 
   useEffect(() => {
     setBg(intro?.Bg);
-
     if (Assets && Ref.current) {
       try {
         lottie.loadAnimation({
@@ -43,6 +42,7 @@ export default function Intro({ setplayBtn, playBtn }) {
 
   useEffect(() => {
     if (Switch && !Next.Loading) {
+      setBg(Assets?.Scene2?.Bg);
       setSceneId("/Scene2");
     }
   }, [Next.Loading, Switch]);

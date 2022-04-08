@@ -1,24 +1,24 @@
-const imgUrl = "internal/images/";
-const soundUrl = "internal/sounds/";
-const lottieUrl = "internal/lottie/";
+const imgUrl = "ee02_ow_wai_pl1/images/";
+const soundUrl = "ee02_ow_wai_pl1/sounds/";
+const lottieUrl = "ee02_ow_wai_pl1/lottie/";
 
 const IntroMap = {
   id: "Scene2",
 
-  Bg: `${imgUrl}Scene2.svg`,
+  Bg: `${imgUrl}scene2.svg`,
 
   sprites: [
-    `${imgUrl}Skip_Button.svg`,
+    `${imgUrl}skip_button.svg`,
     `${imgUrl}progress_bar.svg`,
     `${imgUrl}progress_bar_02.svg`,
     `${imgUrl}progress_on.svg`,
-    `${imgUrl}SB_30_highlight _green.svg`,
-    `${imgUrl}SB_30_highlight_red.svg`,
+    `${imgUrl}sb_30_highlight_green.svg`,
+    `${imgUrl}sb_30_highlight_red.svg`,
   ],
 
   sounds: [`${soundUrl}02.mp3`],
 
-  lottie: [`${lottieUrl}Scene_03.json`],
+  lottie: [`${lottieUrl}scene_03.json`],
 };
 
 export default IntroMap;

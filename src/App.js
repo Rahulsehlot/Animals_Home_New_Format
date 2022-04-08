@@ -66,9 +66,9 @@ function App() {
   }, []);
 
   const loadAudio = async () => {
-    setBG_sound(await AudioPlayer2("internal/sounds/game-music.mp3"));
-    seticon1(await LoadImage("internal/images/SoundOn.svg"));
-    seticon2(await LoadImage("internal/images/SoundOff.svg"));
+    setBG_sound(await AudioPlayer2("ee02_ow_wai_pl1/sounds/game_music.mp3"));
+    seticon1(await LoadImage("ee02_ow_wai_pl1/images/soundon.svg"));
+    seticon2(await LoadImage("ee02_ow_wai_pl1/images/soundoff.svg"));
   };
 
   useEffect(() => {

@@ -1,21 +1,21 @@
-const imgUrl = "internal/images/";
-const soundUrl = "internal/sounds/";
-const lottieUrl = "internal/lottie/";
+const imgUrl = "ee02_ow_wai_pl1/images/";
+const soundUrl = "ee02_ow_wai_pl1/sounds/";
+const lottieUrl = "ee02_ow_wai_pl1/lottie/";
 
 const HorseLottieMap = {
   id: "horseLottie",
 
+  Bg: `${imgUrl}houses/horse_explain.svg`,
+
   sprites: [
-    `${imgUrl}Houses/Horse_Explain.svg`,
-    `${imgUrl}animal-food/Hay.svg`,
-    `${imgUrl}animalFood_Name/hay.svg`,
-    `${imgUrl}`,
-    `${imgUrl}horse_ForeGround.svg`,
+    `${imgUrl}animal_food/hay.svg`,
+    `${imgUrl}animalfood_name/hay.svg`,
+    `${imgUrl}horse_foreground.svg`,
   ],
 
-  sounds: [`${soundUrl}Eats/horse_eats.mp3`],
+  sounds: [`${soundUrl}eats/horse_eats.mp3`],
 
-  lottie: [`${lottieUrl}Horse_eats.json`],
+  lottie: [`${lottieUrl}horse_eats.json`],
 };
 
 export default HorseLottieMap;

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export default function GameContainer({ children }) {
-  const ratio = 16 / 9;
+  const ratio = 1920 / 900;
   const [width, setwidth] = useState(window.innerWidth);
   const [height, setheight] = useState(width / ratio);
 
@@ -32,6 +32,8 @@ export default function GameContainer({ children }) {
     left: "50%",
     top: "50%",
     transform: "translate(-50%,-50%)",
+    overflow: "hidden",
+    backgroundColor: "#6ED863",
   };
 
   return (

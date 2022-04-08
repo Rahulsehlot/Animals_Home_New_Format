@@ -1,19 +1,20 @@
-const imgUrl = "internal/images/";
-const soundUrl = "internal/sounds/";
-const lottieUrl = "internal/lottie/";
+const imgUrl = "ee02_ow_wai_pl1/images/";
+const soundUrl = "ee02_ow_wai_pl1/sounds/";
+const lottieUrl = "ee02_ow_wai_pl1/lottie/";
 
 const HenLottieMap = {
   id: "henLottie",
 
+  Bg: `${imgUrl}houses/hen_explain.svg`,
+
   sprites: [
-    `${imgUrl}Houses/Hen_Explain.svg`,
-    `${imgUrl}animal-food/hen_grain.svg`,
-    `${imgUrl}animalFood_Name/grain.svg`,
+    `${imgUrl}animal_food/hen_grain.svg`,
+    `${imgUrl}animalfood_name/grain.svg`,
   ],
 
-  sounds: [`${soundUrl}Eats/hen_eats.mp3`],
+  sounds: [`${soundUrl}eats/hen_eats.mp3`],
 
-  lottie: [`${lottieUrl}Hen_eats.json`],
+  lottie: [`${lottieUrl}hen_eats.json`],
 };
 
 export default HenLottieMap;

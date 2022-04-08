@@ -1,19 +1,20 @@
-const imgUrl = "internal/images/";
-const soundUrl = "internal/sounds/";
-const lottieUrl = "internal/lottie/";
+const imgUrl = "ee02_ow_wai_pl1/images/";
+const soundUrl = "ee02_ow_wai_pl1/sounds/";
+const lottieUrl = "ee02_ow_wai_pl1/lottie/";
 
 const BatMap = {
   id: "bat",
 
+  Bg: `${imgUrl}houses/bat_question.svg`,
+
   sprites: [
-    `${imgUrl}Houses/Bat_Question.svg`,
-    `${imgUrl}animals/Bat.svg`,
-    `${imgUrl}animal_Name/bat.svg`,
-    `${imgUrl}animalHouse_Name/cave.svg`,
-    `${imgUrl}animalHouse_Name/coop.svg`,
+    `${imgUrl}animals/bat.svg`,
+    `${imgUrl}animal_name/bat.svg`,
+    `${imgUrl}animalhouse_name/cave.svg`,
+    `${imgUrl}animalhouse_name/coop.svg`,
   ],
 
-  sounds: [],
+  sounds: [`${soundUrl}eats/bat_lives.mp3`],
 
   lottie: [],
 };

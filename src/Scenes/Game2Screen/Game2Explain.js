@@ -23,6 +23,7 @@ import CamelMap from "./CamelMap";
 import BatMap from "./BatMap";
 import OwlMap from "./OwlMap";
 import Star from "./progressBar";
+import { BGContext } from "../../contexts/Background";
 
 function get_tracer_obj(type) {
   switch (type) {
@@ -76,26 +77,32 @@ export default function Game2Explain({
   preLoad,
 }) {
   const Next = useLoadAsset(preLoad);
+  const { Bg, setBg } = useContext(BGContext);
+
   const [Switch, setSwitch] = useState(false);
 
   // const { Bg, Loading } = useLoadAsset(get_tracer_obj(sceneName));
   // const [Loading, setLoading] = useState(true);
 
-  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
-    useContext(SceneContext);
+  const { SceneId, setSceneId, Assets, setAssets } = useContext(SceneContext);
   const [playing, setplaying] = useState(false);
   const [grey, setGrey] = useState(false);
   const { intro } = Assets;
+  const [isLoading, setisLoading] = useState(true);
 
   const Ref = useRef(null);
   useEffect(() => {
-    if (Assets?.[sceneName]) {
-      Assets?.[sceneName]?.sounds[0]?.play();
-      Assets?.[sceneName]?.sounds[0]?.on("end", () => {
-        setSwitch(true);
-      });
-    }
-  }, []);
+    const timeout = setTimeout(() => {
+      if (isLoading === false) {
+        if (Assets?.[sceneName]) {
+          Assets?.[sceneName]?.sounds[0]?.play();
+          Assets?.[sceneName]?.sounds[0]?.on("end", () => {
+            setSwitch(true);
+          });
+        }
+      }
+    }, 700);
+  }, [isLoading]);
 
   useEffect(() => {
     if (Assets && Ref.current) {
@@ -115,81 +122,145 @@ export default function Game2Explain({
   }, []);
 
   useEffect(() => {
+    setBg(Assets?.[sceneName]?.Bg);
+
     if (Switch && !Next.Loading) {
-      setSceneId(NextSceneId);
+      const timeout = setTimeout(() => {
+        setSceneId(NextSceneId);
+      }, 1500);
     }
   }, [Next.Loading, Switch]);
 
+  const transRef = useRef(null);
+  useEffect(() => {
+    if (Assets && transRef.current) {
+      lottie.loadAnimation({
+        name: "boy",
+        container: transRef.current,
+        renderer: "svg",
+        autoplay: true,
+        loop: true,
+        animationData: Assets?.intro?.lottie[1],
+        speed: 0.7,
+      });
+    }
+    setTimeout(() => {
+      setisLoading(false);
+    }, 500);
+  }, []);
+
   return (
     <Scenes
+      Bg={Bg}
       sprites={
         <>
+          <div
+            className="transition"
+            style={{ display: isLoading ? "block" : "none" }}
+            ref={transRef}
+          ></div>
+
           {/* Title */}
           <Star num={count} />
 
-          <Image
+          {/* <Image
             src={Assets?.[sceneName]?.sprites[0]}
             alt="txt"
             id="fadeup"
             className="Game2_question_img"
-          />
+          /> */}
+
+          {SceneId === "/Monkey_Game2_Explain" ? (
+            <></>
+          ) : (
+            <Image
+              src={Assets?.[sceneName]?.sprites[0]}
+              alt="txt"
+              id="fadeup"
+              className={"Game2_animal_food_" + sceneName}
+            />
+          )}
 
           <Image
-            src={Assets?.[sceneName]?.sprites[1]}
-            alt="txt"
-            id="fadeup"
-            className={"Game2_animal_food_" + sceneName}
-          />
-
-          <Image
-            src={Assets?.[sceneName]?.sprites[4]}
+            src={Assets?.[sceneName]?.sprites[2]}
             alt="txt"
             id="fadeup"
             className={"Game2_animal1_food_" + sceneName}
           />
 
           <Image
-            src={Assets?.[sceneName]?.sprites[5]}
+            src={Assets?.[sceneName]?.sprites[3]}
             alt="txt"
             id="fadeup"
             className={"Game2_animal2_food_" + sceneName}
           />
 
           <Image
-            src={Assets?.[sceneName]?.sprites[6]}
+            src={Assets?.[sceneName]?.sprites[4]}
             alt="txt"
             id="fadeup"
             className={"Game2_animal3_food_" + sceneName}
           />
 
-          {SceneId === "Pig_Game2_Explain" ? (
-            <div id="fadeup" className={"animal_text_" + sceneName}></div>
+          {SceneId === "/Pig_Game2_Explain" ? (
+            <div id="fadeup" className={"animal_text_div_" + sceneName}>
+              <div className={"animal_text_" + sceneName}>
+                <Image
+                  src={Assets?.[sceneName]?.sprites[1]}
+                  alt="txt"
+                  id="fadeup"
+                  className="text"
+                />
+              </div>
+            </div>
           ) : (
-            <Image
-              src={Assets?.lionLottie?.sprites[3]}
-              alt="txt"
-              id="fadeup"
-              className={"animal_text_" + sceneName}
-            />
+            <>
+              <Image
+                src={Assets?.lionLottie?.sprites[2]}
+                alt="txt"
+                id="fadeup"
+                className={"animal_text_" + sceneName}
+              />
+              <div className={"animal_text_" + sceneName}>
+                <Image
+                  src={
+                    SceneId === "/Monkey_Game2_Explain"
+                      ? Assets?.[sceneName]?.sprites[0]
+                      : Assets?.[sceneName]?.sprites[1]
+                  }
+                  alt="txt"
+                  id="fadeup"
+                  className="text"
+                />
+              </div>
+            </>
           )}
 
-          <div className={"animal_text_" + sceneName}>
-            <Image
-              src={Assets?.[sceneName]?.sprites[2]}
-              alt="txt"
-              id="fadeup"
-              className="text"
-            />
-          </div>
+          {SceneId === "/Horse_Game2_Explain" ? (
+            <div className={sceneName + "_Foreground-div"}>
+              <Image
+                src={Assets?.[sceneName]?.sprites[2]}
+                alt="txt"
+                id="fadeup"
+                className="horse_Foreground"
+              />
+            </div>
+          ) : (
+            <></>
+          )}
 
-          <div className={sceneName + "_Foreground-div"}>
-            <Image
-              src={Assets?.[sceneName]?.sprites[4]}
-              alt="txt"
-              id="fadeup"
-              className="horse_Foreground"
-            />
-          </div>
+          {SceneId === "/Rabbit_Game2_Explain" ? (
+            <div className={sceneName + "_Foreground-div"}>
+              <Image
+                src={Assets?.[sceneName]?.sprites[2]}
+                alt="txt"
+                id="fadeup"
+                className="horse_Foreground"
+              />
+            </div>
+          ) : (
+            <></>
+          )}
 
           <div ref={Ref} className={"Game2_" + sceneName} id="fadeup"></div>
         </>

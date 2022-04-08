@@ -15,7 +15,7 @@
   display: flex;
   justify-content: center;
   cursor: pointer;
-  z-index: 1;
+  z-index: 550;
 }
 
 .Option2 {
@@ -27,7 +27,7 @@
   display: flex;
   justify-content: center;
   cursor: pointer;
-  z-index: 1;
+  z-index: 550;
 }
 
 .audio_replay_icon_Game2Disabled,
@@ -57,7 +57,7 @@
   top: 4%;
   left: 37.4%;
   width: 25%;
-  height: 30%;
+  height: 37%;
   z-index: 8;
   display: flex;
   align-items: center;
@@ -71,7 +71,7 @@
 
 .Character_Name {
   position: fixed;
-  top: 38.5%;
+  top: 47.5%;
   left: 41%;
   width: 18%;
   height: 10.5%;
@@ -82,8 +82,13 @@
 }
 
 .CharacterName_img {
-  width: 80%;
-  height: 80%;
+  width: 100%;
+  height: 125%;
+}
+
+.CharacterName_img_Sparrow {
+  width: 100%;
+  height: 125%;
 }
 
 .Option1NameContainer {
@@ -135,7 +140,7 @@
 }
 
 .text {
-  width: 100%;
+  width: 90%;
   height: 100%;
 }
 
@@ -160,8 +165,8 @@
   position: fixed;
   left: 75%;
   bottom: 10%;
-  width: 20%;
-  z-index: 999;
+  width: 18%;
+  z-index: 39;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -178,17 +183,17 @@
 .Game2_animal_food_dogLottie {
   position: fixed;
   bottom: 5%;
-  left: 50%;
+  left: 54%;
   z-index: 10;
   width: 10%;
 }
 
 .animal_text_dogLottie {
   position: fixed;
-  right: 75%;
-  bottom: 10%;
-  width: 20%;
-  z-index: 999;
+  right: 55%;
+  bottom: 6%;
+  width: 18%;
+  z-index: 39;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -204,16 +209,16 @@
 }
 .Game2_animal_food_horseLottie {
   position: fixed;
-  bottom: 13%;
-  left: 55%;
+  bottom: 7%;
+  left: 58%;
   z-index: 15;
   width: 20%;
 }
 
 .horseLottie_Foreground-div {
   position: fixed;
-  top: 21%;
-  left: 61%;
+  top: 18%;
+  left: 65%;
   z-index: 10;
   width: 39%;
   overflow: hidden;
@@ -221,10 +226,10 @@
 
 .animal_text_horseLottie {
   position: fixed;
-  right: 55%;
+  right: 50%;
   bottom: 10%;
-  width: 20%;
-  z-index: 999;
+  width: 18%;
+  z-index: 39;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -258,10 +263,10 @@
 .animal_text_frogLottie,
 .animal_text_rabbitLottie {
   position: fixed;
-  left: 75%;
-  bottom: 10%;
-  width: 20%;
-  z-index: 999;
+  left: 45%;
+  bottom: 15%;
+  width: 18%;
+  z-index: 39;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -269,17 +274,17 @@
 
 .Game2_frogLottie {
   position: fixed;
-  right: 45%;
+  right: 46%;
   bottom: 30%;
   height: 60%;
-  width: 25%;
+  width: 23%;
   z-index: 10;
 }
 
 .Game2_animal_food_frogLottie {
   position: fixed;
-  left: 15.5%;
-  bottom: 25%;
+  left: 19.5%;
+  bottom: 34%;
   width: 5%;
   z-index: 155;
 }
@@ -306,8 +311,8 @@
   position: fixed;
   left: 55%;
   bottom: 10%;
-  width: 20%;
-  z-index: 999;
+  width: 18%;
+  z-index: 39;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -315,8 +320,8 @@
 
 .Game2_sparrowLottie {
   position: fixed;
-  right: 50%;
-  bottom: 28%;
+  right: 47%;
+  bottom: 29%;
   height: 60%;
   width: 40%;
   z-index: 10;
@@ -332,10 +337,10 @@
 
 .animal_text_sparrowLottie {
   position: fixed;
-  left: 75%;
+  left: 55%;
   bottom: 10%;
-  width: 20%;
-  z-index: 999;
+  width: 18%;
+  z-index: 39;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -343,26 +348,26 @@
 
 .Game2_bearLottie {
   position: fixed;
-  right: 45%;
-  top: 14%;
+  right: 43%;
+  top: 0%;
   width: 50%;
   z-index: 10;
 }
 
 .Game2_animal_food_bearLottie {
   position: fixed;
-  left: 40.5%;
+  left: 45.5%;
   bottom: 10%;
   width: 10%;
-  z-index: 155;
+  z-index: 1560;
 }
 
 .animal_text_bearLottie {
   position: fixed;
-  left: 75%;
+  left: 60%;
   bottom: 10%;
-  width: 20%;
-  z-index: 999;
+  width: 18%;
+  z-index: 39;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -385,24 +390,33 @@
 }
 
 .animal_text_pigLottie {
-  position: fixed;
-  left: 15%;
-  bottom: 10%;
-  width: 33%;
-  height: 8%;
+  width: 110%;
+  height: 130%;
   border-radius: 30pt;
-  z-index: 999;
+  z-index: 39;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f1eac3;
-  border: 8px solid #efe8e1;
 }
 
+.animal_text_div_pigLottie {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  left: 15%;
+  bottom: 10%;
+  width: 30%;
+  height: 6%;
+  border-radius: 30pt;
+  z-index: 99;
+  background-color: #f1eac3;
+  border: 6px solid #efe8e1;
+}
 .Game2_henLottie {
   position: fixed;
   left: 5%;
-  bottom: 0%;
+  bottom: -6%;
   width: 50%;
   z-index: 10;
 }
@@ -410,17 +424,17 @@
 .Game2_animal_food_henLottie {
   position: fixed;
   left: 20%;
-  bottom: 10%;
+  bottom: 6%;
   width: 20%;
   z-index: 5;
 }
 
 .animal_text_henLottie {
   position: fixed;
-  right: 15%;
+  right: 35%;
   bottom: 10%;
-  width: 20%;
-  z-index: 999;
+  width: 18%;
+  z-index: 39;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -436,9 +450,9 @@
 
 .Game2_animal_food_sheepLottie {
   position: fixed;
-  left: 31%;
-  bottom: 32%;
-  width: 37%;
+  left: 33%;
+  bottom: 13%;
+  width: 34%;
   z-index: 5;
 }
 
@@ -446,8 +460,8 @@
   position: fixed;
   right: 40%;
   bottom: 10%;
-  width: 20%;
-  z-index: 999;
+  width: 18%;
+  z-index: 39;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -465,7 +479,7 @@
   position: fixed;
   left: 31%;
   bottom: 10%;
-  width: 47%;
+  width: 39%;
   z-index: 524;
 }
 
@@ -473,8 +487,8 @@
   position: fixed;
   right: 10%;
   bottom: 10%;
-  width: 20%;
-  z-index: 999;
+  width: 18%;
+  z-index: 39;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -483,17 +497,17 @@
 .Game2_monkeyLottie {
   position: fixed;
   left: 12%;
-  bottom: 18%;
+  bottom: 10%;
   width: 40%;
   z-index: 10;
 }
 
 .animal_text_monkeyLottie {
   position: fixed;
-  right: 10%;
+  right: 40%;
   bottom: 10%;
-  width: 20%;
-  z-index: 999;
+  width: 18%;
+  z-index: 39;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -517,10 +531,10 @@
 
 .animal_text_camelLottie {
   position: fixed;
-  right: 40%;
+  right: 25%;
   bottom: 10%;
-  width: 20%;
-  z-index: 999;
+  width: 18%;
+  z-index: 39;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -529,14 +543,14 @@
 .Game2_batLottie {
   position: fixed;
   right: 45%;
-  top: 5%;
-  width: 45%;
+  top: 0%;
+  width: 40%;
   z-index: 10;
 }
 
 .Game2_animal_food_batLottie {
   position: fixed;
-  left: 18.5%;
+  left: 24.5%;
   bottom: 20%;
   width: 5%;
   z-index: 155;
@@ -544,8 +558,8 @@
 
 .Game2_animal1_food_batLottie {
   position: fixed;
-  left: 30.5%;
-  bottom: 25%;
+  left: 33.5%;
+  bottom: 26%;
   width: 5%;
   z-index: 155;
 }
@@ -556,11 +570,13 @@
   bottom: 35%;
   width: 5%;
   z-index: 155;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
 }
 
 .Game2_animal3_food_batLottie {
   position: fixed;
-  right: 22.5%;
+  right: 26.5%;
   bottom: 17%;
   width: 5%;
   z-index: 155;
@@ -570,8 +586,8 @@
   position: fixed;
   left: 35%;
   bottom: 10%;
-  width: 20%;
-  z-index: 999;
+  width: 18%;
+  z-index: 39;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -579,38 +595,34 @@
 
 .Game2_owlLottie {
   position: fixed;
-  right: 18%;
-  bottom: 0%;
-  width: 25%;
+  right: 21%;
+  bottom: -3%;
+  width: 23%;
   z-index: 10;
 }
 
-.Game2_animal_food_owlLottie {
-  position: fixed;
-  left: 62.5%;
-  bottom: 2%;
-  width: 2%;
-  z-index: 155;
-}
 .Game2_animal_food_monkeyLottie {
   display: none;
 }
 
 .Game2_animal_food_owlLottie {
   position: fixed;
-  left: 78.5%;
-  bottom: 5%;
+  left: 74.5%;
+  bottom: 0%;
   width: 2%;
   z-index: 155;
 }
 
-.Game2_animal1_food_horseLottie,
 .Game2_animal1_food_owlLottie {
   position: fixed;
-  left: 63.5%;
+  left: 61.5%;
   bottom: 0%;
   width: 1.5%;
   z-index: 155;
+}
+
+.Game2_animal1_food_horseLottie {
+  display: none;
 }
 
 .Game2_animal1_food_rabbitLottie {
@@ -619,7 +631,7 @@
 
 .Game2_animal2_food_owlLottie {
   position: fixed;
-  left: 61.5%;
+  left: 59.5%;
   bottom: 37%;
   width: 2%;
   z-index: 155;
@@ -627,18 +639,13 @@
 
 .animal_text_owlLottie {
   position: fixed;
-  left: 35%;
+  left: 40%;
   bottom: 10%;
-  width: 20%;
-  z-index: 999;
+  width: 18%;
+  z-index: 39;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-#stars {
-  width: 20%;
-  height: 80%;
 }
 
 .star_wrap1 {
@@ -652,38 +659,11 @@
   z-index: 9999;
   align-items: center;
   justify-content: center;
-  animation: Starfade 1s forwards 1;
 }
 
-@keyframes Starfade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.current_star {
-  animation-duration: 0.5s;
-  animation-name: animate-pop;
-  animation-timing-function: cubic-bezier(0.26, 0.53, 0.74, 1.48);
-}
-
-@keyframes animate-pop {
-  0% {
-    opacity: 0;
-    transform: scale(0.5, 0.5);
-  }
-
-  100% {
-    opacity: 1;
-    transform: scale(1, 1);
-  }
-}
 .Progress_Bar {
   position: fixed;
-  z-index: 5;
+  z-index: 255;
   right: 2%;
   top: 5%;
   width: 24%;
@@ -709,7 +689,7 @@
 
 .progressBarStars {
   position: relative;
-  z-index: 20;
+  z-index: 256;
   margin-left: 0.8%;
   height: 102%;
   animation-duration: 0.5s;
@@ -719,10 +699,10 @@
 
 .starspos {
   top: 6.5%;
-  left: 75.4%;
+  left: 76.8%;
   height: 7%;
   position: fixed;
-  z-index: 15;
+  z-index: 257;
   width: 23%;
 }
 

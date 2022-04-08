@@ -1,22 +1,23 @@
-const imgUrl = "internal/images/";
-const soundUrl = "internal/sounds/";
-const lottieUrl = "internal/lottie/";
+const imgUrl = "ee02_ow_wai_pl1/images/";
+const soundUrl = "ee02_ow_wai_pl1/sounds/";
+const lottieUrl = "ee02_ow_wai_pl1/lottie/";
 
 const FrogLottieMap = {
   id: "frogLottie",
 
+  Bg: `${imgUrl}houses/frog_explain.svg`,
+
   sprites: [
-    `${imgUrl}Houses/Frog_Explain.svg`,
-    `${imgUrl}animal-food/insects.svg`,
-    `${imgUrl}animalFood_Name/insects.svg`,
-    `${imgUrl}animal-food/Bat_Insects.svg`,
-    `${imgUrl}animal-food/Bat_Insects_1.svg`,
-    `${imgUrl}animal-food/Bat_Insects_1.svg`,
+    `${imgUrl}animal_food/insects.svg`,
+    `${imgUrl}animalfood_name/insects.svg`,
+    `${imgUrl}animal_food/bat_insects.svg`,
+    `${imgUrl}animal_food/bat_insects_1.svg`,
+    `${imgUrl}animal_food/bat_insects_1.svg`,
   ],
 
-  sounds: [`${soundUrl}Eats/frog_eats.mp3`],
+  sounds: [`${soundUrl}eats/frog_eats.mp3`],
 
-  lottie: [`${lottieUrl}Frog_eats.json`],
+  lottie: [`${lottieUrl}frog_eats.json`],
 };
 
 export default FrogLottieMap;

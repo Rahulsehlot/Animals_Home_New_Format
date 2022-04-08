@@ -13,28 +13,30 @@ import { BGContext } from "../../contexts/Background";
 export default function Scene2({ scenename }) {
   const Next = useLoadAsset(LionMap);
   const [Switch, setSwitch] = useState(false);
-
   const { Bg, setBg } = useContext(BGContext);
   // const [Switch, setSwitch] = useState(false);
-  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
-    useContext(SceneContext);
+  const { SceneId, setSceneId, Assets, setAssets } = useContext(SceneContext);
   const { intro } = Assets;
 
   const Ref = useRef(null);
+  const transRef = useRef(null);
+  const [isLoading, setisLoading] = useState(true);
 
   const stop_all_sounds = () => {
     Assets.Scene2?.sounds?.map((v) => v?.stop());
   };
 
   useEffect(() => {
-    if (Assets?.Scene2) {
-      Assets?.Scene2?.sounds[0]?.play();
-      Assets?.Scene2?.sounds[0].on("end", () => {
-        // setSceneId("/Lion_Game2");
-        setSwitch(true);
-      });
+    if (isLoading === false) {
+      if (Assets?.Scene2) {
+        Assets?.Scene2?.sounds[0]?.play();
+        Assets?.Scene2?.sounds[0].on("end", () => {
+          setSceneId("/Lion_Game2");
+          setSwitch(true);
+        });
+      }
     }
-  }, []);
+  }, [isLoading]);
 
   useEffect(() => {
     setBg(Assets?.Scene2?.Bg);
@@ -61,10 +63,28 @@ export default function Scene2({ scenename }) {
   };
   useEffect(() => {
     if (Switch && !Next.Loading) {
-      setSceneId("/Lion_Game2");
       stop_all_sounds();
+      setBg(Assets?.lion?.Bg);
+      setSceneId("/Lion_Game2");
     }
   }, [Next.Loading, Switch]);
+
+  useEffect(() => {
+    if (Assets && transRef.current) {
+      lottie.loadAnimation({
+        name: "boy",
+        container: transRef.current,
+        renderer: "svg",
+        autoplay: true,
+        loop: true,
+        animationData: Assets?.intro?.lottie[1],
+        speed: 0.7,
+      });
+    }
+    setTimeout(() => {
+      setisLoading(false);
+    }, 500);
+  }, []);
 
   return (
     <Scenes
@@ -72,7 +92,11 @@ export default function Scene2({ scenename }) {
       sprites={
         <>
           {/* Title */}
-
+          <div
+            className="transition"
+            style={{ display: isLoading ? "block" : "none" }}
+            ref={transRef}
+          ></div>
           <Image
             src={Assets?.Scene2?.sprites[0]}
             alt="txt"
