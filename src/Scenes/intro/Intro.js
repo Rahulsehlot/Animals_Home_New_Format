@@ -38,7 +38,7 @@ export default function Intro({ setplayBtn, playBtn }) {
         console.log(err);
       }
     }
-  }, [Assets]);
+  }, []);
 
   useEffect(() => {
     if (Switch && !Next.Loading) {
@@ -87,7 +87,10 @@ export default function Intro({ setplayBtn, playBtn }) {
               display: playBtnHide === 0 ? "block" : "none",
             }}
           />
-          <div ref={Ref} id="fadeup" className="intro_lottie_container"></div>
+
+          <div className="lottie-container">
+            <div ref={Ref} id="fadeup" className="intro_lottie_container"></div>
+          </div>
         </>
       }
     />

@@ -8,10 +8,10 @@
 }
 
 .senses_txt_img {
-  width: 65%;
-  position: fixed;
-  top: 10%;
-  left: 5%;
+  width: 46%;
+  position: absolute;
+  bottom: 0%;
+  left: 14%;
 }
 
 .play_btn {
@@ -41,15 +41,6 @@
 .mute_btn:active {
   border-radius: 50%;
   transform: scale(0.95);
-}
-
-.intro_lottie_container {
-  position: fixed;
-  left: 0%;
-  top: 0%;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
 }
 
 .transition {
